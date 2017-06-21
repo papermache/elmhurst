@@ -23,8 +23,10 @@ devise_for :users
   get '/edit-project/id*:id'=> 'projects#updateProject'
 
   #Investor
-  get '/investor-project' => 'projects#investorViewProjects'
+  # get '/investor-project' => 'projects#investorViewProjects'
   get '/viwe-request' => 'projects#viewRequests'
+  get '/open-trades' => 'projects#viewOpenTrade'
+  get '/trade-history' => 'projects#viewTradeHistory'
   get '/Investor' => 'projects#mainInvestor'
 
   #Researcher

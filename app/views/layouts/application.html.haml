@@ -4,11 +4,12 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title ElmhurstBackend
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "smart-forms.css" 
     = javascript_include_tag 'application','data-turbolinks-track' => true
     = csrf_meta_tags
 
 
   %body
     = render 'layouts/header'
-    .container
+    .container{ :style => "width: 100%" }
       = yield

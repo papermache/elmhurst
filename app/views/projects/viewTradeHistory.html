@@ -188,7 +188,7 @@
                                                     <th style="width: 20%; text-align: center;">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody data-bind="foreach:{ data: items.pageItems , as: 'item' }">
+                                            <tbody id="trade_history" data-bind="foreach:{ data: items.pageItems , as: 'item' }">
                                                 <!--template date-->
                                                 <tr>
                                                     <td data-bind="text: item.Item_Name()">Buy</td>
@@ -331,6 +331,7 @@
                                     </div>
                                 </div>
                             </section>
+
                         </div>
                     </div>
                 </section>
@@ -339,14 +340,69 @@
 
 
         <!-- js placed at the end of the document so the pages load faster -->
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
 
+        <script>
+            var file;
+                var fileInput = document.getElementById('fileInput');
+           
+                    var getFileBlob = function (url, cb) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", url);
+                        xhr.responseType = "blob";
+                        xhr.addEventListener('load', function() {
+                                cb(xhr.response);
+                            });
+                            xhr.send();
+                    };
 
+                    var blobToFile = function (blob, name) {
+                            blob.lastModifiedDate = new Date();
+                            blob.name = name;
+                            return blob;
+                    };
 
+                    var getFileObject = function(filePathOrUrl, cb) {
+                        getFileBlob(filePathOrUrl, function (blob) {
+                            cb(blobToFile(blob, 'Order Book.csv'));
+                        });
+                    };
+                    var f;
+                    getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Order Book - Sheet1.csv', function (fileObject) {
+                        f=fileObject;
+                        var HTML='';
+                        var csvParser = new SimpleExcel.Parser.CSV();
+                        csvParser.loadFile(f, function () {
+                            data =csvParser.getSheet();
+                            console.log(data);
+                            for( var i=1; i<6; i++)
+                            {
+                                    HTML += `<tr>
+                                                    <td data-bind="text: item.Item_Name()">`+data[i][0].value+`</td>
+                                                    <td data-bind="text: item.Item_Price()">`+data[i][1].value+`</td>
+                                                    <td data-bind="text: item.Item_Name()">`+data[i][2].value+`</td>
+                                                    <td data-bind="text: item.Item_Price()">`+data[i][3].value+`</td>
+                                                    <td style="text-align: center;">
+                                                        <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
+                                                        <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary'  href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
+                                                    </td>
+                                                </tr>`;
+                            }
+                            document.getElementById("trade_history").innerHTML=HTML;
+                        });
+                    }); 
+                    
+                    
+                    
+  
+        </script>
 
     </body>
 </html>
 
-        <!------------------------------------------Sell--------------------------------------------->
+        <!-- ----------------------------------------Sell------------------------------------------- -->
         <div role="alert" class="smartforms-modal" id="smart-modal-sell">
             <div class="smartforms-modal-container">
                 <div class="smartforms-modal-header">

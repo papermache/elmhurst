@@ -29,7 +29,7 @@ devise_for :users
   get '/open-trades' => 'projects#viewOpenTrade'
   get '/trade-history' => 'projects#viewTradeHistory'
   get '/Investor' => 'projects#mainInvestor'
-
+  
   #Researcher
   get '/editProject' => 'projects#edit'
   get '/new' => 'projects#new'

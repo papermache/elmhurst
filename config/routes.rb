@@ -25,10 +25,11 @@ devise_for :users
   #Investor
   # get '/investor-project' => 'projects#investorViewProjects'
   get '/viwe-request' => 'projects#viewRequests'
+  get '/investor-account' => 'projects#viewAccount'
   get '/open-trades' => 'projects#viewOpenTrade'
   get '/trade-history' => 'projects#viewTradeHistory'
   get '/Investor' => 'projects#mainInvestor'
-
+  
   #Researcher
   get '/editProject' => 'projects#edit'
   get '/new' => 'projects#new'

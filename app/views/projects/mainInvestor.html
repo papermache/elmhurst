@@ -133,9 +133,15 @@
                                                 <div>Item Price: <span id="item_price">461</span>$</div>
                                                 <div>Current BTC/USD Rate: <span id="item_price">BTC</span></div>
                                                 <br>
-                                                <div><button data-bind="" class="button btn-primary pushed button-left smartforms-modal-trigger" data-smart-modal="#smart-modal-buy"><i class="fa fa-chevron-circle-up"></i>  Buy </button> 
+                                                <div>
+                                                <!--
+                                                    <button data-bind="" class="button btn-primary pushed button-left smartforms-modal-trigger" data-smart-modal="#smart-modal-buy"><i class="fa fa-chevron-circle-up"></i>  Buy </button> 
                                                     <button data-bind="" class="button btn-primary pushed button-right smartforms-modal-trigger" data-smart-modal="#smart-modal-sell"><i class="fa fa-chevron-circle-down"></i>  Sell </button>
-                                                </div>
+                                                -->
+                                                    <a data-bind="click: $parent.openBuyModal" class='button btn-primary pushed button-left smartforms-modal-trigger'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
+                                                    <a data-bind="click: $parent.openSellModal" class='button btn-primary pushed button-right smartforms-modal-trigger'  href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
+                                                </div> 
+
                                             </div>
                                         </div>                            
                                     </div>
@@ -158,7 +164,7 @@
                         */
                         $(function () {
                             //$.getJSON('/rest/fullFillRequest/', function (data) {
-                                data = [
+                              /*  data = [
                 {
                     "date": "12/30/2011",
                     "close": 405,
@@ -483,139 +489,227 @@
                     "low": 595.55,
                     "symbol": "1. GOOG"
                 }
-            ];
-                                // split the data set into ohlc and volume
-                                var ohlc = [],
-                                        volume = [],
-                                        dataLength = data.length,
-                                        // set the allowed units for data grouping
-                                        groupingUnits = [[
-                                                'week', // unit name
-                                                [1]                             // allowed multiples
-                                            ], [
-                                                'month',
-                                                [1, 2, 3, 4, 6]
-                                            ]],
-                                        i = 0;
-                                var pips = 0;
-                                var differentAmount;
-                                for (i; i < dataLength; i += 1) {
-                                    if(i>0 && data[i-1].closeAmount != null && data[i].closeAmount > 0){
-                                    differentAmount = data[i].closeAmount - data[i-1].closeAmount;
+            ];*/
+
+            //--- Data Read part -----
+            var file;
+            var fileInput = document.getElementById('fileInput');
+        
+                var getFileBlob = function (url, cb) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.responseType = "blob";
+                    xhr.addEventListener('load', function() {
+                            cb(xhr.response);
+                        });
+                        xhr.send();
+                };
+
+                var blobToFile = function (blob, name) {
+                        blob.lastModifiedDate = new Date();
+                        blob.name = name;
+                        return blob;
+                };
+
+                var getFileObject = function(filePathOrUrl, cb) {
+                    getFileBlob(filePathOrUrl, function (blob) {
+                        cb(blobToFile(blob, 'Dataset.csv'));
+                    });
+                };
+                var data=[],data1=[];
+                getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Dataset.csv', function (fileObject) {
+                    var csvParser = new SimpleExcel.Parser.CSV();
+                    csvParser.loadFile(fileObject, function () {
+                        var tempdata =csvParser.getSheet();
+                        var sum = 0;
+                        for(i =0; i<tempdata.length; i++)
+                        {  
+                            tempdata[i][0].value = parseInt(tempdata[i][0].value.trim().replace(/,/g, ''));
+                            data.push(tempdata[i][0]);
+                            sum = (sum+tempdata[i][0].value);
+                        }
+                        console.log(sum);
+                    });
+                    getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Order Book - Sheet1.csv', function (fileObject1) {
+                        var csvParser1 = new SimpleExcel.Parser.CSV();
+                        csvParser1.loadFile(fileObject1, function () {
+                            var tempdata1 =csvParser1.getSheet();
+                            var index = 0;
+                            var remain_position = 0;
+                            for(i =1; i<7; i++)
+                            {
+                                tempdata1[i][2]['date'] = (1277942400000+60000*24*30*i);
+                                tempdata1[i][2].value = parseInt(tempdata1[i][2].value.substr(1).replace(/,/g, ''))
+                                value = parseInt(tempdata1[i][2].value)+ parseInt(remain_position);
+                                console.log(value);
+                                var count = 0;
+                                
+                                for(j=index; j< data.length; j++)
+                                {
+                                    //console.log(value - parseInt(data[j].value) ); 
+                                    if(value-data[j].value >0)
+                                    {
+                                        value = value-data[j].value;
+                                        count++;
                                     }
-                                    ohlc.push([
-                                        data[i].date, // the date
-                                        data[i].openAmount, // open
-                                        data[i].highAmount, // high
-                                        data[i].lowAmount, // low
-                                        data[i].closeAmount // close
-                                    ]);
-
-                                    volume.push([
-                                        data[i].date, // the date
-                                        data[i].volume // the volume
-                                    ]);
+                                    else
+                                    {
+                                        index = j;
+                                        remain_position = value;
+                                        tempdata1[i][2]['volume'] = count;
+                                        break;
+                                    }
                                 }
-                                // create the chart
-                                $('#chart').highcharts('StockChart', {
-                                    colors: ['#FE0002', '#434348', '#90ed7d', '#f7a35c', '#8085e9',
-                                        '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'],
-                                    rangeSelector: {
-                                        allButtonsEnabled: true,
-                                        buttons: [
-                                            {
-                                                type: 'month',
-                                                count: 1,
-                                                text: '1m',
-                                                dataGrouping: {
-                                                    forced: true,
-                                                    units: [['day', [1]]]
-                                                }
-                                            },
-                                            {
-                                                type: 'month',
-                                                count: 2,
-                                                text: '2m',
-                                                dataGrouping: {
-                                                    forced: true,
-                                                    units: [['day', [1]]]
-                                                }
-                                            },
-                                            {
-                                                type: 'month',
-                                                count: 3,
-                                                text: '3m',
-                                                dataGrouping: {
-                                                    forced: true,
-                                                    units: [['day', [1]]]
-                                                }
-                                            },
-                                            {type: 'year',
-                                                count: 1,
-                                                text: 'Year',
-                                                dataGrouping: {
-                                                    forced: true,
-                                                    units: [['month', [1]]]
-                                                }
-                                            },
-                                            {
-                                                type: 'all',
-                                                text: 'All',
-                                                dataGrouping: {
-                                                    forced: true,
-                                                    units: [['month', [1]]]
-                                                }
-                                            }],
-                                        buttonTheme: {
-                                            width: 60
-                                        },
-                                        selected: 0
-                                    },                        
+                                data1.push(tempdata1[i][2]);
+                            }
+                            
+                            console.log(data);
+                            console.log(data1);
+                            drawChart();
+                        });
+                    });
+                }); 
+                    //
+                    //-- Data Read part end --
+                function drawChart(){
+                    console.log(data1);
+                    // split the data set into ohlc and volume
+                    var ohlc = [],
+                        volume = [],
+                        dataLength = data1.length,
+                        // set the allowed units for data grouping
+                        groupingUnits = [[
+                                'week', // unit name
+                                [1]                             // allowed multiples
+                            ], [
+                                'month',
+                                [1, 2, 3, 4, 6]
+                            ]],
+                        i = 0;
+                    var pips = 0;
+                    var differentAmount;
+                    for (i; i < dataLength; i += 1) {
+                        if(i>0 && data[i-1].closeAmount != null && data[i].closeAmount > 0){
+                        differentAmount = data[i].closeAmount - data[i-1].closeAmount;
+                        }
+                        ohlc.push([
+                            data1[i].date, // the date
+                            data1[i].value, // open
+                            data1[i].value, // high
+                            data1[i].value, // low
+                            data1[i].value // close
+                        ]);
 
-                                    title: {
-                                        text: 'USD/BTC Chart'
-                                    },
-                                    yAxis: [{
-                                            labels: {
-                                                align: 'right',
-                                                x: -3
-                                            },
-                                            title: {
-                                                text: 'OHLC'
-                                            },
-                                            height: '60%',
-                                            lineWidth: 2
-                                        }, {
-                                            labels: {
-                                                align: 'right',
-                                                x: -3
-                                            },
-                                            title: {
-                                                text: 'Volume'
-                                            },
-                                            top: '65%',
-                                            height: '35%',
-                                            offset: 0,
-                                            lineWidth: 2
-                                        }],
-                                    series: [{
-                                            type: 'candlestick',
-                                            name: 'AAPL',
-                                            data: ohlc,
-                                            dataGrouping: {
-                                                units: groupingUnits
-                                            }
-                                        }, {
-                                            type: 'column',
-                                            name: 'Volume',
-                                            data: volume,
-                                            yAxis: 1,
-                                            dataGrouping: {
-                                                units: groupingUnits
-                                            }
-                                        }]
-                                });
-                            });
+                        volume.push([
+                            data1[i].date, // the date
+                            data1[i].volume // the volume
+                        ]);
+                    }
+                    console.log(ohlc);
+                    console.log(volume);
+                    // create the chart
+                    $('#chart').highcharts('StockChart', {
+                        colors: ['#FE0002', '#434348', '#90ed7d', '#f7a35c', '#8085e9',
+                            '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'],
+                        rangeSelector: {
+                            allButtonsEnabled: true,
+                            buttons: [
+                                {
+                                    type: 'month',
+                                    count: 1,
+                                    text: '1m',
+                                    dataGrouping: {
+                                        forced: true,
+                                        units: [['day', [1]]]
+                                    }
+                                },
+                                {
+                                    type: 'month',
+                                    count: 2,
+                                    text: '2m',
+                                    dataGrouping: {
+                                        forced: true,
+                                        units: [['day', [1]]]
+                                    }
+                                },
+                                {
+                                    type: 'month',
+                                    count: 3,
+                                    text: '3m',
+                                    dataGrouping: {
+                                        forced: true,
+                                        units: [['day', [1]]]
+                                    }
+                                },
+                                {type: 'year',
+                                    count: 1,
+                                    text: 'Year',
+                                    dataGrouping: {
+                                        forced: true,
+                                        units: [['month', [1]]]
+                                    }
+                                },
+                                {
+                                    type: 'all',
+                                    text: 'All',
+                                    dataGrouping: {
+                                        forced: true,
+                                        units: [['month', [1]]]
+                                    }
+                                }],
+                            buttonTheme: {
+                                width: 60
+                            },
+                            selected: 0
+                        },                        
+
+                        title: {
+                            text: 'USD/BTC Chart'
+                        },
+                        yAxis: [{
+                                labels: {
+                                    align: 'right',
+                                    x: -3
+                                },
+                                title: {
+                                    text: 'OHLC'
+                                },
+                                height: '60%',
+                                lineWidth: 2
+                            }, {
+                                labels: {
+                                    align: 'right',
+                                    x: -3
+                                },
+                                title: {
+                                    text: 'Volume'
+                                },
+                                top: '65%',
+                                height: '35%',
+                                offset: 0,
+                                lineWidth: 2
+                            }],
+                        series: [{
+                                type: 'candlestick',
+                                name: 'AAPL',
+                                data: ohlc,
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }, {
+                                type: 'column',
+                                name: 'Volume',
+                                data: volume,
+                                yAxis: 1,
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }]
+                    });
+                }
+                                
+                                
+                });
                         //});
                                 /*$('#buyContainer').highcharts('StockChart', {
                                     colors: ['#FE0002', '#434348', '#90ed7d', '#f7a35c', '#8085e9',

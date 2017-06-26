@@ -14,12 +14,14 @@ var last_name = getCook('last_name');
 var project_id = getCook('project_id');
 
 //main api url
-var mainUrl = 'http://localhost:3000/api/v1/';
-
+//var mainUrl = 'http://localhost:3000/api/v1/';
+var mainUrl = 'http://35.164.164.204:3000/api/v1/';
 //var requset ='http://localhost:8080/elmuhrst/rest/projectResearcher/2/1'
 
 //requset api url 
-var requsetURL = 'http://localhost:3000/elmuhrst/rest/request';
+//var requsetURL = 'http://localhost:3000/elmuhrst/rest/request';
+var requsetURL = 'http://35.164.164.204:3000/elmuhrst/rest/request';
 
 //projectResearcher api url 
-var projectResearcherUrl = 'http://localhost:3000/elmuhrst/rest/projectResearcher/';
+//var projectResearcherUrl = 'http://localhost:3000/elmuhrst/rest/projectResearcher/';
+var projectResearcherUrl = 'http://35.164.164.204:3000/elmuhrst/rest/projectResearcher/';

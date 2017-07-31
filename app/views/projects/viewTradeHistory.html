@@ -376,25 +376,54 @@
                         var csvParser = new SimpleExcel.Parser.CSV();
                         csvParser.loadFile(f, function () {
                             data =csvParser.getSheet();
-                            console.log(data);
+                            //console.log(data);
                             for( var i=1; i<6; i++)
                             {
                                     HTML += `<tr>
                                                     <td data-bind="text: item.Item_Name()">`+data[i][0].value+`</td>
                                                     <td data-bind="text: item.Item_Price()"></td>
                                                     <td data-bind="text: item.Item_Name()">`+data[i][2].value+`</td>
-                                                    <td data-bind="text: item.Item_Price()">`+data[i][3].value+`</td>
+                                                    <td data-bind="text: item.Item_Price()">`+data[i][7].value+`</td>
                                                     <td style="text-align: center;">
                                                         <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
                                                         <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary'  href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
                                                     </td>
                                                 </tr>`;
                             }
-                            document.getElementById("trade_history").innerHTML=HTML;
+                            //document.getElementById("trade_history").innerHTML=HTML;
                         });
                     }); 
                     //
-                    
+                    localStorage.clear();
+                    var sample_url = "https://spreadsheets.google.com/pub?key=1bX69mewLL2wbP2668FGLJBZaXUtyIfHM2AZvnP3ALOM&hl=en&output=json";
+                    var url_parameter = document.location.search.split(/\?url=/)[1]
+                    var url = url_parameter || sample_url;
+                    var googleSpreadsheet = new GoogleSpreadsheet();
+                    var HTML='';
+                    googleSpreadsheet.url(url);
+                    googleSpreadsheet.load(function(result) {
+                        
+                        tempdata1 = result.data;//JSON.stringify(result).replace(/,/g,",\n");
+                        console.log(tempdata1);
+                        console.log(tempdata1.rows.length);
+                        for(var i = 0; i<tempdata1.rows.length; i++) {
+                            if(tempdata1.rows[i][0] == "") {
+                                break;
+                            }
+                            HTML += `<tr>
+                                        <td data-bind="text: item.Item_Name()">`+tempdata1.rows[i][0]+`</td>
+                                        <td data-bind="text: item.Item_Price()">`+(tempdata1.rows[i][9]?tempdata1.rows[i][9]:'')+`</td>
+                                        <td data-bind="text: item.Item_Name()">`+tempdata1.rows[i][2]+`</td>
+                                        <td data-bind="text: item.Item_Price()">`+tempdata1.rows[i][7]+`</td>
+                                        <td style="text-align: center;">
+                                            <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
+                                            <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary'  href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
+                                        </td>
+                                    </tr>`;
+                        }
+                        document.getElementById("trade_history").innerHTML=HTML;
+                    });
+                
                     
   
         </script>

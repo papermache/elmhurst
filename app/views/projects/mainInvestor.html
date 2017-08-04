@@ -5,7 +5,7 @@
         <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <section id="main-content">
     <section id="userViewModel" class="wrapper">
-
+        <div style="display: none;" id="c_username" ><%= current_user.first_name %> <%= current_user.last_name %></div>
         <div class="row">
             <div class="col-lg-4">
                 <!--user info table start-->
@@ -494,7 +494,7 @@
             //--- Data Read part -----
             var file;
             var fileInput = document.getElementById('fileInput');
-        
+            var username = document.getElementById('c_username').innerText;
                 var getFileBlob = function (url, cb) {
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", url);
@@ -682,7 +682,16 @@
                             },
                             selected: 0
                         },                        
-
+                        tooltip: {
+                            useHTML: false,
+                            formatter: function() {
+                                console.log(this); 
+                                return `<div>Item: Item`+(this.points[0].point.dataGroup.start + this.points[0].point.dataGroup.length)+`</div><br>` 
+                                        + `<div>ItemPrice: `+this.y+`</div><br>`
+                                        + `<div>Requestor: `+username+`</div><br>`
+                                        + `<div>Vendor:www.laboratory-equipment.com</div>`;
+                            } 
+                        }, 
                         title: {
                             text: 'BTC/USD Chart'
                         },

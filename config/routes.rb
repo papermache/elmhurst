@@ -50,8 +50,8 @@ devise_for :users
     end
   end
   
-  root 'home#index'
-  # root 'projects#main'
+  # root 'home#index'
+  root 'projects#main'
   get 'main' => 'projects#main'
 
   namespace :api, defaults: {format: 'json'} do
@@ -64,6 +64,8 @@ devise_for :users
       resources :memberships
       resources :logins  ,:only => [:create] 
       resources :tokens
+      resources :annotations
+      resources :order_books
        end
   end
 

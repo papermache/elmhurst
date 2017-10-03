@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311164942) do
+ActiveRecord::Schema.define(version: 20170821192257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "annotations", force: :cascade do |t|
+    t.string   "item_name"
+    t.integer  "item_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "authorships", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,6 +57,20 @@ ActiveRecord::Schema.define(version: 20160311164942) do
 
   add_index "memberships", ["project_id"], name: "index_memberships_on_project_id", using: :btree
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+
+  create_table "order_books", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "trade_principal"
+    t.string   "security"
+    t.integer  "security_price"
+    t.decimal  "shares",             precision: 10, scale: 2
+    t.integer  "security_principal"
+    t.integer  "elmhurst_principal"
+    t.integer  "profit_loss"
+    t.string   "receipient"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"

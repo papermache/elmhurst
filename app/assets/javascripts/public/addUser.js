@@ -35,7 +35,7 @@ var userViewModelOperation = {
                             fade: true,
                             speed: "slow"
                         });
-                window.location.assign("http://localhost:3000/users/sign_in");
+                window.location.assign("http://www.elmhur.st/users/sign_in");
                     },
                     error: function () {
 

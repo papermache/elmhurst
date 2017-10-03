@@ -151,17 +151,7 @@
                         </div>
                     </div>
                     <script>
-                        /*
-                        {
-                        type: 'year',
-                        count: 1,
-                        text: 'Week',
-                        dataGrouping: {
-                        forced: true,
-                        units: [['week', [1]]]
-                        }
-                        },
-                        */
+                        var unfulfilled_requests=[];
                         $(function () {
                             //$.getJSON('/rest/fullFillRequest/', function (data) {
                               /*  data = [
@@ -492,105 +482,153 @@
             ];*/
 
             //--- Data Read part -----
-            var file;
-            var fileInput = document.getElementById('fileInput');
+            // var file;
+            // var fileInput = document.getElementById('fileInput');
             var username = document.getElementById('c_username').innerText;
-                var getFileBlob = function (url, cb) {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", url);
-                    xhr.responseType = "blob";
-                    xhr.addEventListener('load', function() {
-                            cb(xhr.response);
-                        });
-                        xhr.send();
-                };
+            //     var getFileBlob = function (url, cb) {
+            //         var xhr = new XMLHttpRequest();
+            //         xhr.open("GET", url);
+            //         xhr.responseType = "blob";
+            //         xhr.addEventListener('load', function() {
+            //                 cb(xhr.response);
+            //             });
+            //             xhr.send();
+            //     };
 
-                var blobToFile = function (blob, name) {
-                        blob.lastModifiedDate = new Date();
-                        blob.name = name;
-                        return blob;
-                };
+            //     var blobToFile = function (blob, name) {
+            //             blob.lastModifiedDate = new Date();
+            //             blob.name = name;
+            //             return blob;
+            //     };
 
-                var getFileObject = function(filePathOrUrl, cb) {
-                    getFileBlob(filePathOrUrl, function (blob) {
-                        cb(blobToFile(blob, 'Dataset.csv'));
-                    });
-                };
+            //     var getFileObject = function(filePathOrUrl, cb) {
+            //         getFileBlob(filePathOrUrl, function (blob) {
+            //             cb(blobToFile(blob, 'Dataset.csv'));
+            //         });
+            //     };
                 
-                var data=[],data1=[];
-                getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Dataset.csv', function (fileObject) {
-                    var csvParser = new SimpleExcel.Parser.CSV();
-                    csvParser.loadFile(fileObject, function () {
-                        var tempdata =csvParser.getSheet();
-                        var sum = 0;
-                        for(i =0; i<tempdata.length; i++)
-                        {  
-                            tempdata[i][0].value = parseInt(tempdata[i][0].value.trim().replace(/,/g, ''));
-                            data.push(tempdata[i][0]);
-                            sum = (sum+tempdata[i][0].value);
-                        }
-                        console.log(sum);
-                    });
-                    localStorage.clear();
-                    var sample_url = "https://spreadsheets.google.com/pub?key=1bX69mewLL2wbP2668FGLJBZaXUtyIfHM2AZvnP3ALOM&hl=en&output=json";
-                    var url_parameter = document.location.search.split(/\?url=/)[1]
-                    var url = url_parameter || sample_url;
-                    var googleSpreadsheet = new GoogleSpreadsheet();
-                    googleSpreadsheet.url(url);
-                    googleSpreadsheet.load(function(result) {
+            //     var data=[],data1=[];
+            //     getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Dataset.csv', function (fileObject) {
+            //         var csvParser = new SimpleExcel.Parser.CSV();
+            //         csvParser.loadFile(fileObject, function () {
+            //             var tempdata =csvParser.getSheet();
+            //             var sum = 0;
+            //             for(i =0; i<tempdata.length; i++)
+            //             {  
+            //                 tempdata[i][0].value = parseInt(tempdata[i][0].value.trim().replace(/,/g, ''));
+            //                 data.push(tempdata[i][0]);
+            //                 sum = (sum+tempdata[i][0].value);
+            //             }
+            //             console.log(sum);
+            //             console.log("++++++++++++++++++++ANALSE++++++++++++++++++++");
+            //             console.log(data);
+            //         });
+            //         localStorage.clear();
+            //         var sample_url = "https://spreadsheets.google.com/pub?key=1bX69mewLL2wbP2668FGLJBZaXUtyIfHM2AZvnP3ALOM&hl=en&output=json";
+            //         var url_parameter = document.location.search.split(/\?url=/)[1]
+            //         var url = url_parameter || sample_url;
+            //         var googleSpreadsheet = new GoogleSpreadsheet();
+            //         googleSpreadsheet.url(url);
+            //         googleSpreadsheet.load(function(result) {
                         
-                        tempdata1 = result.data;//JSON.stringify(result).replace(/,/g,",\n");
-                        console.log(result.data);
-                        var index = 0;
-                        var remain_position = 0;
-                        for(i =0; i<tempdata1.rows.length; i++)
-                        {
-                            console.log(tempdata1.rows[i][0]);
-                            var obj = {};
-                            obj['date'] = (1277942400000+60000*24*30*i);
-                            obj['value'] = parseInt(tempdata1.rows[i][2].substr(1).replace(/,/g, ''));
-                        //}
-                    /*});
-                    getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Order Book - Sheet1.csv', function (fileObject1) {
-                        var csvParser1 = new SimpleExcel.Parser.CSV();
-                        csvParser1.loadFile(fileObject1, function () {
-                            var tempdata1 =csvParser1.getSheet();*/
+            //             tempdata1 = result.data;//JSON.stringify(result).replace(/,/g,",\n");
+            //             console.log(result.data);
+            //             var index = 0;
+            //             var remain_position = 0;
+            //             for(i =0; i<tempdata1.rows.length; i++)
+            //             {
+            //                 console.log(tempdata1.rows[i][0]);
+            //                 var obj = {};
+            //                 obj['date'] = (1277942400000+60000*24*30*i);
+            //                 obj['value'] = parseInt(tempdata1.rows[i][2].substr(1).replace(/,/g, ''));
+
+            //                 value = parseInt(obj['value'])+ parseInt(remain_position);
+            //                 console.log(value);
+            //                 var count = 0;
                             
-                           // for(i =1; i<7; i++)
-                           // {
-                               // tempdata1[i][2]['date'] = (1277942400000+60000*24*30*i);
-                              //  tempdata1[i][2].value = parseInt(tempdata1[i][2].value.substr(1).replace(/,/g, ''))
-                                value = parseInt(obj['value'])+ parseInt(remain_position);
-                                console.log(value);
-                                var count = 0;
-                                
-                                for(j=index; j< data.length; j++)
-                                {
-                                    //console.log(value - parseInt(data[j].value) ); 
-                                    if(value-data[j].value >0)
-                                    {
-                                        value = value-data[j].value;
-                                        count++;
-                                    }
-                                    else
-                                    {
-                                        index = j;
-                                        remain_position = value;
-                                        obj['volume'] = count;
-                                        break;
-                                    }
-                                }
-                                data1.push(obj);
-                            }
+            //                 for(j=index; j< data.length; j++)
+            //                 {
+            //                     //console.log(value - parseInt(data[j].value) ); 
+            //                     if(value-data[j].value >0)
+            //                     {
+            //                         value = value-data[j].value;
+            //                         count++;
+            //                     }
+            //                     else
+            //                     {
+            //                         index = j;
+            //                         remain_position = value;
+            //                         obj['volume'] = count;
+            //                         break;
+            //                     }
+            //                 }
+            //                 data1.push(obj);
+            //             }
                             
-                            console.log(data);
-                            console.log(data1);
-                            drawChart();
+            //                 console.log(data);
+            //                 console.log(data1);
+            //                 drawChart();
                         
-                    });
-                }); 
+            //         });
+            //     }); 
                     //
                     //-- Data Read part end --
+                /*************************Date Receive From API**************************************/
+                var data=[],data1=[];
+                $.ajax({url:"http://www.elmhur.st/api/v1/annotations", 
+                type: "GET",
+                success: function(result){
+                    var annot = result.annotations;
+                    unfulfilled_requests = annot;
+                    // var sum = 0;
+                    // for (i = 0; i < annot.length; i ++){
+                    //     data.push(annot[i]);
+                    //     sum = sum + annot[i].item_price;
+                    // }
+                    // console.log(sum);
+                    console.log(annot);
+                    drawChart();
+                    /*
+                    $.ajax({url:"http://www.elmhur.st/api/v1/order_books", 
+                    method:"GET",
+                    success: function(result){
+                        var index = 0;
+                        var remain_position = 0;
+                        var orders = result.order_books;
+                        for(i = 0; i < orders.length; i++){
+                            var obj = {};
+                            var temp_date = new Date(orders[i]["created_at"]);
+                            
+                            obj['date'] = temp_date.getTime();
+                            console.log("++++++++++++++DATE CONVERT+++++++++++++");
+                            obj['value'] = orders[i]["trade_principal"];
+
+                            value = obj['value']+ remain_position;
+                            console.log(value);
+                            var count = 0;
+
+                            for (j = index; j < data.length; j ++){
+                                if(value - data[j].item_price > 0)
+                                {
+                                    value = value-data[j].item_price;
+                                    count++;
+                                }
+                                else
+                                {
+                                    index = j;
+                                    remain_position = value;
+                                    obj['volume'] = count;
+                                    break;
+                                }
+                            }
+                            data1.push(obj);
+                        }
+                        drawChart();
+                    }})
+                    */
+                }});
+                /*************************Date Receive From API**************************************/
+                /*
                 function drawChart(){
                     console.log(data1);
                     // split the data set into ohlc and volume
@@ -686,7 +724,7 @@
                             useHTML: false,
                             formatter: function() {
                                 console.log(this); 
-                                return `<div>Item: Item`+(this.points[0].point.dataGroup.start + this.points[0].point.dataGroup.length)+`</div><br>` 
+                                return `<div>Item: Item </div><br>` 
                                         + `<div>ItemPrice: `+this.y+`</div><br>`
                                         + `<div>Requestor: `+username+`</div><br>`
                                         + `<div>Vendor:www.laboratory-equipment.com</div>`;
@@ -735,10 +773,98 @@
                                 }
                             }]
                     });
+                }*/
+                                
+
+                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                function drawChart(){
+                    Highcharts.setOptions({
+                        global: {
+                            useUTC: false
+                        }
+                    });
+            
+                    var chart;
+                    var index = 19;
+                    chart = new Highcharts.Chart({
+                        chart: {
+                            renderTo: 'chart',
+                            type: 'candlestick',
+                            marginRight: 10,
+                            events: {
+                                load: function() {
+            
+                                    // set up the updating of the chart each second
+                                    var series = this.series[0];
+                                    setInterval(function() {
+                                        
+                                        var x = (new Date()).getTime();
+                                        if(index > unfulfilled_requests.length)
+                                            return;
+                                        series.addPoint([
+                                        x,
+                                        unfulfilled_requests[index]["Open"]*1,
+                                        unfulfilled_requests[index]["high"]*1,
+                                        unfulfilled_requests[index]["low"]*1,
+                                        unfulfilled_requests[index]["Close"]*1,
+                                        ], true, true);
+                                        index ++;
+                                    }, 1000);
+                                }
+                            }
+                        },
+                        title: {
+                            text: 'Live random data'
+                        },
+                        xAxis: {
+                            type: 'datetime',
+                            tickPixelInterval: 150
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'}]
+                        },
+                        tooltip: {
+                            formatter: function() {
+                                return '<b>' + this.series.name + '</b><br/>' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + Highcharts.numberFormat(this.y, 2);
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+                        series: [{
+                            name: 'Random data',
+                            type: 'candlestick',
+                            data: (function() {
+                                // generate an array of random data
+                                var data = [],
+                                    time = (new Date()).getTime(),
+                                    i;
+                                    
+                                for (i = -19; i <= 0; i++) {
+                                    data.push([
+                                        time + i * 1000,
+                                        unfulfilled_requests[i+19]["Open"]*1,
+                                        unfulfilled_requests[i+19]["high"]*1,
+                                        unfulfilled_requests[i+19]["low"]*1,
+                                        unfulfilled_requests[i+19]["Close"]*1,
+                                        ]);
+                                }
+                                return data;
+                            })()}]
+                    });
                 }
+        });
+
                                 
-                                
-                });
                         //});
                                 /*$('#buyContainer').highcharts('StockChart', {
                                     colors: ['#FE0002', '#434348', '#90ed7d', '#f7a35c', '#8085e9',

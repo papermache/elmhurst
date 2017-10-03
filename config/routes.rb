@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :authorships
   resources :application
 
-devise_for :users
+  devise_for :users
 
   resources :users, only: [:show ]
   #resources :users, defaults: {format: 'xml'} ,only: [:show , :index]

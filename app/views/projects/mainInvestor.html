@@ -575,7 +575,7 @@
                     //-- Data Read part end --
                 /*************************Date Receive From API**************************************/
                 var data=[],data1=[];
-                $.ajax({url:"http://www.elmhur.st/api/v1/annotations", 
+                $.ajax({url:"http://localhost:3000/api/v1/annotations", 
                 type: "GET",
                 success: function(result){
                     var annot = result.annotations;
@@ -589,7 +589,7 @@
                     console.log(annot);
                     drawChart();
                     /*
-                    $.ajax({url:"http://www.elmhur.st/api/v1/order_books", 
+                    $.ajax({url:"http://localhost:3000/api/v1/order_books", 
                     method:"GET",
                     success: function(result){
                         var index = 0;
@@ -799,8 +799,10 @@
                                     setInterval(function() {
                                         
                                         var x = (new Date()).getTime();
-                                        if(index > unfulfilled_requests.length)
+                                        if(index > unfulfilled_requests.length){
+                                            index = 0;
                                             return;
+                                        }
                                         series.addPoint([
                                         x,
                                         unfulfilled_requests[index]["Open"]*1,
@@ -809,7 +811,7 @@
                                         unfulfilled_requests[index]["Close"]*1,
                                         ], true, true);
                                         index ++;
-                                    }, 1000);
+                                    }, 10000);
                                 }
                             }
                         },
@@ -822,7 +824,7 @@
                         },
                         yAxis: {
                             title: {
-                                text: 'Value'
+                                text: 'OLPC'
                             },
                             plotLines: [{
                                 value: 0,

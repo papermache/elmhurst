@@ -131,7 +131,7 @@
                                             </div>
                                             <div style="height: 400px; ">
                                                 <div>Item Price: <span id="item_price">461</span>$</div>
-                                                <div>Current BTC/USD Rate: <span id="item_price">BTC</span></div>
+                                                <div>Current BTC/USD Rate: <span id="btc_usd">$5,631USD</span></div>
                                                 <br>
                                                 <div>
                                                 <!--
@@ -589,7 +589,7 @@
                     console.log(annot);
                     drawChart();
                     /*
-                    $.ajax({url:"http://www.elmhur.st/api/v1/order_books", 
+                    $.ajax({url:"http://localhost:3000/api/v1/order_books", 
                     method:"GET",
                     success: function(result){
                         var index = 0;
@@ -811,12 +811,17 @@
                                         unfulfilled_requests[index]["Close"]*1,
                                         ], true, true);
                                         index ++;
+
+                                        //update index, default : $5631
+                                        temp = unfulfilled_requests[index]["Close"]*1;
+                                        elm_index = 5631 / temp;
+                                        $("#item_price").text(Math.round(elm_index * 100) / 100);
                                     }, 10000);
                                 }
                             }
                         },
                         title: {
-                            text: 'Live random data'
+                            text: 'BTC/ELM'
                         },
                         xAxis: {
                             type: 'datetime',
@@ -825,6 +830,9 @@
                         yAxis: {
                             title: {
                                 text: 'OLPC'
+                            },
+                            labels: {
+                                format: '{value:.2f}'
                             },
                             plotLines: [{
                                 value: 0,
@@ -853,7 +861,7 @@
                                     
                                 for (i = -19; i <= 0; i++) {
                                     data.push([
-                                        time + i * 1000,
+                                        time + i * 10000,
                                         unfulfilled_requests[i+19]["Open"]*1,
                                         unfulfilled_requests[i+19]["high"]*1,
                                         unfulfilled_requests[i+19]["low"]*1,

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '0.18.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,8 +33,6 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'rack-cors'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -50,7 +48,7 @@ end
 
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'devise-bootstrap-views'
+gem 'devise-bootstrap-views', '0.0.6'
 gem 'haml-rails'
 gem 'tzinfo-data'
 

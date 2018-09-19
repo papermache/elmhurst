@@ -22,11 +22,10 @@ var headerViewModelOperation = {
             url: mainUrl + 'users/' + user_id,
             success: function (data) {
 
-                for (var x in data) {
-                    row = data[x];
+                if(data) {
                     hederViewModelItem = new headerViewModelOperation.hedaerViewModel();
-                    hederViewModelItem.FirstName(row.first_name);
-                    hederViewModelItem.LastName(row.last_name);
+                    hederViewModelItem.FirstName(data.first_name);
+                    hederViewModelItem.LastName(data.last_name);
                     hedaerViewModel.user.push(hederViewModelItem);
                 }
             }

@@ -4761,7 +4761,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 }
 
 .dash_pic{
-    background-image: url(follower-avatar.jpg);
+    background-image: url(redrover.png);
     width: 75px;
     height: 75px;
     border: 0px;
@@ -4770,7 +4770,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 }
 
 .profile_pic{
-    background-image: url(avatar1_small.jpg);
+    background-image: url(redrover.png);
     width: 29px;
     height: 29px;
 

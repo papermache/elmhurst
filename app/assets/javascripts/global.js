@@ -14,14 +14,14 @@ var last_name = getCook('last_name');
 var project_id = getCook('project_id');
 
 //main api url
-//var mainUrl = 'http://www.elmhur.st/api/v1/';
-var mainUrl = 'http://www.elmhur.st/api/v1/';
+//var mainUrl = 'http://10.10.10.194:3000/api/v1/';
+var mainUrl = 'http://10.10.10.194:3000/api/v1/';
 //var requset ='http://localhost:8080/elmuhrst/rest/projectResearcher/2/1'
 
 //requset api url 
-//var requsetURL = 'http://www.elmhur.st/elmuhrst/rest/request';
-var requsetURL = 'http://www.elmhur.st/elmuhrst/rest/request';
+//var requsetURL = 'http://10.10.10.194:3000/elmuhrst/rest/request';
+var requsetURL = 'http://10.10.10.194:3000/elmuhrst/rest/request';
 
 //projectResearcher api url 
-//var projectResearcherUrl = 'http://www.elmhur.st/elmuhrst/rest/projectResearcher/';
-var projectResearcherUrl = 'http://www.elmhur.st/elmuhrst/rest/projectResearcher/';
+//var projectResearcherUrl = 'http://10.10.10.194:3000/elmuhrst/rest/projectResearcher/';
+var projectResearcherUrl = 'http://10.10.10.194:3000/elmuhrst/rest/projectResearcher/';

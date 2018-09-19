@@ -124,7 +124,7 @@ var projectsViewModelOperation = {
 
         $.ajax({
             type: 'GET',
-            url: 'http://www.elmhur.st/api/v1/projects',
+            url: 'http://10.10.10.194:3000/api/v1/projects',
             success: function (data) {
                 var m = [];
                 m = data.projects;
@@ -152,7 +152,7 @@ var projectsViewModelOperation = {
 
       $.ajax({
             type: 'GET',
-            url: 'http://www.elmhur.st/api/v1/users/' + user_id ,
+            url: 'http://10.10.10.194:3000/api/v1/users/' + user_id ,
             success: function (data) {
                 self.getUser(data);
                 console.log("details", self.getUser());

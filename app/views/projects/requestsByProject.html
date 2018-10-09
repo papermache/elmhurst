@@ -16,11 +16,16 @@
                                         <span class="field-icon"><i class="icon-archive"></i></span>
                                     </div>
                                     <div class="form-group prepend-icon">
-                                        <label for="Project_Select">Select Project for Item</label>
+                                        <label for="Project_Select">Select Affiliates for Item</label>
+                                        <!-- <select id="Project_Select" name="Project_Select" class="form-control" 
+                                                data-bind="options: Project_Select , optionsValue: 'key', optionsText: 'value',value: Project_Select_ID"></select> -->
                                         <select id="Project_Select" name="Project_Select" class="form-control" 
-                                                data-bind="options: Project_Select , optionsValue: 'key', optionsText: 'value',value: Project_Select_ID"></select>
-                                        <i class="arrow double"></i>
+                                                data-bind="option: title , optionsValue: 'title', optionsText: 'value',value: Project_Select_ID">                                           
+                                            </select>
+                                        <i class="arrow double"></i>    
+
                                         <span class="field-icon"><i class="icon-file"></i></span>
+                                        
                                     </div>
                                     <div class="form-group prepend-icon">
                                         <label for="Item_Price">Item Price</label>
@@ -42,12 +47,23 @@
                                         <input type="text" class="form-control" id="Note" placeholder="Note" name="Note" data-bind="value: Note">
                                         <span class="field-icon"><i class="icon-user"></i></span>
                                     </div>
+                                    <div class="form-group prepend-icon">
+                                        <label for="Note">Date(Order On)</label>
+                                        <input type="date" class="form-control" id="Order" placeholder="Order On" name="Order" data-bind="value: Order">
+                                        <span class="field-icon"><i class="icon-user"></i></span>
+                                    </div>
+                                    <div class="form-group prepend-icon">
+                                        <label for="Note">Date(Delivery By)</label>
+                                        <input type="date" class="form-control" id="Delivery" placeholder="Delivery By" name="Delivery" data-bind="value: Delivery">
+                                        <span class="field-icon"><i class="icon-user"></i></span>
+                                    </div>
+
                                     <div class="form-group">
                                         <button id="add" class="btn btn-shadow btn-primary" disabled="disabled" type="submit"> Submit </button>
                                     </div>
                                 </div>
                             </form>
-                            <div class="col-lg-6 div_disable">
+                            <!-- <div class="col-lg-6 div_disable">
                                 <form id ="authorizeForm" onsubmit=" return false;" >
                                     <div class="borderd-box">
                                         <div class="title-borderd-box">
@@ -79,7 +95,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </section>

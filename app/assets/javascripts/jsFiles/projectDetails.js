@@ -26,7 +26,7 @@ var projectsDetailsViewModelOperation = {
     // Membership.create(user_id => "5" ,project_id =>"9");
 
         $.ajax({
-            url:'http://10.10.10.194:3000/api/v1/memberships',
+            url:'http://elmhur.st/api/v1/memberships',
             type:"Post",
             dataType: 'json',
             data:{

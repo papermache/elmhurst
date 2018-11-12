@@ -7,7 +7,6 @@
 @import 'bootstrap-reset.css';
 @import 'bootstrap-theme.css';
 @import 'bootstrap-theme.min.css';
-
 @import 'gallery.css';
 @import 'image-crop.css';
 @import 'navbar-fixed-top.css';
@@ -22,3 +21,13 @@
 @import 'tasks.css';
 @import 'font-awesome/css/font-awesome.css';
 @import 'jquery-ui.css';
+@import "alertify";
+@import "alertify/default";
+@import "alertify/bootstrap";
+
+.share{
+ line-height: 26px !important;
+}
+.highcharts-tooltip .highcharts-label:nth-child(1) {
+        display: none;
+}

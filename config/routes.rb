@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/request' => 'projects#requestsByProject'
   get '/Researcher' => 'projects#mainResearcher'
   get '/edit-project/id*:id'=> 'projects#updateProject'
+  get '/accountHistory' => 'projects#accountHistory'
 
   #Investor
   # get '/investor-project' => 'projects#investorViewProjects'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   get '/open-trades' => 'projects#viewOpenTrade'
   get '/trade-history' => 'projects#viewTradeHistory'
   get '/Investor' => 'projects#mainInvestor'
+  get '/accounthistory' => 'projects#accountHistory'
   
   #Researcher
   get '/editProject' => 'projects#edit'
@@ -43,11 +45,23 @@ Rails.application.routes.draw do
   get 'user-logout' => 'devise/sessions#destroy'
   get 'registrations' => 'users#add'
 
+  #shares
+  post '/buy' => 'shares#buy'
+  post '/sell' => 'shares#sell' 
+
   resources :projects do
     member do
       get :add_member
       get :add_investor
     end
+  end
+
+  resources :annotations do
+   collection do
+    post :deposit
+    post :withdraw
+    post :pool
+   end 
   end
   
   # root 'home#index'

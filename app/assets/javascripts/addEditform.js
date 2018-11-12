@@ -1,4 +1,4 @@
-var projectViewModel = null;
+ var projectViewModel = null;
 var projectssArray = [];
 
 var projectsViewModelOperation = {

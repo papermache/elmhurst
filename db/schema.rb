@@ -11,16 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821192257) do
+ActiveRecord::Schema.define(version: 20181026041529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "annotations", force: :cascade do |t|
-    t.string   "item_name"
-    t.integer  "item_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "Item_Name"
+    t.integer  "Item_Price"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "Project_Select"
+    t.string   "Merchant_Name"
+    t.string   "Source"
+    t.string   "Note"
+    t.datetime "Order"
+    t.datetime "Delivery"
+    t.integer  "item_price_dup"
+    t.decimal  "balance",        default: 0.0
   end
 
   create_table "authorships", force: :cascade do |t|
@@ -32,6 +40,12 @@ ActiveRecord::Schema.define(version: 20170821192257) do
 
   add_index "authorships", ["project_id"], name: "index_authorships_on_project_id", using: :btree
   add_index "authorships", ["user_id"], name: "index_authorships_on_user_id", using: :btree
+
+  create_table "graphs", force: :cascade do |t|
+    t.decimal  "graph_data", precision: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "investments", force: :cascade do |t|
     t.integer  "user_id"
@@ -79,6 +93,17 @@ ActiveRecord::Schema.define(version: 20170821192257) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "shares", force: :cascade do |t|
+    t.integer  "shares"
+    t.integer  "investment_principal"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "investment_principal_dup"
+  end
+
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
+
   create_table "tokens", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "token"
@@ -123,5 +148,6 @@ ActiveRecord::Schema.define(version: 20170821192257) do
   add_foreign_key "investments", "users"
   add_foreign_key "memberships", "projects"
   add_foreign_key "memberships", "users"
+  add_foreign_key "shares", "users"
   add_foreign_key "tokens", "users"
 end

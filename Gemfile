@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+gem 'alertifyjs-rails'
+gem 'clockwork'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -55,7 +57,7 @@ gem 'tzinfo-data'
 
 gem 'will_paginate'
 
-gem 'heroku'
+#gem 'heroku'
 gem "httparty"
 
 group :production do
@@ -66,4 +68,5 @@ gem 'active_model_serializers', '0.8.3'
 gem 'httparty'
 
 gem 'rack-cors'
-
+gem 'pry'
+gem "stock_quote"

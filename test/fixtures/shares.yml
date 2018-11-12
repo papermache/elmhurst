@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shares: 1
+  investment_principal: 1
+  user_id: 
+
+two:
+  shares: 1
+  investment_principal: 1
+  user_id: 

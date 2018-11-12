@@ -8,14 +8,14 @@
                                         <i class="icon-file"></i>
                                     </div>
                                     <div  data-bind="foreach: projects" class="value small-value">
-                                        <h1 class="count" data-bind="text:project.title"></h1>
+                                        <h1 class="count" data-bind="text:project.title"><%= Project.find_by_id(params[:id]).title %></h1>
                                                  <div class="row ">
                                
                                            <p data-bind="foreach: project.authors" >Created by 
                                           
-                                           <a  data-bind="text: first_name + last_name"></a></p> 
-
-                                            <span data-bind="text: project.created_at"></span>
+                                           <a ><%= current_user.first_name + current_user.last_name %>
+                                           </a></p> 
+                                            <span data-bind="text: project.created_at"><%= Project.find_by_id(params[:id]).created_at.localtime %></span>
                                         </div>
                                      
                                         
@@ -28,17 +28,17 @@
                                         <h5>Request amount</h5>
                                     </div>
                                     <footer class="ammount-footer">
-                                        <h4 data-bind="text: requestLength"></h4>
+                                        <h4>$<%= item_price_sum %></h4>
                                     </footer>
                                 </section>
                             </div>
                             <div class="col-md-3 ammount">
                                 <section class="panel">
                                     <div class="ammount-head">
-                                        <h5>Fund amount</h5>
+                                        <h5>Purchasing Power</h5>
                                     </div>
                                     <footer class="ammount-footer">
-                                        <h4 data-bind="text: FundLength"></h4>
+                                        <h4>$<%= purchasing_power %></h4>
                                     </footer>
                                 </section>
                             </div>
@@ -50,7 +50,7 @@
                                         <div class="row">
                                             <div data-bind="foreach: projects" class="col-md-8">
                                                 <h4>Project Description</h4>
-                                                <p data-bind="text: project.description"></p>
+                                                <p data-bind="text: project.description"><%= project_description %></p>
                                             </div>
                                             <div class="col-md-4">
                                                 <h4>Project Members</h4>
@@ -85,23 +85,40 @@
 
                                     <header class="panel-heading">
                                         Project Requests
-                                        <button style="margin-left: 790px;width: 100px;" class="btn btn-white request">
+                                        <a  href="/request" style="margin-left: 790px;width: 100px;" class="btn btn-white request">
                                   <i class="icon-plus-sign"></i>
                                    Request
-                              </button>
+                              </a>
                                     </header>
                                     <div class="panel-body">
                                         <div class="adv-table">
-                                                          <table cellpadding="0" cellspacing="0"  class="display table" style="width: 100%; border:0 ">
+                        
+                <table cellpadding="0" cellspacing="0"  class="display table" style="width: 100%; border:0 ">
                                     <thead>
                                         <tr>
-                                            <th  style="width: 15%; text-align: center;"> </th>
+                                            <!-- <th  style="width: 15%; text-align: center;"> </th> -->
                                             <th  style="width: 20%;  text-align: center;">Item</th>
                                             <th  style="width: 15%;  text-align: center;">Amount</th>
                                             <th  style="width: 11%;  text-align: center;">Full Fill</th>
                                             <th  style="width: 22%;  text-align: center;">Date</th>
                                         </tr>
                                     </thead>  
+                                      <tbody >
+                                            <% @annotation.each do |annotation| %>
+                                                    <tr>
+                                                        <td style="width: 22%; text-align: center;">
+                                                        <%= annotation.Item_Name %></td>
+                                                        <td  style="width: 25%; text-align: center;" data-bind="text: items.itemName"> <%= annotation.Item_Price %></td>
+                                                        <td  style="width: 20%; text-align: center;" data-bind="text: items.filledAmountUSD"><%= annotation.Order.strftime("%d/%m/%Y") %></td>
+                                                        <td  style="width: 15%; text-align: center;" text-align: center; data-bind="text: items.priceUSD"><%= annotation.created_at.strftime("%d/%m/%Y") %></td>
+                                                        <!-- <td  style="width: 25%; text-align: center;" data-bind="text: items.requestDate"></td> -->
+                                                        
+                                                    </tr>
+                                
+                                                    <% end %>
+                                                </tbody>
+
+
                                 </table>
 
                                 <div class="accordion" id="accordion2" data-bind="foreach: {data: request_Items.pageItems, as: 'items'}">
@@ -114,20 +131,17 @@
                                              border-top: 1px solid #ddd;
                                              ">
                                             <table  >
-                                                <tbody >
-                                                    <tr>
-                                                        <td style="width: 22%; text-align: center;"><img  class="plus" data-toggle="collapse" data-parent="#accordion2"  data-bind="text: items.requestDate, attr: { href: '#' + items.requestID}"></td>
+                                           
 
-                                                        <td  style="width: 25%; text-align: center;" data-bind="text: items.itemName"></td>
-                                                        <td  style="width: 20%; text-align: center;" data-bind="text: items.filledAmountUSD"></td>
-                                                        <td  style="width: 15%; text-align: center;" text-align: center; data-bind="text: items.priceUSD"></td>
-                                                        <td  style="width: 25%; text-align: center;" data-bind="text: items.requestDate"></td>
-                                                        
-                                                    </tr>
 
-                                                </tbody>
 
-                                            </table>
+
+
+
+
+
+
+              </table>
 
 
                                         </div>
@@ -146,7 +160,7 @@
                                                     <tbody class="transaction" data-bind="foreach: {data: items.fullFills, as: 'subitems'}" >
                                                         <tr  style=" text-align: center;">
                                                             <td style="width: 15%; "data-bind="text: fillID"></td>
-                                                            <td style="width: 15%; " data-bind="text: fullFillType"></td>
+                                                            <td style="width: 15%; "data-bind="text: fullFillType"></td>
                                                             <td style="width: 15%; "data-bind="text: fillAmount"></td>
                                                             <td style="width: 15%; "data-bind="text: fillAmount"></td>
                                                             <td style="width: 15%; "data-bind="text: fillDate"></td>

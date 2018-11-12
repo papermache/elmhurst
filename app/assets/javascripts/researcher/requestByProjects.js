@@ -67,19 +67,23 @@ $(document).ready(function () {
             Item_Price: {required: true, number: true},
             Merchant_Name: {required: true},
             Login_ID: {required: true},
-            Transaction_Key: {required: true}
-            Source: {required: true}
-            Note: {required: true}
+            Transaction_Key: {required: true},
+            Source: {required: true},
+            Note: {required: true},
+            Order: {required: true},
+            Delivery: {required: true}
         },
         messages: {
-            Item_Name: {required: "Please enter a username"},
-            Project_Select: {required: 'Please select one of the projects'},
+            Item_Name: {required: "Please enter a item name"},
+            Project_Select: {required: 'Please select one of the affiliates'},
             Item_Price: {required: 'Please enter item price', number: 'Please enter a valid price number.'},
             Merchant_Name: {required: 'Please enter merchant name'},
             Login_ID: {required: 'Please enter your payment login ID'},
-            Transaction_Key: {required: 'Please enter your payment transaction key'}
-            Source: {required: 'Please enter your source'}
-            Note: {required: 'Please enter your note'}
+            Transaction_Key: {required: 'Please enter your payment transaction key'},
+            Source: {required: 'Please enter your source'},
+            Note: {required: 'Please enter your note'},
+            Order: {required: 'Please enter the order date'},
+            Delivery: {required: 'Please enter the delivery date'}
         }
     });
 

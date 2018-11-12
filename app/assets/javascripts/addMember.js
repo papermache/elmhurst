@@ -192,7 +192,7 @@ var projectsDetailsViewModelOperation = {
             success: function (data) {
                 self.request(data);
                 console.log("request", self.request());
-
+                 
                 var length = self.request().length;
                 self.requestLength.push(length);
                 //console.log("self",self.requestLength())  

@@ -93,4 +93,40 @@ $(document).ready(function () {
 
         }
     });
+
+    // $("#deposit_form").validate({
+    //     rules:{
+    //         "balance": {required: true,number: true},
+    //         "source": {required: true}
+    //     },
+    //     messages:{
+    //         "balance": {required: "Please enter the deposit amount"},
+    //         "source": {required: "Please select one of the source"}
+    //     }
+
+    // });
+
+    // $("#withdraw_form").validate({
+    //     rules:{
+    //         "balance": {required: true,number: true},
+    //         "source": {required: true}
+    //     },
+    //     messages:{
+    //         "balance": {required: "Please enter the withdraw amount"},
+    //         "source": {required:  "Please select one of the source"}
+    //     }
+
+    // });
+
+    // $("#pool_form").validate({
+    //     rules:{
+    //         "source": {required: true},
+    //         "balance": {required: true,number: true}
+    //     },
+    //     messages:{
+    //         "balance": {required: "Please enter the pool amount"},
+    //         "source": {required:  "Please select one of the source"}
+    //     },
+
+    // });
 });

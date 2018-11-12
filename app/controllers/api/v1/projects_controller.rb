@@ -23,8 +23,7 @@ module Api
       end
 
       def create
-
-         @project = Project.create(:title => params[:title], :description=>params[:description] )
+          @project = Project.create(:title => params[:title], :description=>params[:description] )
          @project.authors << current_user
           respond_with   @project 
  

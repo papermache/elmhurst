@@ -40,6 +40,32 @@
 //= require gritter/js/jquery.gritter.js
 //= require gritter.js
 //= require global.js
+//= require alertify
+
+$(document).ready(function () {
+
+    $("#share_buy").validate({
+        rules: {
+            "shares": {required: true,number: true}
+
+        },
+        messages: {
+            "shares": {required: "Please enter the number of share"}
+
+        }
+    });
 
 
-        
+    $("#share_sell").validate({
+        rules: {
+            "shares": {required: true,number: true}
+        },
+        messages: {
+            "shares": {required: "Please enter the number of share"}
+
+        }
+
+    });
+
+});
+      

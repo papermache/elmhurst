@@ -16,7 +16,9 @@
    <li class="dropdown">
    <a   data-bind="foreach: user"  data-toggle="dropdown" class="dropdown-toggle" href="#">
    <img class="profile_pic" alt=""/>
-   <span data-bind="text: FirstName() + LastName()" class="username"></span>
+   %span.username
+   = current_user.first_name
+   #{current_user.last_name}  
    <b class="caret"></b>
    </a>
    <ul class="dropdown-menu extended logout">
@@ -51,6 +53,7 @@
    </a>
    <ul class="sub">
    <li><a  href="/request">Submit Request</a></li>
+   <li><a  href="/accounthistory">Account History</a></li>
    </ul>
    </li>
    <li class="sub-menu">
@@ -89,7 +92,9 @@
    <li class="dropdown">
    <a data-bind="foreach: user"  data-toggle="dropdown" class="dropdown-toggle" href="#">
    <img class="profile_pic" alt=""/>
-   <span data-bind="text: FirstName() + LastName()" class="username"></span>
+   %span.username
+   = current_user.first_name
+   #{current_user.last_name}
    <b class="caret"></b>
    </a>
    <ul class="dropdown-menu extended logout">

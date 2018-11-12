@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+
+
   ## Add a member to the project
   def add_member
     @project = Project.find(params[:id])
@@ -18,7 +20,6 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.all
-
   end
 
   # GET /projects/1
@@ -74,6 +75,32 @@ class ProjectsController < ApplicationController
   def viewopentrade
 
   end
+
+  def submit_request
+    @annotation = Annotation.new(annotation_params)
+    @annotation.item_price_dup = params[:Item_Price]
+    if @annotation.save!
+      flash[:success] = "Request Submit Successfully"
+      redirect_to root_path
+    else
+      flash[:error] = "Something Went Wrong"
+      redirect_to Register_path
+    end
+  end
+
+
+  def  requestsByProject
+    @affilates = Project.where(id: current_user.authorships.pluck(:project_id)).pluck(:title) rescue nil
+  end
+
+
+  def researchertDetail
+    @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title) rescue nil
+  end
+
+  def accountHistory
+    @history = Annotation.all  rescue nil
+  end
   
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -85,7 +112,4 @@ class ProjectsController < ApplicationController
     def project_params
       params[:project].permit(:title, :description)
     end
-
-    
-  
 end

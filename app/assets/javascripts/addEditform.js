@@ -58,10 +58,12 @@ $(document).ready(function () {
 
  $("#projectForm").validate({
         rules: {
-            title: {required: true}
+            title: {required: true},
+            description: {required: true}
         },
         messages: {
-            title: {required: "Please enter a project title"}
+            title: {required: "Please enter a project title"},
+            description: {required: "Please enter a project description"}
         }
     });
 

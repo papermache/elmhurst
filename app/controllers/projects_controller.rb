@@ -87,7 +87,10 @@ class ProjectsController < ApplicationController
       redirect_to Register_path
     end
   end
+ 
 
+   def main1
+   end
 
   def  requestsByProject
     @affilates = Project.where(id: current_user.authorships.pluck(:project_id)).pluck(:title) rescue nil

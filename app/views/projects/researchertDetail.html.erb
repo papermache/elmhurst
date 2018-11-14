@@ -8,14 +8,14 @@
                                         <i class="icon-file"></i>
                                     </div>
                                     <div  data-bind="foreach: projects" class="value small-value">
-                                        <h1 class="count" data-bind="text:project.title"><%= Project.find_by_id(params[:id]).title %></h1>
+                                        <h1 class="count"><%= find_project_title %></h1>
                                                  <div class="row ">
                                
                                            <p data-bind="foreach: project.authors" >Created by 
                                           
                                            <a ><%= current_user.first_name + current_user.last_name %>
                                            </a></p> 
-                                            <span data-bind="text: project.created_at"><%= Project.find_by_id(params[:id]).created_at.localtime %></span>
+                                            <span data-bind="text: project.created_at"><%= find_project_created_at  %></span>
                                         </div>
                                      
                                         
@@ -115,7 +115,7 @@
                                                         
                                                     </tr>
                                 
-                                                    <% end %>
+                                                    <% end if @annotation.present? %>
                                                 </tbody>
 
 

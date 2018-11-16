@@ -89,11 +89,10 @@ class ProjectsController < ApplicationController
   end
  
 
-   def main1
-   end
 
   def  requestsByProject
-    @affilates = Project.where(id: current_user.authorships.pluck(:project_id)).pluck(:title) rescue nil
+    @affilates = Project.all.pluck(:title)  rescue nil
+    #@affilates = Project.where(id: current_user.authorships.pluck(:project_id)).pluck(:title) rescue nil
   end
 
 

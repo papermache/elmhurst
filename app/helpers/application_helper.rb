@@ -1,8 +1,8 @@
 module ApplicationHelper
 	def item_price_avg
 	  stocks = StockQuote::Stock.quote("aapl").as_json
-	  @avg = (Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.sum / Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.count)/stocks["latest_price"] rescue nil
-	  @avg ? @avg : 0
+	  @avg = (Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.sum / Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.count) rescue nil
+	  @avg > stocks["latest_price"] ? @avg/stocks["latest_price"] : stocks["latest_price"]/@avg  rescue nil
 	end
 
 	def item_price_sum

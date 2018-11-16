@@ -9,7 +9,7 @@ module Api
         @annotation = Annotation.where.not(item_price_dup: 0)
           if @annotation.present? 
     	      @annotation.each do |x|
-    	        if x.Order == Date.today
+    	        if x.Order.to_date == Date.today
     	          @share = Share.find_by("investment_principal_dup > ?", 0)
     	          investment_principal = @share.try(:investment_principal_dup)
     	            if @share.present? &&  @share.investment_principal_dup >= x.item_price_dup 

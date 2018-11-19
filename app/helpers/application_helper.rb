@@ -19,8 +19,8 @@ module ApplicationHelper
 	end
 
 	def current_btc_price
-      response=ActiveSupport::JSON.decode(`curl -sX GET  https://api.coinmarketcap.com/v2/ticker/1/?convert=USD`) rescue nil
-      @current_btc_price_usd =  response["data"]["quotes"]["USD"]["price"] rescue nil
+      response= StockQuote::Stock.quote("aapl").as_json rescue nil
+      @current_btc_price_usd =  response["latest_price"] rescue nil
     end
     
     

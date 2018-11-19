@@ -23,6 +23,9 @@ module ApplicationHelper
       @current_btc_price_usd =  response["latest_price"] rescue nil
     end
     
+    # def purchasing_power
+    #   @purchasing_power = Share.all.pluck(:investment_principal)
+    # end
     
     # def fulfilled_req_avg
     #   @fullfill_req_avg = Share.where("created_at BETWEEN ? and ?",DateTime.now,DateTime.now+1).pluck(:investment_principal).compact.sum - (Annotation.all.pluck(:Item_Price).compact.sum / Annotation.all.pluck(:Item_Price).compact.count) rescue nil

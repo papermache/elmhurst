@@ -23,7 +23,6 @@ module Api
       end
 
       def create
-        binding.pry
           @project = Project.create(:title => params[:title], :description=>params[:description] )
          @project.authors << current_user
           respond_with   @project 

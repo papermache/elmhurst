@@ -32,22 +32,20 @@
                                  </tr>
                               </thead>
                               <tbody id="trade_history">
-                                 <!--template date-->
                                  <% @history.each do |history|%>
                                  <tr>
                                     <td style="text-align: center;"><input type="checkbox" name="account" id="test" class="amit" value="<%= history.id%>"></td>
-                                    <td style="text-align: center;"><%= history.Merchant_Name %></td>
-                                    <td style="text-align: center;"><%= history.Order.strftime("%d-%m-%Y") %></td>
+                                    <td style="text-align: center;"><%= history.user.first_name + ' ' + history.user.last_name %></td>
+                                    <td style="text-align: center;"><%= history.created_at.strftime("%d-%m-%Y") %></td>
                                     <td style="text-align: center;">AAPL</td>
-                                    <td style="text-align: center;">$<%= history.Item_Price %></td>
-                                    <td style="text-align: center;">$<%= history.balance %></td>
+                                    <td style="text-align: center;">$<%= history.share %></td>
+                                    <td style="text-align: center;">$<%= history.investment_principal %></td>
                                     <td style="text-align: center;">
                                        <a class='btn btn-shadow btn-primary deposit1'  href="#smart-modal-deposit<%= history.id %>" data-toggle="modal">Deposit</a> 
                                        <a  class='btn btn-shadow btn-primary'  href="#smart-modal-withdraw<%= history.id %>" data-toggle="modal">Withdrawl </a>
                                        <a  class='btn btn-shadow btn-primary'  href="#smart-modal-pool<%= history.id %>" data-toggle="modal"
                                           >Pool </a>
                                     </td>
-                                    <%# end %>
                                  </tr>
                                  <div role="dialog" class="modal" id="smart-modal-deposit<%= history.id %>" >
    <div class="modal-dialog">
@@ -148,7 +146,7 @@
       </div>
    </div>
 </div>
-                                 <% end %>
+                                 <% end if @history.present? %>
                               </tbody>
                            </table>
                            <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">

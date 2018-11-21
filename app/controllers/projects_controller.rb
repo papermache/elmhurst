@@ -37,7 +37,6 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-   binding.pry
     @project = Project.new(project_params)
     @project.authors << current_user
     
@@ -101,9 +100,18 @@ class ProjectsController < ApplicationController
   end
 
   def accountHistory
-    @history = Annotation.all  rescue nil
+    @history = Share.where(is_trade_open: false)  rescue nil
   end
-  
+
+  def viewOpenTrade
+    @open_trade = Share.where(is_trade_open: true) rescue nil
+  end
+
+  def viewTradeHistory
+    @close_trade = Share.where(is_trade_open: false) rescue nil  
+  end
+ 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

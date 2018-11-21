@@ -1,0 +1,173 @@
+<section id="main-content">
+    <section class="wrapper">
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="">
+            <meta name="author" content="Mosaddek">
+            <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+        </head>
+
+        <body>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Trade History
+                        </header>
+                        <div class="panel-body">
+                            <div class="adv-table">
+                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 20%">Trade</th>
+                                            <th style="width: 20%">Date</th>
+                                            <th style="width: 20%">Principal</th>
+                                            <th style="width: 20%">P/L</th>
+                                            <!-- <th style="width: 20%; text-align: center;">Action</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% @close_trade.each do |trade|%>
+                                        <!--template date-->
+                                        <tr>
+                                            <td><%=  trade.user.first_name + ' ' + trade.user.last_name %></td>
+                                            <td><%= trade.created_at.strftime("%d-%m-%Y")%></td>
+                                            <td>AAPL</td>
+                                            <td>$<%= trade.investment_principal %></td>
+                                           <!--  <td style="text-align: center;">
+                                                <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary' href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a>
+                                                <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary' href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
+                                            </td> -->
+                                        </tr>
+                                        <% end if @close_trade.present? %>
+                                </table>
+                                <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
+                                    <li style="float: left;" data-bind="css: { disabled: items.isFirstPage() }" class="previous disabled">
+                                        <a href="#" aria-label="First" data-bind="click: items.toFirstPage">
+                                                    First
+                                                </a>
+                                    </li>
+                                    <li style="float: left;" data-bind="css: { disabled: !items.hasPreviousPage() }" class="previous disabled">
+                                        <a href="#" aria-label="Previous" data-bind="click: items.toPreviousPage">
+                                                    Previous
+                                                </a>
+                                    </li>
+                                    <!-- ko foreach: items.pages -->
+                                    <li style="float: left;" data-bind="css: { active: $data == $parent.items.pageNumber() }">
+                                        <a href="#" data-bind="text: $data, click:  $parent.items.pageNumber.bind($data)"></a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <li style="float: left;" data-bind="css: { disabled: !items.hasNextPage() }" class="next disabled">
+                                        <a href="#" aria-label="Next" data-bind="click: items.toNextPage">
+                                                    Next
+                                                </a>
+                                    </li>
+                                    <li style="float: left;" data-bind="css: { disabled: items.isLastPage() }" class="next disabled">
+                                        <a href="#" aria-label="Last" data-bind="click: items.toLastPage">
+                                                    Last
+                                                </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+    </section>
+
+    <!--main content end-->
+    <!-- js placed at the end of the document so the pages load faster -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <!--         <script>
+            var file;
+                var fileInput = document.getElementById('fileInput');
+
+                    var getFileBlob = function (url, cb) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", url);
+                        xhr.responseType = "blob";
+                        xhr.addEventListener('load', function() {
+                                cb(xhr.response);
+                            });
+                            xhr.send();
+                    };
+                    var blobToFile = function (blob, name) {
+                            blob.lastModifiedDate = new Date();
+                            blob.name = name;
+                            return blob;
+                    };
+                    var getFileObject = function(filePathOrUrl, cb) {
+                        getFileBlob(filePathOrUrl, function (blob) {
+                            cb(blobToFile(blob, 'Order Book.csv'));
+                        });
+                    };
+                    var f;
+                    getFileObject('http://'+window.location.hostname+":"+window.location.port+'/assets/Order Book - Sheet1.csv', function (fileObject) {
+                        f=fileObject;
+                        var HTML='';
+                        var csvParser = new SimpleExcel.Parser.CSV();
+                        csvParser.loadFile(f, function () {
+                            data =csvParser.getSheet();
+                            //console.log(data);
+                            for( var i=1; i<6; i++)
+                            {
+                                    HTML += `<tr>
+                                                    <td data-bind="text: item.Item_Name()">`+data[i][0].value+`</td>
+                                                    <td data-bind="text: item.Item_Price()"></td>
+                                                    <td data-bind="text: item.Item_Name()">`+data[i][2].value+`</td>
+                                                    <td data-bind="text: item.Item_Price()">`+data[i][7].value+`</td>
+                                                    <td style="text-align: center;">
+                                                        <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary'  data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
+                                                        <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary'  href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
+                                                    </td>
+                                                </tr>`;
+                            }
+                            //document.getElementById("trade_history").innerHTML=HTML;
+                        });
+                    }); 
+                    //
+                    localStorage.clear();
+                    var sample_url = "https://spreadsheets.google.com/pub?key=1bX69mewLL2wbP2668FGLJBZaXUtyIfHM2AZvnP3ALOM&hl=en&output=json";
+                    var url_parameter = document.location.search.split(/\?url=/)[1]
+                    var url = url_parameter || sample_url;
+                    var googleSpreadsheet = new GoogleSpreadsheet();
+                    var HTML='';
+                    googleSpreadsheet.url(url);
+                    googleSpreadsheet.load(function(result) {
+
+                        tempdata1 = result.data;//JSON.stringify(result).replace(/,/g,",\n");
+                        console.log(tempdata1);
+                        console.log(tempdata1.rows.length);
+                        for(var i = 0; i<tempdata1.rows.length; i++) {
+                            if(tempdata1.rows[i][0] == "") {
+                                break;
+                            }
+                            HTML += `<tr>
+                                        <td data-bind="text: item.Item_Name()">`+tempdata1.rows[i][0]+`</td>
+                                        <td data-bind="text: item.Item_Price()">`+(tempdata1.rows[i][9]?tempdata1.rows[i][9]:'')+`</td>
+                                        <td data-bind="text: item.Item_Name()">`+tempdata1.rows[i][2]+`</td>
+                                        <td data-bind="text: item.Item_Price()">`+tempdata1.rows[i][7]+`</td>
+                                        <td style="text-align: center;">
+                                            <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary'
+                                             "data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
+                                            <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary' data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
+                                        </td>
+                                    </tr>`;
+                        }
+                        document.getElementById("trade_history").innerHTML=HTML;
+                    });
+
+        </script> -->
+    </body>
+
+    </html>
+</section>
+</section>
+<script src="/assets/investor/viewRequests.js" type="text/javascript" />
+</script>

@@ -57,11 +57,9 @@
                                                     Previous
                                                 </a>
                                     </li>
-                                    <!-- ko foreach: items.pages -->
                                     <li style="float: left;" data-bind="css: { active: $data == $parent.items.pageNumber() }">
                                         <a href="#" data-bind="text: $data, click:  $parent.items.pageNumber.bind($data)"></a>
                                     </li>
-                                    <!-- /ko -->
                                     <li style="float: left;" data-bind="css: { disabled: !items.hasNextPage() }" class="next disabled">
                                         <a href="#" aria-label="Next" data-bind="click: items.toNextPage">
                                                     Next

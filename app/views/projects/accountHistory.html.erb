@@ -47,7 +47,9 @@
                                           >Pool </a>
                                     </td>
                                  </tr>
-                                 <div role="dialog" class="modal" id="smart-modal-deposit<%= history.id %>" >
+
+<!-- Modals -->
+<div role="dialog" class="modal" id="smart-modal-deposit<%= history.id %>" >
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
@@ -149,6 +151,9 @@
                                  <% end if @history.present? %>
                               </tbody>
                            </table>
+                           <div>
+<a class='btn btn-shadow btn-primary deposit'  href="#smart-modal-deposit" data-toggle="modal">Deposit</a>
+</div>
                            <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
                               <li style="float: left;" data-bind="css: { disabled: items.isFirstPage() }" class="previous disabled">
                                  <a href="#" aria-label="First" data-bind="click: items.toFirstPage">
@@ -175,13 +180,61 @@
                                  Last
                                  </a>
                               </li>
-                           </ul>
                         </div>
+                           </ul>
                      </div>
                   </section>
                </div>
             </div>
    </section>
+   <div role="dialog" class="modal" id="smart-modal-deposit" >
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+            <h4 class="modal-title">Deposit Fund</h4>
+         </div>
+         <div class="modal-body">
+            <form id="deposit_fund_form" role="form" action="/annotations/deposit" method="post">
+               <div class="row">
+                  <div class="col-sm-12">
+                   <div class="form-group prepend-icon">
+                        <label for="Buy Share">Grant Name</label>
+                        <input id="grant_name" class="form-control" type="text" placeholder="Grant Name" name="grant" required="true">
+                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                     </div>
+                      <div class="form-group prepend-icon">
+                        <label for="Buy Share">Date</label>
+                        <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
+                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                     </div>
+                      <div class="form-group prepend-icon">
+                        <label for="Buy Share">Account</label>
+                        <select class="form-control" id="deposit_select" name="Project_Select">
+                        <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
+                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                     </div>
+                     <div class="form-group prepend-icon">
+                        <label for="Buy Share">Deposit Amount</label>
+                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="balance" min="1" max="1000000" required="true">
+                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                     </div>
+                     <div class="form-group prepend-icon">
+                        <label for="Buy Share">Source</label>
+                          <select class="form-control" id="deposit_source" name="source" required="true">
+                        <option value="">Select Source</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Deposit </button>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
    <!--main content end-->
    </body>
    </html>
@@ -247,3 +300,8 @@
 // });
 
 </script>
+<style type="text/css">
+   .deposit{
+    margin-left: 959px;
+   }
+</style>

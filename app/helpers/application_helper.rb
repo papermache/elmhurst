@@ -1,7 +1,7 @@
 module ApplicationHelper
 	def item_price_avg
 	  stocks = StockQuote::Stock.quote("aapl").as_json
-	  @avg = (Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.sum / Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.count) rescue nil
+      @avg = (Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.sum / Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.count) rescue 1
 	  @avg > stocks["latest_price"] ? @avg/stocks["latest_price"] : stocks["latest_price"]/@avg  rescue nil
 	end
 
@@ -11,7 +11,7 @@ module ApplicationHelper
 	end
     
     def purchasing_power
-      @purchasing_power = Share.all.pluck(:investment_principal).compact.sum rescue nil
+      @purchasing_power = (Share.all.pluck(:investment_principal).compact.sum/Share.all.count.to_f).round(4) rescue nil
       @purchasing_power ? @purchasing_power : 0 
     end
 	
@@ -28,7 +28,7 @@ module ApplicationHelper
 	#                       Share.find_by_user_id(current_user.id).shares) + @deposit_balance.to_f).round(4)  rescue nil
 	#   @purchasing_power ? @purchasing_power : 0
 	# end
-   
+
     # def fulfilled_req_avg
     #   @fullfill_req_avg = Share.where("created_at BETWEEN ? and ?",DateTime.now,DateTime.now+1).pluck(:investment_principal).compact.sum - (Annotation.all.pluck(:Item_Price).compact.sum / Annotation.all.pluck(:Item_Price).compact.count) rescue nil
     # end

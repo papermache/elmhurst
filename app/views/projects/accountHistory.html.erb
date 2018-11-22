@@ -35,11 +35,11 @@
                                  <% @history.each do |history|%>
                                  <tr>
                                     <td style="text-align: center;"><input type="checkbox" name="account" id="test" class="amit" value="<%= history.id%>"></td>
-                                    <td style="text-align: center;"><%= history.user.first_name + ' ' + history.user.last_name %></td>
-                                    <td style="text-align: center;"><%= history.created_at.strftime("%d-%m-%Y") %></td>
-                                    <td style="text-align: center;">AAPL</td>
-                                    <td style="text-align: center;">$<%= history.shares %></td>
-                                    <td style="text-align: center;">$<%= history.investment_principal %></td>
+                                    <td style="text-align: center;"><%= history.grant %></td>
+                                    <td style="text-align: center;"><%= history.date.strftime("%d-%m-%Y") %></td>
+                                    <td style="text-align: center;"><%= history.market%></td>
+                                    <td style="text-align: center;">$1000</td>
+                                    <td style="text-align: center;">$<%= history.amount %></td>
                                     <td style="text-align: center;">
                                        <a class='btn btn-shadow btn-primary deposit1'  href="#smart-modal-deposit<%= history.id %>" data-toggle="modal">Deposit</a> 
                                        <a  class='btn btn-shadow btn-primary'  href="#smart-modal-withdraw<%= history.id %>" data-toggle="modal">Withdrawl </a>
@@ -57,19 +57,21 @@
             <h4 class="modal-title">Deposit Form</h4>
          </div>
          <div class="modal-body">
-            <form id="deposit_form" role="form" action="/annotations/deposit" method="post">
+            <form id="deposit_form" role="form" action="/account_histories/deposit" method="post">
                <div class="row">
                   <div class="col-sm-12">
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Deposit Amount</label>
-                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="balance" min="1" max="1000000" required="true">
+                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="amount" min="1" max="1000000" required="true">
                         <span class="field-icon "><i class="icon-credit-card"></i></span> 
                      </div>
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Source</label>
-                          <select class="form-control" id="deposit_source" name="source" required="true">
+                          <select class="form-control" id="deposit_source" name="account" required="true">
                         <option value="">Select Source</option>
+                         <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
                         </select>
+                        <span class="field-icon "><i class="icon-file"></i></span>
                      </div>
                      <input type="hidden" name="id" value="<%= history.id %>">
                      <div class="form-group">
@@ -90,19 +92,21 @@
             <h4 class="modal-title">Withdrawl  Form</h4>
          </div>
          <div class="modal-body">
-            <form id="withdraw_form" role="form" action="/annotations/withdraw" method="post">
+            <form id="withdraw_form" role="form" action="/account_histories/withdraw" method="post">
                <div class="row">
                   <div class="col-sm-12">
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Withdrawl Amount</label>
-                        <input id="withdraw_amount" class="form-control" type="number" placeholder="Withdraw Amount" name="balance" min="1" max="1000000" required="true">
+                        <input id="withdraw_amount" class="form-control" type="number" placeholder="Withdraw Amount" name="amount" min="1" max="1000000" required="true">
                         <span class="field-icon"><i class="icon-credit-card"></i></span> 
                      </div>
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Source </label>
-                        <select class="form-control" id="withdraw_source" name="source" required="true">
+                        <select class="form-control" id="withdraw_source" name="account" required="true">
                         <option value="">Select Source</option>
+                         <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
                         </select>
+                        <span class="field-icon "><i class="icon-file"></i></span>
                      </div>
                      <input type="hidden" name="id" value="<%= history.id %>">
                      <div class="form-group">
@@ -123,19 +127,21 @@
             <h4 class="modal-title">Pool Form</h4>
          </div>
          <div class="modal-body">
-            <form id="pool_form" role="form" action="/annotations/pool" method="post">
+            <form id="pool_form" role="form" action="/account_histories/pool" method="post">
                <div class="row">
                   <div class="col-sm-12">
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Pool Amount</label>
-                        <input id="pool_amount" class="form-control" type="number" placeholder="Pool Amount" name="balance" min="1" max="1000000" required="true">
+                        <input id="pool_amount" class="form-control" type="number" placeholder="Pool Amount" name="amount" min="1" max="1000000" required="true">
                         <span class="field-icon "><i class="icon-credit-card"></i></span> 
                      </div>
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Investment Principal</label>
-                        <select class="form-control" id="pool_source" name="source" required="true">
+                        <select class="form-control" id="pool_source" name="account" required="true">
                         <option value="">Select Source</option>
+                         <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
                         </select>
+                        <span class="field-icon "><i class="icon-file"></i></span>
                         </div>
                         <input type="hidden" name="value" id="pool_value" value="">
                      <div class="form-group">
@@ -195,38 +201,39 @@
             <h4 class="modal-title">Deposit Fund</h4>
          </div>
          <div class="modal-body">
-            <form id="deposit_fund_form" role="form" action="/annotations/deposit" method="post">
+            <form id="deposit_fund_form" role="form" action="/account_histories" method="post">
                <div class="row">
                   <div class="col-sm-12">
                    <div class="form-group prepend-icon">
                         <label for="Buy Share">Grant Name</label>
                         <input id="grant_name" class="form-control" type="text" placeholder="Grant Name" name="grant" required="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                        <span class="field-icon "><i class="icon-user"></i></span> 
                      </div>
                       <div class="form-group prepend-icon">
                         <label for="Buy Share">Date</label>
                         <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                        <span class="field-icon "><i class="icon-calendar"></i></span> 
                      </div>
                       <div class="form-group prepend-icon">
                         <label for="Buy Share">Account</label>
-                        <select class="form-control" id="deposit_select" name="Project_Select">
-                        <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                        <select class="form-control" id="account" name="account">
+                        <option value="">Select Source</option>
+                        <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
+                        </select>
+                        <span class="field-icon "><i class="icon-file"></i></span> 
+                     </div>
+                     <div class="form-group prepend-icon">
+                        <label for="Buy Share">Market</label>
+                        <input id="market" class="form-control" type="text" placeholder="Market" name="market" required="true">
+                        <span class="field-icon "><i class="icon-archive"></i></span> 
                      </div>
                      <div class="form-group prepend-icon">
                         <label for="Buy Share">Deposit Amount</label>
-                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="balance" min="1" max="1000000" required="true">
+                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="amount" min="1" max="1000000" required="true">
                         <span class="field-icon "><i class="icon-credit-card"></i></span> 
                      </div>
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Source</label>
-                          <select class="form-control" id="deposit_source" name="source" required="true">
-                        <option value="">Select Source</option>
-                        </select>
-                     </div>
                      <div class="form-group">
-                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Deposit </button>
+                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Submit </button>
                      </div>
                   </div>
                </div>
@@ -302,6 +309,10 @@
 </script>
 <style type="text/css">
    .deposit{
-    margin-left: 959px;
+    margin-left: 1230px;
    }
 </style>
+<script type="text/javascript">
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("date")[0].setAttribute('min', today);
+</script>

@@ -35,12 +35,8 @@
                                         <tr>
                                             <td><%=  trade.user.first_name + ' ' + trade.user.last_name %></td>
                                             <td><%= trade.created_at.strftime("%d-%m-%Y") %></td>
-                                            <td>AAPL</td>
+                                            <td>$<%= principal(trade.investment_principal).round(4) %></td>
                                             <td>$<% trade.investment_principal %></td>
-                                            <!-- <td style="text-align: center;">
-                                                <a data-bind="click: $parent.openBuyModal" class='btn btn-shadow btn-primary' href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a>
-                                                <a data-bind="click: $parent.openSellModal" class='btn btn-shadow btn-primary' href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
-                                            </td> -->
                                         </tr>
                                         <% end if @open_trade.present? %>
                                     </tbody>

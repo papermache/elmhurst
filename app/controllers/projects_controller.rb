@@ -100,7 +100,7 @@ class ProjectsController < ApplicationController
   end
 
   def accountHistory
-    @history = Share.where(is_trade_open: false)  rescue nil
+    @history = AccountHistory.all.order('created_at ASC')  rescue nil
   end
 
   def viewOpenTrade

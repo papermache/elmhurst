@@ -4892,5 +4892,8 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     opacity: .5;
     pointer-events: none;
   }
+   .deposit{
+    margin-left: 1230px;
+   }
 
   /*body:before,body:after{content:'';}*/

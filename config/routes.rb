@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
   resources :investor
+  resources :account_histories do
+    collection do
+      post :deposit
+      post :withdraw
+      post :pool
+    end 
+  end
   #resources :investor
  # get 'investor' => 'investor#index'
   params = { controller: 'investor', action: 'index' }
@@ -56,13 +63,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :annotations do
-   collection do
-    post :deposit
-    post :withdraw
-    post :pool
-   end 
-  end
+  resources :annotations 
   
   # root 'home#index'
   root 'projects#main'

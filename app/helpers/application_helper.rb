@@ -12,7 +12,7 @@ module ApplicationHelper
     
     def purchasing_power
       @purchasing_power = (Share.all.pluck(:investment_principal).compact.sum/Share.all.count.to_f).round(4) rescue nil
-      @purchasing_power ? @purchasing_power : 0 
+      @purchasing_power.nan? ?  0 : @purchasing_power 
     end
 	
 	def current_btc_price

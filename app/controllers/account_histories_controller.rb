@@ -14,7 +14,7 @@ class AccountHistoriesController < ApplicationController
 	def deposit
 	  @account_history = AccountHistory.find_by_id(params[:id])
 	  if @account_history.present?
-		  	@account_history.amount += params[:balance].to_f
+		  	@account_history.amount += params[:amount].to_f
 		  	@account_history.account = params[:account]
 		  	@account_history.save!
 		  	flash[:success] = "Amount deposit successfully"
@@ -28,7 +28,7 @@ class AccountHistoriesController < ApplicationController
 	def withdraw
 	  @account_history = AccountHistory.find_by_id(params[:id])
 	  if @account_history.present?
-		  if @account_history.amount.present? && @annotation.amount >= params[:amount].to_f
+		  if @account_history.amount.present? && @account_history.amount >= params[:amount].to_f
 		  	@account_history.amount -= params[:amount].to_f
 		  	@account_history.account = params[:account]
 		  	@account_history.save!

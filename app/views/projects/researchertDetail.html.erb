@@ -10,9 +10,7 @@
                                     <div  data-bind="foreach: projects" class="value small-value">
                                         <h1 class="count"><%= find_project_title %></h1>
                                                  <div class="row ">
-                               
                                            <p data-bind="foreach: project.authors" >Created by 
-                                          
                                            <a ><%= current_user.first_name + current_user.last_name %>
                                            </a></p> 
                                             <span data-bind="text: project.created_at"><%= find_project_created_at  %></span>

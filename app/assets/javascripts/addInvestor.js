@@ -158,56 +158,8 @@ var projectsDetailsViewModelOperation = {
             url: projectResearcherUrl + project_id + '/' + user_id,
             success: function (data) {
                 projectDetailsViewModel.request_Items(data);
-             //   console.log(self.Activities());
             }
         });
-       /* $.ajax({
-            type: 'GET',
-            url: 'http://localhost:8080/JavaVersion/rest/projectResearcher/2/-1',
-            success: function (data) {
-                projectDetailsViewModel.request(data);
-
-                for (var x in data) {
-                    row = data[x];
-                    requestViewModelItem = new projectsDetailsViewModelOperation.requestViewModel();
-                    requestViewModelItem.request_Items_itemName(row.itemName);
-                    requestViewModelItem.request_Items_priceUSD(row.priceUSD);
-                    requestViewModelItem.request_Items_filledAmountUSD(row.filledAmountUSD);
-                    requestViewModelItem.request_Items_requestDate(row.requestDate);
-                    requestViewModelItem.fullfill(row.fullFills);
-                    /*   var array1 = [];
-                     array1 = projectDetailsViewModel.request();
-                     array1.forEach(function (entry) {
-                     
-                     requestViewModelItem.fullfill.push(entry.fullFills)
-                     
-                     });
-                     
-                     for (var y in requestViewModelItem.fullfill()) {
-                     // data = projectDetailsViewModel.request();
-                     transactionRow = requestViewModelItem.fullfill()[y];
-                     
-                     transactionViewModelItem = new projectsDetailsViewModelOperation.transactionViewModel();
-                     transactionViewModelItem.fullFill_Items_fillID(transactionRow.fillID);
-                     transactionViewModelItem.fullFill_Items_fillDate(transactionRow.fillDate);
-                     transactionViewModelItem.fullFill_Items_fullFillType(transactionRow.fullFillType);
-                     transactionViewModelItem.fullFill_Items_fillAmount(transactionRow.fillAmount);
-                     transactionViewModelItem.transation_Items.push(transactionViewModelItem);
-                     
-                     }
-                    projectDetailsViewModel.request_Items.push(requestViewModelItem);
-
-                    projectDetailsViewModel.testarray([
-                        {Heading: projectDetailsViewModel.request_Items(), Value: requestViewModelItem.fullfill()}
-
-                    ]);
-                   //console.log("testarray", projectDetailsViewModel.testarray());
-
-                }
-                return projectDetailsViewModel.request_Items();
-
-            }
-        });*/
 
     },
     requestViewModel: function () {

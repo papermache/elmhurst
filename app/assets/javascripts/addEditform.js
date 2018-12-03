@@ -1,5 +1,4 @@
-alert("in addEditForm")
-var projectViewModel = null;
+ var projectViewModel = null;
 var projectssArray = [];
 
 var projectsViewModelOperation = {
@@ -11,8 +10,9 @@ var projectsViewModelOperation = {
 
         self.postProjects = function () {
             if ($("#projectForm").valid()){
+                
             $.ajax({
-                url: "https://elmhur.st/api/v1/projects",
+                url: mainUrl+'projects',
                 type: "Post",
                 accept: 'json',
                 data: {

@@ -14,8 +14,7 @@ var last_name = getCook('last_name');
 var project_id = getCook('project_id');
 
 //main api url
-alert(mainUrl);
-var mainUrl = 'http:/elmhur.st/api/v1/';
+var mainUrl = 'https://elmhur.st/api/v1/';
 //var mainUrl = 'https://www.elmhur.st/api/v1/';
 //var mainUrl = 'https://localhost:3000/api/v1/';
 
@@ -23,8 +22,8 @@ var mainUrl = 'http:/elmhur.st/api/v1/';
 
 //requset api url 
 //var requsetURL = 'https://elmhur.st/elmuhrst/rest/request';
-var requsetURL = 'http:/elmhur.st/elmuhrst/rest/request';
+var requsetURL = 'https://elmhur.st/elmuhrst/rest/request';
 
 //projectResearcher api url 
 //var projectResearcherUrl = 'https://elmhur.st/elmuhrst/rest/projectResearcher/';
-var projectResearcherUrl = 'http:/elmhur.st/elmuhrst/rest/projectResearcher/';
+var projectResearcherUrl = 'https://elmhur.st/elmuhrst/rest/projectResearcher/';

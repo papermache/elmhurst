@@ -28,6 +28,7 @@ module Api
        p "=====================#{current_user}===================="
            @project.authors << current_user
          else
+       p "=====================#{cookies[:user_id]}===================="
           current_user = User.find_by_id(cookies[:user_id])
        p "=====================#{current_user}===================="
           @project.authors << current_user

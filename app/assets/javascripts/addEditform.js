@@ -2,6 +2,7 @@
 var projectssArray = [];
 
 var projectsViewModelOperation = {
+            console.log("HII")
     projectViewModel: function () {
         var self = this;
 
@@ -9,7 +10,6 @@ var projectsViewModelOperation = {
         self.description = ko.observable("");
 
         self.postProjects = function () {
-            console.log("HII")
             if ($("#projectForm").valid()){
             $.ajax({
                 url: mainUrl+'projects',

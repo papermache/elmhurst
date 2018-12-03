@@ -9,7 +9,7 @@ var projectsViewModelOperation = {
         self.description = ko.observable("");
 
         self.postProjects = function () {
-            console.log("HII");
+            console.log("HII")
             if ($("#projectForm").valid()){
             $.ajax({
                 url: mainUrl+'projects',

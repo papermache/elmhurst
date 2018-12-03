@@ -162,7 +162,7 @@ Emitter.prototype.hasListeners = function(event){
 
 /*
 #
-# More info at [www.dropzonejs.com](http://www.dropzonejs.com)
+# More info at [www.dropzonejs.com](https://www.dropzonejs.com)
 # 
 # Copyright (c) 2012, Matias Meno  
 # 

@@ -4,16 +4,16 @@
 	"title": "DataTables",
 	"author": {
 		"name": "Allan Jardine",
-		"url": "http://sprymedia.co.uk"
+		"url": "https://sprymedia.co.uk"
 	},
 	"licenses": [
 		{
 			"type": "BSD",
-			"url": "http://datatables.net/license_bsd"
+			"url": "https://datatables.net/license_bsd"
 		},
 		{
 			"type": "GPLv2",
-			"url": "http://datatables.net/license_gpl2"
+			"url": "https://datatables.net/license_gpl2"
 		}
 	],
 	"dependencies": {
@@ -30,5 +30,5 @@
 		"page",
 		"internationalisable"
 	],
-	"homepage": "http://datatables.net"
+	"homepage": "https://datatables.net"
 }

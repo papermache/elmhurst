@@ -1,4 +1,4 @@
-Unit tests, written with [QUnit](http://docs.jquery.com/QUnit), are used to
+Unit tests, written with [QUnit](https://docs.jquery.com/QUnit), are used to
 expose bugs for squashing, prevent bugs from respawning, and suppress new
 bugs when adding new features and making changes.
 
@@ -8,7 +8,7 @@ The simplest way to run the tests is to open `tests/tests.html` in your browser.
 The test suites will automatically run themselves and present their results.
 
 To run the tests from the command line, download and install
-[PhantomJS](http://phantomjs.org/), and run `run-qunit.js` with it:
+[PhantomJS](https://phantomjs.org/), and run `run-qunit.js` with it:
 
     $ cd tests/
     $ phantomjs run-qunit.js tests.html
@@ -16,7 +16,7 @@ To run the tests from the command line, download and install
 Failed tests and their failed assertions will be printed to the console.  A
 results summary will be printed at the end.
 
-To generate coverage statistics, use [JSCoverage](http://siliconforks.com/jscoverage/)
+To generate coverage statistics, use [JSCoverage](https://siliconforks.com/jscoverage/)
 to instrument the js files:
 
     $ cd tests/
@@ -29,7 +29,7 @@ line-by-line html file will be generated.
 # Shout-out
 
 Thanks to Rod @ While One Fork for the
-[CIS guide](http://whileonefork.blogspot.com/2011/10/integrating-javascript-tests-into-cli.html)
+[CIS guide](https://whileonefork.blogspot.com/2011/10/integrating-javascript-tests-into-cli.html)
 on putting the above together.
 
 # Adding tests

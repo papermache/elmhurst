@@ -272,7 +272,7 @@ function _fnCallbackFire( oSettings, sStore, sTrigger, aArgs )
  * JSON stringify. If JSON.stringify it provided by the browser, json2.js or any other
  * library, then we use that as it is fast, safe and accurate. If the function isn't 
  * available then we need to built it ourselves - the inspiration for this function comes
- * from Craig Buckler ( http://www.sitepoint.com/javascript-json-serialization/ ). It is
+ * from Craig Buckler ( https://www.sitepoint.com/javascript-json-serialization/ ). It is
  * not perfect and absolutely should not be used as a replacement to json2.js - but it does
  * do what we need, without requiring a dependency for DataTables.
  *  @param {object} o JSON object to be converted

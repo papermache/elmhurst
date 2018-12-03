@@ -1,6 +1,6 @@
 /**
  * Hungarian translation for bootstrap-datetimepicker
- * darevish <http://github.com/darevish>
+ * darevish <https://github.com/darevish>
  */
 ;(function($){
 	$.fn.datetimepicker.dates['hu'] = {

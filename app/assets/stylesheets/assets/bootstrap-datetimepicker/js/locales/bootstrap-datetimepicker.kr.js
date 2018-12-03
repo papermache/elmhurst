@@ -1,6 +1,6 @@
 /**
  * Korean translation for bootstrap-datetimepicker
- * Gu Youn <http://github.com/guyoun>
+ * Gu Youn <https://github.com/guyoun>
  */
 ;(function($){
 	$.fn.datetimepicker.dates['kr'] = {

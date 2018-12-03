@@ -3,7 +3,7 @@ var Script = function () {
     //morris chart
 
     $(function () {
-      // data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type
+      // data stolen from https://howmanyleft.co.uk/vehicle/jaguar_'e'_type
       var tax_data = [
            {"period": "2011 Q3", "licensed": 3407, "sorned": 660},
            {"period": "2011 Q2", "licensed": 3351, "sorned": 629},

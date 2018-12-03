@@ -1,7 +1,7 @@
 # Knockout paging
 
-[![Bower version](https://badge.fury.io/bo/knockout-paging.svg)](http://badge.fury.io/bo/knockout-paging) 
-[![npm version](https://badge.fury.io/js/knockout-paging.svg)](http://badge.fury.io/js/knockout-paging)
+[![Bower version](https://badge.fury.io/bo/knockout-paging.svg)](https://badge.fury.io/bo/knockout-paging) 
+[![npm version](https://badge.fury.io/js/knockout-paging.svg)](https://badge.fury.io/js/knockout-paging)
 [![Build Status](https://travis-ci.org/ErikSchierboom/knockout-paging.svg?branch=master)](https://travis-ci.org/ErikSchierboom/knockout-paging)
 [![Build status](https://ci.appveyor.com/api/projects/status/9odakh2g33mtpbm5?svg=true)](https://ci.appveyor.com/project/ErikSchierboom/knockout-paging)
 
@@ -238,7 +238,7 @@ custom.pages(); // Returns [0, 1, 2, 3, 4]
 ```
 
 ## Installation
-The best way to install this library is using [Bower](http://bower.io/):
+The best way to install this library is using [Bower](https://bower.io/):
 
     bower install knockout-paging
 
@@ -249,7 +249,7 @@ You can also install the library using NPM:
 The library is also available from a [CDN](https://cdnjs.com/libraries/knockout-paging).
 
 ## Demos
-There is a [JSBin demo](http://jsbin.com/liruyo/) that shows how the `paged` extender can be used.
+There is a [JSBin demo](https://jsbin.com/liruyo/) that shows how the `paged` extender can be used.
 
 ## History
 <table>

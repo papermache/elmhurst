@@ -4,11 +4,11 @@
 	header( 'Cache-Control: no-store, no-cache, must-revalidate' ); 
 	header( 'Cache-Control: post-check=0, pre-check=0', false ); 
 	header( 'Pragma: no-cache' ); 
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="shortcut icon" type="image/ico" href="http://www.sprymedia.co.uk/media/images/favicon.ico" />
+		<link rel="shortcut icon" type="image/ico" href="https://www.sprymedia.co.uk/media/images/favicon.ico" />
 		
 		<title>DataTables unit testing</title>
 		<style type="text/css" title="currentStyle">
@@ -44,15 +44,15 @@
 	<tbody>
 		<tr>
 			<td>1</td>
-			<td><a href="http://www.sprymedia.co.uk/article/DataTables">DataTables</a></td>
+			<td><a href="https://www.sprymedia.co.uk/article/DataTables">DataTables</a></td>
 		</tr>
 		<tr>
 			<td>2</td>
-			<td><a href="http://www.sprymedia.co.uk/article/Integrity">A link to Integrity</a></td>
+			<td><a href="https://www.sprymedia.co.uk/article/Integrity">A link to Integrity</a></td>
 		</tr>
 		<tr>
 			<td>3</td>
-			<td><a href="http://www.sprymedia.co.uk/article/Integrity">Integrity</a></td>
+			<td><a href="https://www.sprymedia.co.uk/article/Integrity">Integrity</a></td>
 		</tr>
 		<tr>
 			<td>4</td>

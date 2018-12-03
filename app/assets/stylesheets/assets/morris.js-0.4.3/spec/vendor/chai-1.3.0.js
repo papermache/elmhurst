@@ -146,7 +146,7 @@
   require.register("chai/assertion.js", function(module, exports, require){
     /*!
      * chai
-     * http://chaijs.com
+     * https://chaijs.com
      * Copyright(c) 2011-2012 Jake Luer <jake@alogicalparadox.com>
      * MIT Licensed
      */
@@ -297,7 +297,7 @@
   require.register("chai/core/assertions.js", function(module, exports, require){
     /*!
      * chai
-     * http://chaijs.com
+     * https://chaijs.com
      * Copyright(c) 2011-2012 Jake Luer <jake@alogicalparadox.com>
      * MIT Licensed
      */
@@ -3117,7 +3117,7 @@
     // https://gist.github.com/1044128/
     var getOuterHTML = function(element) {
       if ('outerHTML' in element) return element.outerHTML;
-      var ns = "http://www.w3.org/1999/xhtml";
+      var ns = "https://www.w3.org/1999/xhtml";
       var container = document.createElementNS(ns, '_');
       var elemProto = (window.HTMLElement || window.Element).prototype;
       var xmlSerializer = new XMLSerializer();

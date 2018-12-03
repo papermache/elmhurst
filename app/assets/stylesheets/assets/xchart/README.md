@@ -1,10 +1,10 @@
-# xCharts [![Build Status](https://secure.travis-ci.org/tenXer/xcharts.png?branch=master)](http://travis-ci.org/tenxer/xcharts)
+# xCharts [![Build Status](https://secure.travis-ci.org/tenXer/xcharts.png?branch=master)](https://travis-ci.org/tenxer/xcharts)
 
-[xCharts](http://tenxer.github.com/xcharts/) is a D3-based library for building custom charts and graphs. Written and maintained by [tenXer](https://www.tenxer.com).
+[xCharts](https://tenxer.github.com/xcharts/) is a D3-based library for building custom charts and graphs. Written and maintained by [tenXer](https://www.tenxer.com).
 
 ## Documentation
 
-View the [xCharts site](http://tenxer.github.com/xcharts/) for everything you need.
+View the [xCharts site](https://tenxer.github.com/xcharts/) for everything you need.
 
 ## License
 

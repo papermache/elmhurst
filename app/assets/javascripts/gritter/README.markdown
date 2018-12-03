@@ -1,7 +1,7 @@
 # Gritter for jQuery
 
 A small growl-like notification plugin for jQuery
-- http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/
+- https://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/
 
 ## Change Log
 
@@ -34,7 +34,7 @@ A small growl-like notification plugin for jQuery
 * Major code cleanup/re-write
 * Made it so when you hit the (X) close button, the notification slides up and vanishes instead of just vanishing
 * Added optional "class_name" option for $.gritter.add() to apply a class to a specific notification
-* Fixed IE7 issue pointed out by stoffel (http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/) 
+* Fixed IE7 issue pointed out by stoffel (https://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/) 
 
 ### Changes in 1.5 (October 21, 2009)
 

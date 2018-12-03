@@ -7,7 +7,7 @@
 # https://blueimp.net
 #
 # Licensed under the MIT license:
-# http://www.opensource.org/licenses/MIT
+# https://www.opensource.org/licenses/MIT
 #
 
 from __future__ import with_statement
@@ -16,7 +16,7 @@ from google.appengine.ext import blobstore, deferred
 from google.appengine.ext.webapp import blobstore_handlers
 import json, re, urllib, webapp2
 
-WEBSITE = 'http://blueimp.github.com/jQuery-File-Upload/'
+WEBSITE = 'https://blueimp.github.com/jQuery-File-Upload/'
 MIN_FILE_SIZE = 1 # bytes
 MAX_FILE_SIZE = 5000000 # bytes
 IMAGE_TYPES = re.compile('image/(gif|p?jpeg|(x-)?png)')

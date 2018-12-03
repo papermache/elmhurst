@@ -1,6 +1,6 @@
 /*!
 xCharts v0.3.0 Copyright (c) 2012, tenXer, Inc. All Rights Reserved.
-@license MIT license. http://github.com/tenXer/xcharts for details
+@license MIT license. https://github.com/tenXer/xcharts for details
 */
 
 (function () {
@@ -543,7 +543,7 @@ var emptyData = [[]],
 function svgEnabled() {
   var d = document;
   return (!!d.createElementNS &&
-    !!d.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+    !!d.createElementNS('https://www.w3.org/2000/svg', 'svg').createSVGRect);
 }
 
 /**

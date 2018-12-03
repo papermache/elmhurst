@@ -654,9 +654,9 @@ var myNewChart = new Chart(ctx);</code></pre>
 				<h2>Chart interactivity</h2>
 				<p>If you are looking to add interaction as a layer to charts, Chart.js is <strong>not the library for you</strong>. A better option would be using SVG, as this will let you attach event listeners to any of the elements in the chart, as these are all DOM nodes.</p>
 				<p>Chart.js uses the canvas element, which is a single DOM node, similar in characteristics to a static image. This does mean that it has a wider scope for compatibility, and less memory implications than SVG based charting solutions. The canvas element also allows for saving the contents as a base 64 string, allowing saving the chart as an image. </p>
-				<p>In SVG, all of the lines, data points and everything you see is a DOM node. As a result of this, complex charts with a lot of intricacies, or many charts on the page will often see dips in performance when scrolling or generating the chart, especially when there are multiple on the page. SVG also has relatively poor mobile support, with Android not supporting SVG at all before version 3.0, and iOS before 5.0. (<a href="http://caniuse.com/svg-html5" target="_blank">caniuse.com/svg-html5</a>).</p>
+				<p>In SVG, all of the lines, data points and everything you see is a DOM node. As a result of this, complex charts with a lot of intricacies, or many charts on the page will often see dips in performance when scrolling or generating the chart, especially when there are multiple on the page. SVG also has relatively poor mobile support, with Android not supporting SVG at all before version 3.0, and iOS before 5.0. (<a href="https://caniuse.com/svg-html5" target="_blank">caniuse.com/svg-html5</a>).</p>
 				<h2>Browser support</h2>
-				<p>Browser support for the canvas element is available in all modern & major mobile browsers (<a href="http://caniuse.com/canvas" target="_blank">caniuse.com/canvas</a>).</p>
+				<p>Browser support for the canvas element is available in all modern & major mobile browsers (<a href="https://caniuse.com/canvas" target="_blank">caniuse.com/canvas</a>).</p>
 				<p>For IE8 & below, I would recommend using the polyfill ExplorerCanvas - available at <a href="https://code.google.com/p/explorercanvas/" target="_blank">https://code.google.com/p/explorercanvas/</a>. It falls back to Internet explorer's format VML when canvas support is not available. Example use:</p>
 				<pre data-type="html"><code>&lt;head&gt;
 	&lt;!--[if lte IE 8]&gt;
@@ -667,7 +667,7 @@ var myNewChart = new Chart(ctx);</code></pre>
 				<p>Some important points to note in my experience using ExplorerCanvas as a fallback.</p>
 				<ul>
 					<li>Initialise charts on load rather than DOMContentReady when using the library, as sometimes a race condition will occur, and it will result in an error when trying to get the 2d context of a canvas.</li>
-					<li>New VML DOM elements are being created for each animation frame and there is no hardware acceleration. As a result animation is usually slow and jerky, with flashing text. It is a good idea to dynamically turn off animation based on canvas support. I recommend using the excellent <a href="http://modernizr.com/" targer="_blank">Modernizr</a> to do this.</li>
+					<li>New VML DOM elements are being created for each animation frame and there is no hardware acceleration. As a result animation is usually slow and jerky, with flashing text. It is a good idea to dynamically turn off animation based on canvas support. I recommend using the excellent <a href="https://modernizr.com/" targer="_blank">Modernizr</a> to do this.</li>
 					<li>When declaring fonts, the library explorercanvas requires the font name to be in single quotes inside the string. For example, instead of your scaleFontFamily property being simply "Arial", explorercanvas support, use "'Arial'" instead. Chart.js does this for default values.</li>
 					
 				</ul>
@@ -675,7 +675,7 @@ var myNewChart = new Chart(ctx);</code></pre>
 				<p>Please report these on the Github page - at <a href="https://github.com/nnnick/Chart.js" target="_blank">github.com/nnnick/Chart.js</a>.</p>
 				<p>New contributions to the library are welcome.</p>
 				<h2>License</h2>
-				<p>Chart.js is open source and available under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</p>
+				<p>Chart.js is open source and available under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</p>
 			</article>
 		</div>
 	</div>
@@ -758,7 +758,7 @@ var myNewChart = new Chart(ctx);</code></pre>
 	
 	  (function() {
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 	

@@ -1,10 +1,10 @@
 /*!
  * jQuery Color Animations v2.0pre
- * http://jquery.org/
+ * https://jquery.org/
  *
  * Copyright 2011 John Resig
  * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
+ * https://jquery.org/license
  */
 
 (function( jQuery, undefined ){
@@ -413,7 +413,7 @@
 	color.fn.parse.prototype = color.fn;
 
 	// hsla conversions adapted from:
-	// http://www.google.com/codesearch/p#OAMlx_jo-ck/src/third_party/WebKit/Source/WebCore/inspector/front-end/Color.js&d=7&l=193
+	// https://www.google.com/codesearch/p#OAMlx_jo-ck/src/third_party/WebKit/Source/WebCore/inspector/front-end/Color.js&d=7&l=193
 
 	function hue2rgb( p, q, h ) {
 		h = ( h + 1 ) % 1;
@@ -610,7 +610,7 @@
 
 	// Some named colors to work with
 	// From Interface by Stefan Petre
-	// http://interface.eyecon.ro/
+	// https://interface.eyecon.ro/
 	colors = jQuery.Color.names = {
 		aqua: "#00ffff",
 		azure: "#f0ffff",

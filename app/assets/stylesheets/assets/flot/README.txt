@@ -4,7 +4,7 @@ About
 Flot is a Javascript plotting library for jQuery. Read more at the
 website:
 
-  http://code.google.com/p/flot/
+  https://code.google.com/p/flot/
 
 Take a look at the examples linked from above, they should give a good
 impression of what Flot can do and the source code of the examples is
@@ -31,7 +31,7 @@ stripped down versions used for test environments on virtual machines
 lack the VML support.
 
 You can also try using Flashcanvas (see
-http://code.google.com/p/flashcanvas/), which uses Flash to do the
+https://code.google.com/p/flashcanvas/), which uses Flash to do the
 emulation. Although Flash can be a bit slower to load than VML, if
 you've got a lot of points, the Flash version can be much faster
 overall. Flot contains some wrapper code for activating Excanvas which

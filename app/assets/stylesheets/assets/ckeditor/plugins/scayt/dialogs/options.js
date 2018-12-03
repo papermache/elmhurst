@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.html or http://ckeditor.com/license
+ For licensing, see LICENSE.html or https://ckeditor.com/license
 */
 CKEDITOR.dialog.add("scaytcheck",function(j){function w(){return"undefined"!=typeof document.forms["optionsbar_"+a]?document.forms["optionsbar_"+a].options:[]}function x(b,a){if(b){var e=b.length;if(void 0==e)b.checked=b.value==a.toString();else for(var d=0;d<e;d++)b[d].checked=!1,b[d].value==a.toString()&&(b[d].checked=!0)}}function n(b){f.getById("dic_message_"+a).setHtml('<span style="color:red;">'+b+"</span>")}function o(b){f.getById("dic_message_"+a).setHtml('<span style="color:blue;">'+b+"</span>")}
 function p(b){for(var b=(""+b).split(","),a=0,e=b.length;a<e;a+=1)f.getById(b[a]).$.style.display="inline"}function q(b){for(var b=(""+b).split(","),a=0,e=b.length;a<e;a+=1)f.getById(b[a]).$.style.display="none"}function r(b){f.getById("dic_name_"+a).$.value=b}var s=!0,h,f=CKEDITOR.document,a=j.name,l=CKEDITOR.plugins.scayt.getUiTabs(j),g,t=[],u=0,m=["dic_create_"+a+",dic_restore_"+a,"dic_rename_"+a+",dic_delete_"+a],v=["mixedCase","mixedWithDigits","allCaps","ignoreDomainNames"];g=j.lang.scayt;var z=

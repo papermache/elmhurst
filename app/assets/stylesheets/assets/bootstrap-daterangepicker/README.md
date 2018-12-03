@@ -1,21 +1,21 @@
 # Date Range Picker for Twitter Bootstrap
 
-![Improvely.com](http://www.dangrossman.info/wp-content/themes/2012/daterangepicker.png)
+![Improvely.com](https://www.dangrossman.info/wp-content/themes/2012/daterangepicker.png)
 
 This date range picker component for Twitter Bootstrap creates a dropdown menu from which a user can 
-select a range of dates. It was created for the reporting UI at [Improvely](http://www.improvely.com).
+select a range of dates. It was created for the reporting UI at [Improvely](https://www.improvely.com).
 
 If invoked with no options, it will present two calendars to choose a start 
 and end date from. Optionally, you can provide a list of date ranges the user can select from instead 
 of choosing dates from the calendars. If attached to a text input, the selected dates will be inserted 
 into the text box. Otherwise, you can provide a custom callback function to receive the selection.
 
-[Live demo &amp; option usage examples](http://www.dangrossman.info/2012/08/20/a-date-range-picker-for-twitter-bootstrap/)
+[Live demo &amp; option usage examples](https://www.dangrossman.info/2012/08/20/a-date-range-picker-for-twitter-bootstrap/)
 
 ## Usage
 
-This component relies on [Twitter Bootstrap](http://twitter.github.com/bootstrap/), 
-[Datejs](http://www.datejs.com/) and [jQuery](http://jquery.com/).
+This component relies on [Twitter Bootstrap](https://twitter.github.com/bootstrap/), 
+[Datejs](https://www.datejs.com/) and [jQuery](https://jquery.com/).
 
 Basic usage:
 
@@ -48,7 +48,7 @@ Syntax for all the options can be found in the examples.html file.
 ## License
 
 This code is made available under the same license as Twitter Bootstrap. Date.js is included in this repository for convenience. It is available under the 
-[MIT license](http://www.opensource.org/licenses/mit-license.php).
+[MIT license](https://www.opensource.org/licenses/mit-license.php).
 
 --
 
@@ -58,7 +58,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+   https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

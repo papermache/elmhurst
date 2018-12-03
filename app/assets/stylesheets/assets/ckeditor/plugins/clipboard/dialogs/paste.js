@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.html or http://ckeditor.com/license
+ For licensing, see LICENSE.html or https://ckeditor.com/license
 */
 CKEDITOR.dialog.add("paste",function(c){function g(a){var b=new CKEDITOR.dom.document(a.document),d=b.getBody(),e=b.getById("cke_actscrpt");e&&e.remove();d.setAttribute("contenteditable",!0);if(CKEDITOR.env.ie&&8>CKEDITOR.env.version)b.getWindow().on("blur",function(){b.$.selection.empty()});b.on("keydown",function(a){var a=a.data,b;switch(a.getKeystroke()){case 27:this.hide();b=1;break;case 9:case CKEDITOR.SHIFT+9:this.changeFocus(1),b=1}b&&a.preventDefault()},this);c.fire("ariaWidget",new CKEDITOR.dom.element(a.frameElement));
 b.getWindow().getFrame().removeCustomData("pendingFocus")&&d.focus()}var f=c.lang.clipboard,h=CKEDITOR.env.isCustomDomain();c.on("pasteDialogCommit",function(a){a.data&&c.fire("paste",{type:"auto",dataValue:a.data})},null,null,1E3);return{title:f.title,minWidth:CKEDITOR.env.ie&&CKEDITOR.env.quirks?370:350,minHeight:CKEDITOR.env.quirks?250:245,onShow:function(){this.parts.dialog.$.offsetHeight;this.setupContent();this.parts.title.setHtml(this.customTitle||f.title);this.customTitle=null},onLoad:function(){(CKEDITOR.env.ie7Compat||

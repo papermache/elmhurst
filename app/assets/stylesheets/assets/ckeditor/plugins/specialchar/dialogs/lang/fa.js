@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.html or http://ckeditor.com/license
+ For licensing, see LICENSE.html or https://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang("specialchar","fa",{euro:"نشان یورو",lsquo:"علامت نقل قول تکی چپ",rsquo:"علامت نقل قول تکی راست",ldquo:"علامت دوتایی نقل قول چپ",rdquo:"علامت دوتایی نقل قول راست",ndash:"خط تیره En",mdash:"خط تیره Em",iexcl:"علامت گذاری به عنوان علامت تعجب وارونه",cent:"نشان سنت",pound:"نشان پوند",curren:"نشان ارز",yen:"نشان ین",brvbar:"نوار شکسته",sect:"نشان بخش",uml:"Diaeresis",copy:"نشان کپی رایت",ordf:"Feminine ordinal indicator",laquo:"Left-pointing double angle quotation mark",not:"علامت ثبت نشده",
 reg:"علامت ثبت شده",macr:"Macron",deg:"نشان درجه",sup2:"بالانویس دو",sup3:"بالانویس سه",acute:"لهجه غلیظ",micro:"نشان مایکرو",para:"Pilcrow sign",middot:"نقطه میانی",cedil:"Cedilla",sup1:"Superscript one",ordm:"Masculine ordinal indicator",raquo:"نشان زاویه‌دار دوتایی نقل قول راست چین",frac14:"Vulgar fraction one quarter",frac12:"Vulgar fraction one half",frac34:"Vulgar fraction three quarters",iquest:"Inverted question mark",Agrave:"Latin capital letter A with grave accent",Aacute:"Latin capital letter A with acute accent",

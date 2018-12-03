@@ -35,7 +35,7 @@ var userViewModelOperation = {
                             fade: true,
                             speed: "slow"
                         });
-                window.location.assign("http://elmhur.st/users/sign_in");
+                window.location.assign("https://elmhur.st/users/sign_in");
                     },
                     error: function () {
 

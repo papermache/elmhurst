@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.html or http://ckeditor.com/license
+ For licensing, see LICENSE.html or https://ckeditor.com/license
 */
 (function(){function z(a){for(var a=a.toUpperCase(),b=A.length,c=0,d=0;d<b;++d)for(var e=A[d],f=e[1].length;a.substr(0,f)==e[1];a=a.substr(f))c+=e[0];return c}function B(a){for(var a=a.toUpperCase(),b=C.length,c=1,d=1;0<a.length;d*=b)c+=C.indexOf(a.charAt(a.length-1))*d,a=a.substr(0,a.length-1);return c}var D=CKEDITOR.htmlParser.fragment.prototype,v=CKEDITOR.htmlParser.element.prototype;D.onlyChild=v.onlyChild=function(){var a=this.children;return 1==a.length&&a[0]||null};v.removeAnyChildWithName=
 function(a){for(var b=this.children,c=[],d,e=0;e<b.length;e++)d=b[e],d.name&&(d.name==a&&(c.push(d),b.splice(e--,1)),c=c.concat(d.removeAnyChildWithName(a)));return c};v.getAncestor=function(a){for(var b=this.parent;b&&(!b.name||!b.name.match(a));)b=b.parent;return b};D.firstChild=v.firstChild=function(a){for(var b,c=0;c<this.children.length;c++)if(b=this.children[c],a(b)||b.name&&(b=b.firstChild(a)))return b;return null};v.addStyle=function(a,b,c){var d="";if("string"==typeof b)d+=a+":"+b+";";else{if("object"==

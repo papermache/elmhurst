@@ -8,11 +8,11 @@
 	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or 
 		die( 'Could not select database '. $gaSql['db'] );
 
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico" />
+		<link rel="shortcut icon" type="image/ico" href="https://www.datatables.net/favicon.ico" />
 		
 		<title>DataTables example</title>
 		<style type="text/css" title="currentStyle">

@@ -1,8 +1,8 @@
 # Morris.js - pretty time-series line graphs
 
-[![Build Status](https://secure.travis-ci.org/oesmith/morris.js.png?branch=master)](http://travis-ci.org/oesmith/morris.js)
+[![Build Status](https://secure.travis-ci.org/oesmith/morris.js.png?branch=master)](https://travis-ci.org/oesmith/morris.js)
 
-Morris.js is the library that powers the graphs on http://howmanyleft.co.uk/.
+Morris.js is the library that powers the graphs on https://howmanyleft.co.uk/.
 It's a very simple API for drawing line, bar, area and donut charts.
 
 Cheers!
@@ -11,12 +11,12 @@ Cheers!
 
 ## Requirements
 
-- [jQuery](http://jquery.com/) (>= 1.7 recommended, but it'll probably work with older versions)
-- [Raphael.js](http://raphaeljs.com/) (>= 2.0)
+- [jQuery](https://jquery.com/) (>= 1.7 recommended, but it'll probably work with older versions)
+- [Raphael.js](https://raphaeljs.com/) (>= 2.0)
 
 ## Usage
 
-See [the website](http://oesmith.github.com/morris.js/).
+See [the website](https://oesmith.github.com/morris.js/).
 
 ## Development
 

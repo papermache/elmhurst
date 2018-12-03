@@ -9,7 +9,7 @@
  *
  * No license, do what you want. I'd love credit or a shoutout, though.
  *
- * http://cameronspear.com/blog/twitter-bootstrap-dropdown-on-hover-plugin/
+ * https://cameronspear.com/blog/twitter-bootstrap-dropdown-on-hover-plugin/
  */
 ;(function($, window, undefined) {
     // outside the scope of the jQuery plugin to

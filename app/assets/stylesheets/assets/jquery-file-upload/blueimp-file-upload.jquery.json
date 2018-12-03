@@ -9,7 +9,7 @@
     "licenses": [
         {
             "type": "MIT",
-            "url": "http://www.opensource.org/licenses/MIT"
+            "url": "https://www.opensource.org/licenses/MIT"
         }
     ],
     "dependencies": {
@@ -40,7 +40,7 @@
     ],
     "homepage": "https://github.com/blueimp/jQuery-File-Upload",
     "docs": "https://github.com/blueimp/jQuery-File-Upload/wiki",
-    "demo": "http://blueimp.github.com/jQuery-File-Upload/",
+    "demo": "https://blueimp.github.com/jQuery-File-Upload/",
     "bugs": "https://github.com/blueimp/jQuery-File-Upload/issues",
     "maintainers": [
         {

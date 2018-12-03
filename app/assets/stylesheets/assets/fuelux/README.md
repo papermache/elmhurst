@@ -1,4 +1,4 @@
-[![Fuel UX](https://s3.amazonaws.com/fuelux/logo-gray.png)](http://exacttarget.github.com/fuelux)
+[![Fuel UX](https://s3.amazonaws.com/fuelux/logo-gray.png)](https://exacttarget.github.com/fuelux)
 
 Fuel UX extends Twitter Bootstrap with additional lightweight JavaScript controls.
 Other benefits include easy installation into web projects, integrated scripts for customizing Bootstrap and Fuel UX,
@@ -6,13 +6,13 @@ simple updates, and solid optimization for deployment. All functionality is cove
 
 [![Selenium Test Status](https://saucelabs.com/buildstatus/fuelux)](https://saucelabs.com/u/fuelux)
 
-[![Build Status](https://secure.travis-ci.org/ExactTarget/fuelux.png?branch=master)](http://travis-ci.org/ExactTarget/fuelux)
+[![Build Status](https://secure.travis-ci.org/ExactTarget/fuelux.png?branch=master)](https://travis-ci.org/ExactTarget/fuelux)
 
 ## Features
 
-Fuel UX provides all of the styles and plugins from the revolutionary [Twitter Bootstrap](http://twitter.github.com/bootstrap) project, with the following additions:
+Fuel UX provides all of the styles and plugins from the revolutionary [Twitter Bootstrap](https://twitter.github.com/bootstrap) project, with the following additions:
 
-* Fuel UX JavaScript controls (with unit tests) [see them live](http://exacttarget.github.com/fuelux)
+* Fuel UX JavaScript controls (with unit tests) [see them live](https://exacttarget.github.com/fuelux)
   * Checkbox - _consistent cross-browser cross-platform look and feel for checkbox elements_
   * Combobox - _combines input and dropdown for easy and flexible data selection_
   * Datagrid - _renders data in a table with paging, sorting, and searching_
@@ -25,7 +25,7 @@ Fuel UX provides all of the styles and plugins from the revolutionary [Twitter B
   * Wizard - _displays a multi-step process to be completed in a specific order_
 <p>
 * One-step installation and updates through [volo](https://github.com/volojs/volo)
-* [AMD](http://requirejs.org/docs/whyamd.html) compatibility for modular structure and deployment optimization
+* [AMD](https://requirejs.org/docs/whyamd.html) compatibility for modular structure and deployment optimization
 * [Grunt](https://github.com/cowboy/grunt)-based build script to easily create custom distribution files
 * Namespaced CSS (just add a `fuelux` class) for safe use on existing sites
 
@@ -38,11 +38,11 @@ Fuel UX provides all of the styles and plugins from the revolutionary [Twitter B
 
 ### Live docs and demos
 
-Hosted on GitHub pages: http://exacttarget.github.com/fuelux
+Hosted on GitHub pages: https://exacttarget.github.com/fuelux
 
 ### Rich documentation
 
-Hosted on our [Developer Community](http://code.exacttarget.com/devcenter/home): http://code.exacttarget.com/devcenter/fuel-ux
+Hosted on our [Developer Community](https://code.exacttarget.com/devcenter/home): https://code.exacttarget.com/devcenter/fuel-ux
 
 ## Issues and Feature Requests
 
@@ -56,7 +56,7 @@ Visit our UserVoice community: https://fuelux.uservoice.com
 
 ## Release History
 
-_Fuel UX is semantically versioned: <http://semver.org>_
+_Fuel UX is semantically versioned: <https://semver.org>_
 
 ### Version 2.3.1 `2013-08-02`
 
@@ -157,13 +157,13 @@ Our aim is to provide a suite of related but independent projects that help web 
 
 We are grateful to the maintainers, contributors, and sponsors of the following technologies which make FuelUX possible:
 
-* [jQuery](http://jquery.com) (Library for DOM, events, animation, and AJAX)
+* [jQuery](https://jquery.com) (Library for DOM, events, animation, and AJAX)
 
-* [Twitter Bootstrap](http://twitter.github.com/bootstrap) (Modern UI components and interactions)
+* [Twitter Bootstrap](https://twitter.github.com/bootstrap) (Modern UI components and interactions)
 
-* [LESS](http://lesscss.org) and [recess](http://twitter.github.com/recess) (Stylesheet definition and management)
+* [LESS](https://lesscss.org) and [recess](https://twitter.github.com/recess) (Stylesheet definition and management)
 
-* [RequireJS](http://requirejs.org) and [volo](https://github.com/volojs/volo) (Tools for managing modular JavaScript)
+* [RequireJS](https://requirejs.org) and [volo](https://github.com/volojs/volo) (Tools for managing modular JavaScript)
 
 * [grunt](https://github.com/cowboy/grunt) (Build tool for JavaScript projects)
 
@@ -171,24 +171,24 @@ We are grateful to the maintainers, contributors, and sponsors of the following 
 
 **Adam Alexander**
 
-+ http://twitter.com/adamalex
-+ http://github.com/adamalex
++ https://twitter.com/adamalex
++ https://github.com/adamalex
 
 **Matt Beard**
 
-+ http://github.com/mbeard
++ https://github.com/mbeard
 
 **Bryan Kohlmeier**
 
-+ http://github.com/bkohlmeier
++ https://github.com/bkohlmeier
 
 **Kevin Parkerson**
 
-+ http://github.com/kevinparkerson
++ https://github.com/kevinparkerson
 
 **Christopher McCulloh**
 
-+ http://github.com/cmcculloh
++ https://github.com/cmcculloh
 
 **David Waltz**
 
@@ -196,17 +196,17 @@ We are grateful to the maintainers, contributors, and sponsors of the following 
 
 **Dustin McCormick**
 
-+ http://twitter.com/djmccormick
-+ http://github.com/djmccormick
++ https://twitter.com/djmccormick
++ https://github.com/djmccormick
 
 **Scott Plumlee**
 
-+ http://twitter.com/scottplumlee
-+ http://github.com/plumlee
++ https://twitter.com/scottplumlee
++ https://github.com/plumlee
 
 **Marvin Pribble**
 
-+ http://github.com/marvinpribble
++ https://github.com/marvinpribble
 
 ## Copyright and license
 
@@ -222,4 +222,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/8b519d39e18063752f24876583a6526b "githalytics.com")](http://githalytics.com/ExactTarget/fuelux)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/8b519d39e18063752f24876583a6526b "githalytics.com")](https://githalytics.com/ExactTarget/fuelux)

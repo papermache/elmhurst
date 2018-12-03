@@ -11,8 +11,8 @@
  *
  * This source file is free software, under either the GPL v2 license or a
  * BSD style license, available at:
- *   http://datatables.net/license_gpl2
- *   http://datatables.net/license_bsd
+ *   https://datatables.net/license_gpl2
+ *   https://datatables.net/license_bsd
  */
 
 /* Global scope for TableTools */
@@ -2434,42 +2434,4 @@ TableTools.prototype.CLASS = "TableTools";
  *  @type	  String
  *  @default   See code
  */
-TableTools.VERSION = "2.1.4";
-TableTools.prototype.VERSION = TableTools.VERSION;
-
-
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Initialisation
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-/*
- * Register a new feature with DataTables
- */
-if ( typeof $.fn.dataTable == "function" &&
-	 typeof $.fn.dataTableExt.fnVersionCheck == "function" &&
-	 $.fn.dataTableExt.fnVersionCheck('1.9.0') )
-{
-	$.fn.dataTableExt.aoFeatures.push( {
-		"fnInit": function( oDTSettings ) {
-			var oOpts = typeof oDTSettings.oInit.oTableTools != 'undefined' ? 
-				oDTSettings.oInit.oTableTools : {};
-			
-			var oTT = new TableTools( oDTSettings.oInstance, oOpts );
-			TableTools._aInstances.push( oTT );
-			
-			return oTT.dom.container;
-		},
-		"cFeature": "T",
-		"sFeature": "TableTools"
-	} );
-}
-else
-{
-	alert( "Warning: TableTools 2 requires DataTables 1.9.0 or newer - www.datatables.net/download");
-}
-
-$.fn.DataTable.TableTools = TableTools;
-
-})(jQuery, window, document);
+TableTools.VERSION = "

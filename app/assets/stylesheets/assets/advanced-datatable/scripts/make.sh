@@ -66,8 +66,8 @@ if [ "$CMD" != "debug" ]; then
  *
  * This source file is free software, under either the GPL v2 license or a
  * BSD style license, available at:
- *   http://datatables.net/license_gpl2
- *   http://datatables.net/license_bsd
+ *   https://datatables.net/license_gpl2
+ *   https://datatables.net/license_bsd
  * 
  * This source file is distributed in the hope that it will be useful, but 
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
@@ -113,16 +113,16 @@ cat <<EOF > package.json
 	"title": "DataTables",
 	"author": {
 		"name": "Allan Jardine",
-		"url": "http://sprymedia.co.uk"
+		"url": "https://sprymedia.co.uk"
 	},
 	"licenses": [
 		{
 			"type": "BSD",
-			"url": "http://datatables.net/license_bsd"
+			"url": "https://datatables.net/license_bsd"
 		},
 		{
 			"type": "GPLv2",
-			"url": "http://datatables.net/license_gpl2"
+			"url": "https://datatables.net/license_gpl2"
 		}
 	],
 	"dependencies": {
@@ -139,7 +139,7 @@ cat <<EOF > package.json
 		"page",
 		"internationalisable"
 	],
-	"homepage": "http://datatables.net"
+	"homepage": "https://datatables.net"
 }
 EOF
 

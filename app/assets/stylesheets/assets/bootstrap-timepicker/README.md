@@ -6,4 +6,4 @@ A simple timepicker component for Twitter Bootstrap.
 Documentation
 =============
 
-Read the <a href="http://jdewit.github.com/bootstrap-timepicker">documentation</a>.
+Read the <a href="https://jdewit.github.com/bootstrap-timepicker">documentation</a>.

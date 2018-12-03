@@ -3,9 +3,9 @@
 
 [![Build Status](https://travis-ci.org/smalot/bootstrap-datetimepicker.png?branch=master)](https://travis-ci.org/smalot/bootstrap-datetimepicker)
 
-[Homepage](http://www.malot.fr/bootstrap-datetimepicker/)
+[Homepage](https://www.malot.fr/bootstrap-datetimepicker/)
 
-[Demo page](http://www.malot.fr/bootstrap-datetimepicker/demo.php)
+[Demo page](https://www.malot.fr/bootstrap-datetimepicker/demo.php)
 
 # Project forked
 
@@ -505,7 +505,7 @@ The recommended value for viewSelect option is 4 when this feature is enable. Th
 
 ### Feature Demo
 
-A simple [Demo](http://lyonlai.github.io/bootstrap-datetimepicker/demo.html) page is given to show it's simple idea. 
+A simple [Demo](https://lyonlai.github.io/bootstrap-datetimepicker/demo.html) page is given to show it's simple idea. 
 
 ## I18N
 

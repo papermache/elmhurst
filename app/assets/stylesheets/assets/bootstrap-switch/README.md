@@ -6,7 +6,7 @@ You can now also use radio buttons and checkboxes as switches.
 
 Demo
 ----
-Hurray! http://www.larentis.eu/switch/ moves to github pages and we are happy to tell you that we have bought a new domain: http://www.bootstrap-switch.org . Some troubles can occur so please, don't hate us :')
+Hurray! https://www.larentis.eu/switch/ moves to github pages and we are happy to tell you that we have bought a new domain: https://www.bootstrap-switch.org . Some troubles can occur so please, don't hate us :')
 
 
 Usage
@@ -14,12 +14,12 @@ Usage
 Just include Twitter Bootstrap, jQuery, Bootstrap Switch CSS and Javascript
 ``` html
 <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8;" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
 <link rel="stylesheet" href="bootstrap-switch.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="bootstrap-switch.js"></script>  // master
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.7/bootstrap-switch.min.js">  // from cdnjs.com
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.7/bootstrap-switch.min.js">  // from cdnjs.com
 ```
 
 Less
@@ -222,4 +222,4 @@ $('#mySwitch').bootstrapSwitch('destroy');
 License
 -------
 Licensed under the Apache License, Version 2.0
-http://www.apache.org/licenses/LICENSE-2.0
+https://www.apache.org/licenses/LICENSE-2.0

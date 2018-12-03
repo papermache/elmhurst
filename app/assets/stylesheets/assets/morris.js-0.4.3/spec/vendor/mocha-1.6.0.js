@@ -4818,7 +4818,7 @@ process.nextTick = (function(){
   }
 
   // based on setZeroTimeout by David Baron
-  // - http://dbaron.org/log/20100309-faster-timeouts
+  // - https://dbaron.org/log/20100309-faster-timeouts
   var timeouts = []
     , name = 'mocha-zero-timeout'
 

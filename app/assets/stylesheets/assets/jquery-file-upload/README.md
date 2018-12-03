@@ -1,7 +1,7 @@
 # jQuery File Upload Plugin
 
 ## Demo
-[Demo File Upload](http://blueimp.github.com/jQuery-File-Upload/)
+[Demo File Upload](https://blueimp.github.com/jQuery-File-Upload/)
 
 ## Download
 * [Master branch (Bootstrap UI)](https://github.com/blueimp/jQuery-File-Upload/archive/master.zip)
@@ -13,7 +13,7 @@
 
 ## Support
 * **Support requests** and **general discussions** about the File Upload plugin can be posted to the official [support forum](https://groups.google.com/d/forum/jquery-fileupload).  
-If your question is not directly related to the File Upload plugin, you might have a better chance to get a reply by posting to [Stack Overflow](http://stackoverflow.com/questions/tagged/blueimp+jquery+file-upload). 
+If your question is not directly related to the File Upload plugin, you might have a better chance to get a reply by posting to [Stack Overflow](https://stackoverflow.com/questions/tagged/blueimp+jquery+file-upload). 
 * **Bugs** and **Feature requests** can be reported using the [issues tracker](https://github.com/blueimp/jQuery-File-Upload/issues). Please read the [issue guidelines](https://github.com/blueimp/jQuery-File-Upload/blob/master/CONTRIBUTING.md) before posting.
 
 ## Features
@@ -51,8 +51,8 @@ If your question is not directly related to the File Upload plugin, you might ha
   Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.
 
 ## Requirements
-* [jQuery](http://jquery.com/) v. 1.6+
-* [jQuery UI widget factory](http://api.jqueryui.com/jQuery.widget/) v. 1.9+ (included)
+* [jQuery](https://jquery.com/) v. 1.6+
+* [jQuery UI widget factory](https://api.jqueryui.com/jQuery.widget/) v. 1.9+ (included)
 * [jQuery Iframe Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/jquery.iframe-transport.js) (included)
 * [JavaScript Templates engine](https://github.com/blueimp/JavaScript-Templates) v. 2.1.0+ (optional)
 * [JavaScript Load Image function](https://github.com/blueimp/JavaScript-Load-Image) v. 1.2.1+ (optional)
@@ -65,7 +65,7 @@ The UI version of the File Upload plugin also requires the JavaScript Templates 
 
 The User Interface is built with Twitter's [Bootstrap](https://github.com/twitter/bootstrap/) Toolkit. This enables a CSS based, responsive layout and fancy transition effects on modern browsers. The demo also includes the [Bootstrap Image Gallery Plugin](https://github.com/blueimp/Bootstrap-Image-Gallery). Both of these components are optional and not required.
 
-The repository also includes the [jQuery XDomainRequest Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/cors/jquery.xdr-transport.js), which enables Cross-domain AJAX requests (GET and POST only) in Microsoft Internet Explorer >= 8. However, the XDomainRequest object doesn't support file uploads and the plugin is only used by the [Demo](http://blueimp.github.com/jQuery-File-Upload/) for Cross-domain requests to delete uploaded files from the demo file upload service.
+The repository also includes the [jQuery XDomainRequest Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/cors/jquery.xdr-transport.js), which enables Cross-domain AJAX requests (GET and POST only) in Microsoft Internet Explorer >= 8. However, the XDomainRequest object doesn't support file uploads and the plugin is only used by the [Demo](https://blueimp.github.com/jQuery-File-Upload/) for Cross-domain requests to delete uploaded files from the demo file upload service.
 
 [Cross-domain File Uploads](https://github.com/blueimp/jQuery-File-Upload/wiki/Cross-domain-uploads) using the [Iframe Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/jquery.iframe-transport.js) require a redirect back to the origin server to retrieve the upload results. The [example implementation](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/main.js) makes use of [result.html](https://github.com/blueimp/jQuery-File-Upload/blob/master/cors/result.html) as a static redirect page for the origin server.
 
@@ -92,4 +92,4 @@ The File Upload plugin has been tested with and supports the following mobile br
 For a detailed overview of the features supported by each browser version please have a look at the [Extended browser support information](https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support).
 
 ## License
-Released under the [MIT license](http://www.opensource.org/licenses/MIT).
+Released under the [MIT license](https://www.opensource.org/licenses/MIT).

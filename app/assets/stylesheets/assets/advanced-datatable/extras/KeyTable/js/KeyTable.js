@@ -15,8 +15,8 @@
  *
  * This source file is free software, under either the GPL v2 license or a
  * BSD style license, available at:
- *   http://datatables.net/license_gpl2
- *   http://datatables.net/license_bsd
+ *   https://datatables.net/license_gpl2
+ *   https://datatables.net/license_bsd
  */
 
 
@@ -1060,9 +1060,9 @@ function KeyTable ( oInit )
 		 * main areas of interest here. So basically for arrow keys, there is no keypress event in
 		 * Safari and IE, while there is in Firefox and Opera. But Firefox and Opera don't repeat the
 		 * keydown event for an arrow key. OUCH. See the following two articles for more:
-		 *   http://www.quirksmode.org/dom/events/keys.html
+		 *   https://www.quirksmode.org/dom/events/keys.html
 		 *   https://lists.webkit.org/pipermail/webkit-dev/2007-December/002992.html
-		 *   http://unixpapa.com/js/key.html
+		 *   https://unixpapa.com/js/key.html
 		 * PPK considers the IE / Safari method correct (good enough for me!) so we (urgh) detect
 		 * Mozilla and Opera and apply keypress for them, while everything else gets keydown. If
 		 * Mozilla or Opera change their implemention in future, this will need to be updated... 

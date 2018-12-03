@@ -3,9 +3,9 @@ fancyBox
 
 fancyBox is a tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages.
 
-More information and examples: http://www.fancyapps.com/fancybox/
+More information and examples: https://www.fancyapps.com/fancybox/
 
-License: http://www.fancyapps.com/fancybox/#license
+License: https://www.fancyapps.com/fancybox/#license
 
 Copyright (c) 2012 Janis Skarnelis - janis@fancyapps.com
 
@@ -17,7 +17,7 @@ To get started, download the plugin, unzip it and copy files to your website/app
 Load files in the <head> section of your HTML document. Make sure you also add the jQuery library.
 
     <head>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
     </head>
@@ -75,7 +75,7 @@ You can specify type directly by adding classname (fancybox.image, fancybox.ifra
     //Image:
     <a href="example.jpg" class="fancybox">Example</a>
 
-Note, ajax requests are subject to the [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy).
+Note, ajax requests are subject to the [same origin policy](https://en.wikipedia.org/wiki/Same_origin_policy).
 If fancyBox will not be able to get content type, it will try to guess based on 'href' and will quit silently if would not succeed.
 (this is different from previsous versions where 'ajax' was used as default type or an error message was displayed).
 

@@ -1,5 +1,5 @@
 /*!
- * jQuery Stepy - A Wizard Plugin - http://wbotelhos.com/stepy
+ * jQuery Stepy - A Wizard Plugin - https://wbotelhos.com/stepy
  * ------------------------------------------------------------------------------------
  *
  * jQuery Stepy is a plugin based on FormToWizard that generates a customizable wizard.

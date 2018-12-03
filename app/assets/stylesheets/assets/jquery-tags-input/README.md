@@ -9,11 +9,11 @@ list of tags!
 
 [Get it from Github](https://github.com/xoxco/jQuery-Tags-Input)
 
-[View Demo](http://xoxco.com/projects/code/tagsinput/)
+[View Demo](https://xoxco.com/projects/code/tagsinput/)
 
-[Test it yourself using this jsFiddle Demo](http://jsfiddle.net/7aDak/)
+[Test it yourself using this jsFiddle Demo](https://jsfiddle.net/7aDak/)
 
-Created by [XOXCO](http://xoxco.com)
+Created by [XOXCO](https://xoxco.com)
 
 
 ## Instructions
@@ -38,7 +38,7 @@ If you want to use jQuery.autocomplete, you can pass in a parameter with the
 autocomplete url.
 
 	$('#tags').tagsInput({
-	  autocomplete_url:'http://myserver.com/api/autocomplete'
+	  autocomplete_url:'https://myserver.com/api/autocomplete'
 	});
 
 If you're using the bassistance jQuery.autocomplete, which takes extra 
@@ -46,7 +46,7 @@ parameters, you can also send in options to the autocomplete plugin, as
 described here.
 
 	$('#tags').tagsInput({    
-	  autocomplete_url:'http://myserver.com/api/autocomplete',
+	  autocomplete_url:'https://myserver.com/api/autocomplete',
 	  autocomplete:{selectFirst:true,width:'100px',autoFill:true}
 	});
 

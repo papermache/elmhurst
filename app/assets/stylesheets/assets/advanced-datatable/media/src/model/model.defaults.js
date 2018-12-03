@@ -1676,7 +1676,7 @@ DataTable.defaults = {
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "oLanguage": {
-		 *          "sUrl": "http://www.sprymedia.co.uk/dataTables/lang.txt"
+		 *          "sUrl": "https://www.sprymedia.co.uk/dataTables/lang.txt"
 		 *        }
 		 *      } );
 		 *    } );
@@ -1771,7 +1771,7 @@ DataTable.defaults = {
 	 *  @example
 	 *    $(document).ready( function() {
 	 *      $('#example').dataTable( {
-	 *        "sAjaxSource": "http://www.sprymedia.co.uk/dataTables/json.php"
+	 *        "sAjaxSource": "https://www.sprymedia.co.uk/dataTables/json.php"
 	 *      } );
 	 *    } )
 	 */

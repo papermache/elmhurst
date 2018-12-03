@@ -4,13 +4,13 @@
  * Copyright (c) 2006-2009 Mika Tuupola, Dylan Verheul
  *
  * Licensed under the MIT license:
- *   http://www.opensource.org/licenses/mit-license.php
+ *   https://www.opensource.org/licenses/mit-license.php
  *
  * Project home:
- *   http://www.appelsiini.net/projects/jeditable
+ *   https://www.appelsiini.net/projects/jeditable
  *
  * Based on editable by Dylan Verheul <dylan_at_dyve.net>:
- *    http://www.dyve.net/jquery/?editable
+ *    https://www.dyve.net/jquery/?editable
  *
  */
 
@@ -149,7 +149,7 @@
                 }
                 
                 /* figure out how wide and tall we are, saved width and height */
-                /* are workaround for http://dev.jquery.com/ticket/2190 */
+                /* are workaround for https://dev.jquery.com/ticket/2190 */
                 if (0 == $(self).width()) {
                     //$(self).css('visibility', 'hidden');
                     settings.width  = savedwidth;

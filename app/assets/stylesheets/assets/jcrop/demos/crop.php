@@ -4,7 +4,7 @@
  * Jcrop image cropping plugin for jQuery
  * Example cropping script
  * @copyright 2008-2009 Kelly Hallman
- * More info: http://deepliquid.com/content/Jcrop_Implementation_Theory.html
+ * More info: https://deepliquid.com/content/Jcrop_Implementation_Theory.html
  */
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

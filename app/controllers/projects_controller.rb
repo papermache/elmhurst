@@ -37,7 +37,6 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    p "==================#{current_user}=================="
     @project = Project.new(project_params)
     @project.authors << current_user
     

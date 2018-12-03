@@ -16,8 +16,8 @@ var project_id = getCook('project_id');
 //main api url
 //var mainUrl = '//elmhur.st/api/v1/';
 //alert(user_id);
-//var mainUrl = 'https://www.elmhur.st/api/v1/';
-var mainUrl = 'http://localhost:3000/api/v1/';
+var mainUrl = 'https://www.elmhur.st/api/v1/';
+//var mainUrl = 'http://localhost:3000/api/v1/';
 
 //var requset ='https://localhost:8080/elmuhrst/rest/projectResearcher/2/1'
 

@@ -23,15 +23,14 @@ module Api
       end
 
       def create
-        # binding.pry
-          # current_user_id = request.env["HTTP_REFERER"].split("&").last.split("=").last.to_i
-          # p "-------------> #{current_user_id}"
+        current_user_id = request.env["HTTP_REFERER"].split("&").last.split("=").last.to_i
+           p "-------------> #{current_user_id}"
           @project = Project.create(:title => params[:title], :description=>params[:description] )
          if current_user.present?
        p "current user is =====================#{current_user}===================="
            @project.authors << current_user
          else
-          current_user = User.find_by_id(params[:current_user])
+          current_user = User.find_by_id(current_user_id)
        p "current user is =====================#{current_user}===================="
           @project.authors << current_user
          end 

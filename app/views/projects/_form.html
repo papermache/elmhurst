@@ -8,6 +8,7 @@
                     </header>
                     <div class="panel-body">
                         <form role="form" class="cmxform tasi-form" id="projectForm" >
+                        <% binding.pry %>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group prepend-icon">
@@ -24,6 +25,7 @@
                                         <textarea name="description" id="description" class="form-control " placeholder="Affiliates Description" data-bind="value: description"></textarea>
                                         <span class="field-icon"><i class="icon-file-text-alt"></i></span>
                                     </div>
+                                    <input type="hidden" name="current_user" value="<%= current_user.id %>">
                                     <div class="form-group">
                                         <button id="save" class="btn btn-shadow btn-primary" data-bind="click: postProjects" > Save </button>
                                         <a id="cancel" class="btn btn-shadow btn-default" href="#cancelConfirm" data-toggle="modal"> Cancel </a>

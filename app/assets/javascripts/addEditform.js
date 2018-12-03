@@ -4,9 +4,9 @@ var projectssArray = [];
 var projectsViewModelOperation = {
     projectViewModel: function () {
         var self = this;
-
         self.title = ko.observable("")
         self.description = ko.observable("");
+        self.current_user = ko.observable("");
 
         self.postProjects = function () {
             if ($("#projectForm").valid()){
@@ -18,6 +18,7 @@ var projectsViewModelOperation = {
                 data: {
                     title: self.title(),
                     description: self.description(),
+                    current_user: self.current_user(),
 
                 },
                 success: function (data) {

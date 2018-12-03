@@ -12,7 +12,7 @@ var projectsViewModelOperation = {
         self.postProjects = function () {
             if ($("#projectForm").valid()){
             $.ajax({
-                url: mainUrl+'projects',
+                url: "https://elmhur.st/api/v1/projects",
                 type: "Post",
                 accept: 'json',
                 data: {

@@ -1,8 +1,8 @@
- var projectViewModel = null;
+alert("in addEditForm")
+var projectViewModel = null;
 var projectssArray = [];
 
 var projectsViewModelOperation = {
-            console.log("HII")
     projectViewModel: function () {
         var self = this;
 

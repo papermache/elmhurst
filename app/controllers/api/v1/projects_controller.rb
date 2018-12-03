@@ -25,12 +25,12 @@ module Api
       def create
           @project = Project.create(:title => params[:title], :description=>params[:description] )
          if current_user.present?
-       p "=====================#{current_user}===================="
+       p "current user is =====================#{current_user}===================="
            @project.authors << current_user
          else
-       p "=====================#{cookies[:user_id]}===================="
+       p "cookies user id is=====================#{cookies[:user_id]}===================="
           current_user = User.find_by_id(cookies[:user_id])
-       p "=====================#{current_user}===================="
+       p "current user is =====================#{current_user}===================="
           @project.authors << current_user
          end 
           respond_with   @project 

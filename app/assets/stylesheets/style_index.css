@@ -155,4 +155,6 @@ html, body {
 .txt-left {
   text-align: left;
 }
-
+.chart{
+  margin-left: -45;
+}

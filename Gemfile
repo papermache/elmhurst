@@ -58,7 +58,7 @@ gem 'tzinfo-data'
 gem 'will_paginate'
 
 #gem 'heroku'
-gem "httparty"
+# gem "httparty"
 
 group :production do
   gem 'rails_12factor'
@@ -70,3 +70,5 @@ gem 'httparty'
 gem 'rack-cors'
 gem 'pry'
 gem "stock_quote"
+# gem 'autoprefixer-rails'
+# gem 'mini_racer'

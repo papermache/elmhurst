@@ -1,7 +1,9 @@
 class AnnotationsController < ApplicationController
 	
 	def create
+    binding.pry
 	  @annotation = Annotation.new(annotation_params)
+    
       @annotation.item_price_dup = params[:Item_Price]
       if @annotation.save!
         flash[:success] = "Request Submit Successfully"
@@ -16,6 +18,6 @@ class AnnotationsController < ApplicationController
 
 	private
 	  def annotation_params
-        params.permit(:Item_Name,:Project_Select,:Item_Price,:Merchant_Name,:Source,:Note,:Order,:Delivery)
+        params.permit(:Item_Name,:Project_Select,:Item_Price,:Merchant_Name,:Source,:Note)
       end
 end

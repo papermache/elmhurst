@@ -4895,5 +4895,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
    .deposit{
     margin-left: 1111px;
    }
-
+   .radio_custom{
+    margin-left: 100px;
+   }
   /*body:before,body:after{content:'';}*/

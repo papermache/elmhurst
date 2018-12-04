@@ -107,7 +107,7 @@
                                                         <td style="width: 22%; text-align: center;">
                                                         <%= annotation.Item_Name %></td>
                                                         <td  style="width: 25%; text-align: center;" data-bind="text: items.itemName"> <%= annotation.Item_Price %></td>
-                                                        <td  style="width: 20%; text-align: center;" data-bind="text: items.filledAmountUSD"><%= annotation.Order.strftime("%d/%m/%Y") %></td>
+                                                        <td  style="width: 20%; text-align: center;" data-bind="text: items.filledAmountUSD"><%= annotation.date.strftime("%d/%m/%Y") %></td>
                                                         <td  style="width: 15%; text-align: center;" text-align: center; data-bind="text: items.priceUSD"><%= annotation.created_at.strftime("%d/%m/%Y") %></td>
                                                         <!-- <td  style="width: 25%; text-align: center;" data-bind="text: items.requestDate"></td> -->
                                                         

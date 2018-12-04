@@ -1,9 +1,14 @@
 class AnnotationsController < ApplicationController
 	
 	def create
-    binding.pry
 	  @annotation = Annotation.new(annotation_params)
-    
+      if params["date_status"] == "order"
+        @annotation.date_status = params["date_status"]
+        @annotation.date = params["date"]
+      else
+        @annotation.date_status = params["date_status"]
+        @annotation.date = params["date"]
+      end
       @annotation.item_price_dup = params[:Item_Price]
       if @annotation.save!
         flash[:success] = "Request Submit Successfully"

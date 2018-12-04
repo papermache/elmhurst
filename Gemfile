@@ -70,5 +70,5 @@ gem 'httparty'
 gem 'rack-cors'
 gem 'pry'
 gem "stock_quote"
-# gem 'autoprefixer-rails'
+gem 'autoprefixer-rails'
 # gem 'mini_racer'

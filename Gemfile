@@ -28,7 +28,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'alertifyjs-rails'
 gem 'clockwork'
-gem 'mini_racer'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -72,3 +71,4 @@ gem 'rack-cors'
 gem 'pry'
 gem "stock_quote"
 gem 'autoprefixer-rails'
+gem 'mini_racer'

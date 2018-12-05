@@ -11,7 +11,7 @@ module ApplicationHelper
 	end
     
     def purchasing_power
-      @purchasing_power = (Share.all.pluck(:investment_principal).compact.sum/Share.all.count.to_f).round(4) rescue nil
+      @purchasing_power = ((Share.all.pluck(:investment_principal).compact.sum + AccountHistory.all.pluck(:amount).compact.sum)/(Share.all.count + AccountHistory.all.pluck(:amount).count).to_f).round(4) rescue nil
       @purchasing_power.nan? ?  0 : @purchasing_power 
     end
 	

@@ -38,7 +38,7 @@
                                     <td style="text-align: center;"><%= history.grant %></td>
                                     <td style="text-align: center;"><%= history.date.strftime("%d-%m-%Y") %></td>
                                     <td style="text-align: center;"><%= history.market%></td>
-                                    <td style="text-align: center;"><%= dividend %></td>
+                                    <td style="text-align: center;"><%= dividend(history.amount) %><span>%</span></td>
                                     <td style="text-align: center;">$<%= history.amount %></td>
                                     <td style="text-align: center;">
                                        <a class='btn btn-shadow btn-primary deposit1'  href="#smart-modal-deposit" data-toggle="modal" data-id="<%= history.id %>">Deposit</a> 
@@ -51,8 +51,8 @@
                               </tbody>
                            </table>
                            <div>
-<a class='btn btn-shadow btn-primary deposit'  href="#smart-modal-deposit-account" data-toggle="modal">Deposit</a>
-</div>
+                        <a class='btn btn-shadow btn-primary deposit'  href="#smart-modal-deposit-account" data-toggle="modal">Deposit</a>
+                        </div>
                            <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
                               <li style="float: left;" data-bind="css: { disabled: items.isFirstPage() }" class="previous disabled">
                                  <a href="#" aria-label="First" data-bind="click: items.toFirstPage">

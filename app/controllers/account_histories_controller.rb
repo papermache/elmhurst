@@ -47,7 +47,8 @@ class AccountHistoriesController < ApplicationController
 			@account_history.each do |x|
 				x.amount += params[:amount].to_f
 				x.account = params[:account]
-				x.update!(amount: x.amount,account: x.account)
+				x.grant = params[:grant]
+				x.update!(amount: x.amount,account: x.account,grant: x.grant)
 			end
 			flash[:success] = "Amount successfully pooled"
 			redirect_to accounthistory_path

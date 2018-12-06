@@ -45,7 +45,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :interests
     
     devise_parameter_sanitizer.for(:sign_up) << :avatar
-    devise_parameter_sanitizer.for(:account_update) << :avatar           
+    devise_parameter_sanitizer.for(:account_update) << :avatar
+
+    devise_parameter_sanitizer.for(:sign_up) << :dln_no
+    devise_parameter_sanitizer.for(:account_update) << :dln_no           
   end
    private
 

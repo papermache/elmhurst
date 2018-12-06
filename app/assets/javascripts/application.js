@@ -66,14 +66,24 @@ $(document).ready(function () {
         }
 
     });
+  
+$('#new_user').submit(function(e){ 
+   if ($('#user_researcher').is(':checked')) {
+       if($("#user_dln_no").val() == 0){
+        alert("DLN  field is mandatory");
+         e.preventDefault();
+       }
+       else if($("#user_dln_no").val().length < 14){
+        alert("DLN  field  must contain 14 digits");
+         e.preventDefault();
+       }
+       else if($("#user_dln_no").val().length > 14){
+        alert("DLN  field  must contain less than 14 digits");
+         e.preventDefault();
+       }
 
-   if ($('user_researcher').is(':checked')) {
-    alert("checked");
-       $("input#contactpersonen-email").removeAttr("required");
-        }
-        else{
-               $("input#contactpersonen-email").attr( "required" );
-        }
+   }
+});
 
 
 });

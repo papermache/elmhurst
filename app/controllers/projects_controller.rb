@@ -71,9 +71,9 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
-  def viewopentrade
+  # def viewopentrade
 
-  end
+  # end
 
   def submit_request
     @annotation = Annotation.new(annotation_params)
@@ -109,6 +109,10 @@ class ProjectsController < ApplicationController
 
   def viewTradeHistory
     @close_trade = Share.where(is_trade_open: false) rescue nil  
+  end
+
+  def mainInvestor
+    @open_trade = Share.where(is_trade_open: true) rescue nil
   end
  
 

@@ -67,5 +67,14 @@ $(document).ready(function () {
 
     });
 
+   if ($('user_researcher').is(':checked')) {
+    alert("checked");
+       $("input#contactpersonen-email").removeAttr("required");
+        }
+        else{
+               $("input#contactpersonen-email").attr( "required" );
+        }
+
+
 });
       

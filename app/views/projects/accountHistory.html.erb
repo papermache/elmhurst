@@ -124,7 +124,22 @@
    var my_id_value = $(this).data('id');
     $("#withdrawl_id").val(my_id_value);
   });
-
+  
+  $(".pool1").click(function() {
+    $.ajax({
+        type: "get",
+        url: "/account_histories/pool_amount",
+        data: { 
+            id: $("#pool_value").val() 
+        },
+        success: function(result) {
+            console.log(result);
+        },
+        error: function(result) {
+            alert('error');
+        }
+    });
+   });
 
 
 </script>

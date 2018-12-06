@@ -45,10 +45,9 @@ class AccountHistoriesController < ApplicationController
 		@account_history = AccountHistory.where(id: params[:value].split(","))
 		if @account_history.present?
 			@account_history.each do |x|
-				x.amount += params[:amount].to_f
-				x.account = params[:account]
+				x.amount = params[:amount].to_f
 				x.grant = params[:grant]
-				x.update!(amount: x.amount,account: x.account,grant: x.grant)
+				x.update!(amount: x.amount,grant: x.grant)
 			end
 			flash[:success] = "Amount successfully pooled"
 			redirect_to accounthistory_path
@@ -57,6 +56,14 @@ class AccountHistoriesController < ApplicationController
 			redirect_to accounthistory_path
 		end
 
+	end
+
+	def pool_amount
+      @account_history = AccountHistory.where(id: params[:id].split(","))
+	  @balance = 0.0
+	    @account_history.each do |x|
+          @balance += x.amount.to_f 
+        end 
 	end
 
 	private

@@ -21,7 +21,7 @@
         .row
           .col-sm-6
             = f.check_box  :researcher, autofocus: true  , class: "label_radio col-lg-6 col-sm-6"
-            = f.label :researcher
+            = f.label :nonprofit
             
           .col-sm-6
             
@@ -30,8 +30,12 @@
 
         .form-group
          
+          = f.password_field :dln_no, class: "form-control" , placeholder: "DLN No. "    
+
+        .form-group
+         
           = f.password_field :password, class: "form-control" , placeholder: "Password "
         .form-group
           = f.password_field :password_confirmation, class: "form-control", placeholder: "Re-type Password "
         = f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-lg btn-login btn-block"
-//user.company.errors.full_messages
+//user.company.errors.full_message

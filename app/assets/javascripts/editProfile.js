@@ -27,9 +27,7 @@ var projectsViewModelOperation = {
         self.email = ko.observable("")
         self.first_name = ko.observable("");
         self.last_name = ko.observable("");
-        self.university = ko.observable("");
-        self.department = ko.observable("")
-        self.interests = ko.observable("");
+        self.address = ko.observable("");
         self.encrypted_password = ko.observable("");
         self.reset_password_token = ko.observable("");
 
@@ -44,9 +42,7 @@ var projectsViewModelOperation = {
                     email: self.email(),
                     first_name: self.first_name(),
                     last_name: self.last_name(),
-                    university: self.university(),
-                    department: self.department(),
-                    interests: self.interests(),
+                    address: self.interests(),
                     encrypted_password :self.encrypted_password(),
                     reset_password_token :self.reset_password_token()
                 } ,
@@ -99,10 +95,7 @@ self.getUser = ko.observable("");
                 projectViewModel.email( details.email) 
                 projectViewModel.first_name( details.first_name) 
                 projectViewModel.last_name( details.last_name) 
-                projectViewModel.university( details.university) 
-                projectViewModel.department( details.department) 
-                projectViewModel.interests( details.interests) 
-                projectViewModel.university( details.university) 
+                projectViewModel.address( details.address)
 
             }
         });

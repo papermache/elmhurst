@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'alertifyjs-rails'
 gem 'clockwork'
+gem 'will_paginate'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -55,7 +56,6 @@ gem 'haml-rails'
 gem 'tzinfo-data'
 
 
-gem 'will_paginate'
 
 #gem 'heroku'
 # gem "httparty"

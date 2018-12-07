@@ -1,0 +1,238 @@
+[33mcommit ad19f053fa43f99e8513b904e1e6360566a6d0f8[m
+Author: amit.dhoundiyal <ro-amit@mobiloitte.com>
+Date:   Tue Nov 13 13:19:56 2018 +0530
+
+    Changes Upload on Aws
+
+[33mcommit 1ad68ca9dae6d9c7545905b24e5c7f597082c8b6[m
+Author: amit.dhoundiyal <ro-keshav@mobiloitte.com>
+Date:   Mon Nov 12 11:30:37 2018 +0530
+
+    Final Code
+
+[33mcommit 1830d5314d45b7d8620bf7e4e1eea60cd8263a3f[m
+Merge: 675d518 0631076
+Author: kunal singh <ro-kunal@mobiloitte.com>
+Date:   Tue Nov 6 17:52:48 2018 +0530
+
+    Merge branch 'master' of https://git.mobiloitte.com/root/rordeveloperrequired-18103399-ror
+
+[33mcommit 063107654d308b8a90400008fd1326a11b4e8048[m
+Author: root <root@example.com>
+Date:   Tue Nov 6 16:30:44 2018 +0530
+
+    add README
+
+[33mcommit 675d5186ab4737397c51578b4841b9d0c879f795[m
+Author: yaodev778 <davidruizy1983@yandex.com>
+Date:   Fri Oct 12 16:12:18 2018 +0200
+
+    Host ip changed
+
+[33mcommit 094f4a2e397e7c670541260cb67afe78aa222189[m
+Author: yaodev778 <davidruizy1983@yandex.com>
+Date:   Tue Oct 9 08:12:49 2018 +0200
+
+    Project => Affiliate
+
+[33mcommit ceaf2f8dd312bde6e383f199cebe0d74679bab23[m
+Author: yaodev778 <davidruizy1983@yandex.com>
+Date:   Wed Sep 19 20:12:55 2018 +0200
+
+    9.20
+
+[33mcommit b1ae1bb5d9684f1c0c53ee394d68b84e7b4cc7c1[m
+Author: yaodev778 <davidruizy1983@yandex.com>
+Date:   Sun Sep 16 06:44:16 2018 +0200
+
+    Gemfile modified
+
+[33mcommit 97b061ba853181a3a78ba1bfeb377e0de9f68aab[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Thu Nov 9 11:43:14 2017 +0800
+
+    Add a gem file 'rack-cors'
+
+[33mcommit 8c0c5efb0a6667e8f9b954653b2a4c3912759e22[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Thu Nov 9 11:29:30 2017 +0800
+
+    Configured CORS
+
+[33mcommit 69bd338a34ceff40529ad9801cf5a8a2ff56f25a[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Fri Oct 13 17:13:34 2017 +0800
+
+    10.13 updated
+
+[33mcommit ea8665f627b79e41a8a68557ea2020ba2190b17f[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Thu Oct 12 12:22:49 2017 +0800
+
+    url
+
+[33mcommit 005e7dcb0e6d8d8406cf6962892b9541bd943b9b[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Thu Oct 12 12:21:54 2017 +0800
+
+    Bug fixed
+
+[33mcommit d6529112eb49373e50d2fb20f2fbe588dcf5582d[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Tue Oct 3 18:04:06 2017 +0800
+
+    Routing issue
+
+[33mcommit 82e3db11f9bc70e2e3c66989001991cbc77dd8c0[m
+Author: RRR.tg <davidruizy1983@yandex.com>
+Date:   Tue Oct 3 14:17:04 2017 +0800
+
+    Dynamic chart
+
+[33mcommit 39492fae12c0fedbb6c85f60a4f0905a246e4adf[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Thu Aug 3 23:45:11 2017 -0400
+
+    Update annotation1
+
+[33mcommit 639cbc43badba55b7c6ed00c524df679ad9c1be0[m
+Merge: e4fbb50 84b0c6c
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Tue Aug 1 12:20:28 2017 -0400
+
+    Merge pull request #7 from yaodev778/master
+    
+    USD/BTC invert BTC/USD
+
+[33mcommit e4fbb5036bfd4623e84957f3c0763988da049a92[m
+Merge: ad86aba dcd4022
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Mon Jul 31 19:29:43 2017 +0800
+
+    Merge pull request #6 from wd1/mybranch
+    
+    Mybranch
+
+[33mcommit dcd40225aae8c042f52faa987d76ccfd0a9a8f05[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Mon Jul 31 07:25:02 2017 -0400
+
+    Update P/L
+
+[33mcommit fb565949012d185ba49020a7350d0b4fdd1e8c76[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Mon Jul 31 02:19:45 2017 -0400
+
+    Update P/L
+
+[33mcommit 84b0c6c0fa38cdba62ade614e91933401641e240[m
+Author: kkh778 <goldrush778@yandex.com>
+Date:   Fri Jul 21 19:43:46 2017 +0800
+
+    USD/BTC invert BTC/USD
+
+[33mcommit ad86aba3b53cb651346661d0ef00442858ff0811[m
+Merge: 2fd0592 7e4e5bd
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Mon Jun 26 10:15:24 2017 -0400
+
+    Merge pull request #5 from wd1/mybranch
+    
+    Link to google sheet
+
+[33mcommit 7e4e5bd7a04e5fe8565428249c7e514b7ca3d0d6[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Mon Jun 26 10:13:14 2017 -0400
+
+    Link to google sheet
+
+[33mcommit 2fd059268d35ac9178e476a1c0a137db027e7120[m
+Merge: 90e5c43 e809b2b
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Sun Jun 25 22:43:00 2017 -0400
+
+    Merge pull request #4 from wd1/mybranch
+    
+    Mybranch
+
+[33mcommit e809b2b26affe7a40821f9d4e37811893d702a72[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Sun Jun 25 22:38:59 2017 -0400
+
+    Chart update
+
+[33mcommit cb3eef13fc99aa39703533c86bf2ffd10f56feda[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 10:59:16 2017 -0400
+
+    Investor-Account UI change
+
+[33mcommit 55670e5a663c69d06910604d3b72203b5f6d23c7[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 10:49:07 2017 -0400
+
+    Update profile link
+
+[33mcommit 00d91f29311e74df3deb6b04c272981bd8f10ec7[m
+Merge: 2847b52 91a3534
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 10:34:38 2017 -0400
+
+    Update Investor Tab
+
+[33mcommit 90e5c439cc2b64520b77183c7fca9e9c2aa6e216[m
+Merge: c113954 91a3534
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 09:12:54 2017 -0400
+
+    Merge pull request #3 from wd1/mybranch
+    
+    Mybranch
+
+[33mcommit 2847b52d7b535d92fffd7e15e03407ca2f3a439c[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 09:05:31 2017 -0400
+
+    update1
+
+[33mcommit 61e9ecb17b0e9140491a814109e2fb0a6d25bbb0[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 08:55:01 2017 -0400
+
+    AAA
+
+[33mcommit 91a3534d572eb8656d2a9b520f4ad7b5c561c0ee[m
+Merge: 2059349 c113954
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 08:21:58 2017 -0400
+
+    Merge pull request #2 from wd1/master
+    
+    Merge pull request #1 from wd1/mybranch
+
+[33mcommit 20593499ce5bb2d587e7b2c94bc043477e11eecf[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Fri Jun 23 08:19:45 2017 -0400
+
+    Update 6.23
+
+[33mcommit c113954d26864bbc3375b65763d7413587056c53[m
+Merge: 0943a7e 926a93e
+Author: WD1 <wd1ror1@yahoo.com>
+Date:   Tue Jun 20 21:02:15 2017 -0400
+
+    Merge pull request #1 from wd1/mybranch
+    
+    Update1
+
+[33mcommit 926a93e8903cac3710df4c632b07c5b241f0a7b9[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Tue Jun 20 20:52:22 2017 -0400
+
+    Update1
+
+[33mcommit 0943a7e09ec9ce9b5ed481f81ba8101d71c76cb5[m
+Author: wd1 <wd1ror1@yahoo.com>
+Date:   Tue May 30 05:43:45 2017 -0400
+
+    My first commit

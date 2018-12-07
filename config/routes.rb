@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post :deposit
       post :withdraw
       post :pool
+      get :pool_amount
     end 
   end
   #resources :investor

@@ -34,9 +34,7 @@ module Api
          :email => params[:email], 
          :first_name =>params[:first_name] , 
          :last_name =>params[:last_name] ,
-         :university =>params[:university] ,
-          :department=>params[:department] ,
-          :interests=>params[:interests] ,
+          :address=>params[:address] ,
           :encrypted_password =>params[:encrypted_password],
           :reset_password_token => params[:reset_password_token]
            )

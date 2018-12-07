@@ -27,9 +27,7 @@ var projectsViewModelOperation = {
         self.email = ko.observable("")
         self.first_name = ko.observable("");
         self.last_name = ko.observable("");
-        self.university = ko.observable("");
-        self.department = ko.observable("")
-        self.interests = ko.observable("");
+        self.address = ko.observable("");
         self.encrypted_password = ko.observable("");
         self.reset_password_token = ko.observable("");
 

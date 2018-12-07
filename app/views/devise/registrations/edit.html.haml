@@ -55,22 +55,11 @@
                         = f.text_field :last_name, autofocus: true, class: "form-control", :placeholder => "User Last Name"
                         %span.field-icon
                           %i.icon-user
-                    .col-lg-6 
-                      .form-group.prepend-icon     
-                        = f.label :university
-                        = f.text_field :university, autofocus: true, class: "form-control", :placeholder => "User University"
-                        %span.field-icon
-                          %i.icon-book
-                      .form-group.prepend-icon   
-                        = f.label :department
-                        = f.text_field :department, autofocus: true, class: "form-control", :placeholder => "User Department"
-                        %span.field-icon
-                          %i.icon-sitemap
                
                   .col-lg-13      
                     .form-group.prepend-icon 
-                      = f.label :interests
-                      = f.text_area :interests, autofocus: true, rows: '5', class: "form-control" , :placeholder => "User Interests"
+                      = f.label :address
+                      = f.text_area :address, autofocus: true, rows: '5', class: "form-control" , :placeholder => "User Address"
                       %span.field-icon
                         %i.icon-star
                                  

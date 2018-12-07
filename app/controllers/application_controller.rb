@@ -35,14 +35,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :investor
     devise_parameter_sanitizer.for(:account_update) << :investor
 
-    devise_parameter_sanitizer.for(:sign_up) << :university
-    devise_parameter_sanitizer.for(:account_update) << :university 
 
-    devise_parameter_sanitizer.for(:sign_up) << :department
-    devise_parameter_sanitizer.for(:account_update) << :department 
-
-    devise_parameter_sanitizer.for(:sign_up) << :interests
-    devise_parameter_sanitizer.for(:account_update) << :interests
+    devise_parameter_sanitizer.for(:sign_up) << :address
+    devise_parameter_sanitizer.for(:account_update) << :address
     
     devise_parameter_sanitizer.for(:sign_up) << :avatar
     devise_parameter_sanitizer.for(:account_update) << :avatar

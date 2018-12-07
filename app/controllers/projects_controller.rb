@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @project = Project.find_by_id(params[:id])
   end
 
   # GET /projects/new
@@ -113,6 +114,10 @@ class ProjectsController < ApplicationController
 
   def mainInvestor
     @open_trade = Share.where(is_trade_open: true) rescue nil
+  end
+
+  def mainResearcher
+    @project = Project.all.paginate(:page => params[:page], :per_page => 10).order('id DESC')
   end
  
 

@@ -15,7 +15,7 @@
                                     </div>
                                     <div class="form-group prepend-icon">
                                         <label for="Project_Description" >Affiliate User</label>
-                                        <p><%= @project.authors.last.first_name + ' ' + @project.authors.last.last_name %></p>
+                                        <p><%= @project&.authors&.last.first_name  + ' ' + @project.authors&.last&.last_name if @project.authors.present? %></p>
                                     </div>
                                      <div class="form-group prepend-icon">
                                         <label for="Project_Description" >Affiliate Description</label>

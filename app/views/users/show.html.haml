@@ -6,9 +6,7 @@
 
 - if @user.researcher?
 
-  %h3= @user.university
-  .text-muted= @user.department
-  %p= @user.interests
+  %p= @user.address
 
   %h3 Author of:
   - @user.authored_projects.each do |project|

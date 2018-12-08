@@ -245,6 +245,8 @@
                                 fontWeight: 'bold'
                               },
                               formatter: function() {
+                                a = this.point.series.userOptions.data;
+                                console.log(a);
                                 var i;
                                 for (i = 0; i < a.length; i++) {
                                    return a[i][5] + '<br>' + a[i][6] + '<br>' + '$' + a[i][7] + '<br>' + a[i][8]

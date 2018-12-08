@@ -54,7 +54,7 @@
                      <div class="form-header header-primary chart">
                         <h4>
                            <i class="fa fa-bar-chart"></i>
-                           AAPL/ELM
+                           Charts
                         </h4>
                      </div>
                      <form id="form-ui" action="" method="post">
@@ -211,8 +211,12 @@
            type: "GET",
            dataType: 'json',
            success: function(result){
+               console.log(result);
                var annot = result.fulfilled_avg;
                unfulfilled_requests = annot;
+   
+               console.log(unfulfilled_requests)
+               console.log(annot);
                drawChart(unfulfilled_requests);
               
            }});
@@ -226,30 +230,15 @@
                                chart: {
                                marginTop: 50
                            },
-
+   
+                       title: {
+                           text: 'AAPL/ELM'
+                       },
                         rangeSelector: {
                            enabled: true,
                            selected: 1,
                            inputEnabled: false
                            },
-                           tooltip: {
-                              split: false,
-                              shared: false,
-                              shadow: false,
-                              shape: 'square',
-                              backgroundColor: '#ffffff',
-                              borderColor: '#000000',
-                              borderWidth: 1.5,
-                              padding: 2,
-                              style: {
-                                fontWeight: 'bold'
-                              },
-                              formatter: function() {
-                                console.log(data);
-                                return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name
-                                
-                              }
-                          },
                        series: [{
                            type: 'candlestick',
                            name: 'AAPL/ELM',

@@ -245,11 +245,8 @@
                                 fontWeight: 'bold'
                               },
                               formatter: function() {
-                                var i;
                                 console.log(data);
-                                for (i = 0; i < data.length; i++) {
-                                    return data[i][5] + '<br>' + '$' + data[i][6] + '<br>' +  data[i][7] + '<br>' + data[i][8]
-                                }
+                                return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name
                                 
                               }
                           },

@@ -33,22 +33,22 @@ module Api
           end
             @graph = Graph.all.pluck(:graph_data,:created_at,:item_name,:item_price,:vendor,:user) rescue nil
             @graph.each_with_index do |val,index|
-              local_array2=[]
+              local_array2={}
                arr = @graph.take(index+1).last[1].to_i
                arr1 = @graph.take(index+1).last[2]
                arr2 = @graph.take(index+1).last[3].to_f
                arr3 = @graph.take(index+1).last[4]
                arr4 = @graph.take(index+1).last[5]
                transpose = @graph.take(index+1).transpose.first
-               local_array2 << arr
-               local_array2 << transpose.first
-               local_array2 << transpose.max
-               local_array2 << transpose.min
-               local_array2 << transpose.last
-               local_array2 << arr1
-               local_array2 << arr2
-               local_array2 << arr3
-               local_array2 << arr4
+               local_array[:x] = arr
+               local_array[:open] = transpose.first
+               local_array[:high] = transpose.max
+               local_array[:low] = transpose.min
+               local_array2[:close] = transpose.last
+               local_array[:name] = arr1
+               local_array[:price] = arr2
+               local_array[:cat1] = arr3
+               local_array[:cat2] = arr4
                fulfilled_avg << local_array2
             end
            p "Fullfilled avg is===> #{fulfilled_avg}"

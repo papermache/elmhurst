@@ -211,23 +211,8 @@
            type: "GET",
            dataType: 'json',
            success: function(result){
-               //console.log(result);
                var annot = result.fulfilled_avg;
-               unfulfilled_requests = [
-                             [
-                                1481293800000,
-                                112.31,
-                                114.7,
-                                112.31,
-                                113.95,
-                                "amit",
-                                "Benjamin",
-                                1232,
-                                "Developer"
-                            ]];
-   
-               //console.log(unfulfilled_requests)
-               //console.log(annot);
+               unfulfilled_requests = annot;
                drawChart(unfulfilled_requests);
               
            }});
@@ -260,14 +245,9 @@
                                 fontWeight: 'bold'
                               },
                               formatter: function() {
-                                a = this.point.series.userOptions.data;
-                                console.log("the data is======>",this.point.series.userOptions.data);
-                                console.log("the length of data is======>",a.length);
-
                                 var i;
                                 for (i = 0; i < a.length; i++) {
-                                  console.log(a[i]);
-                                   return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name
+                                   return a[i][5] + '<br>' + a[i][6] + '<br>' + '$' + a[i][7] + '<br>' + a[i][8]
                                 }
                                 
                               }

@@ -246,12 +246,11 @@
                               },
                               formatter: function() {
                                 var i;
-                                var finalData = [];
+                                console.log(data);
                                 for (i = 0; i < data.length; i++) {
-                                  var x = data[i][5] + '<br>' + '$' + data[i][6] + '<br>' +  data[i][7] + '<br>' + data[i][8];
-                                  finalData.push(x);
+                                    return data[i][5] + '<br>' + '$' + data[i][6] + '<br>' +  data[i][7] + '<br>' + data[i][8]
                                 }
-                                return finalData;
+                                
                               }
                           },
                        series: [{

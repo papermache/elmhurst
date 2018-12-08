@@ -40,15 +40,15 @@ module Api
                arr3 = @graph.take(index+1).last[4]
                arr4 = @graph.take(index+1).last[5]
                transpose = @graph.take(index+1).transpose.first
-               local_array[:x] = arr
-               local_array[:open] = transpose.first
-               local_array[:high] = transpose.max
-               local_array[:low] = transpose.min
+               local_array2[:x] = arr
+               local_array2[:open] = transpose.first
+               local_array2[:high] = transpose.max
+               local_array2[:low] = transpose.min
                local_array2[:close] = transpose.last
-               local_array[:name] = arr1
-               local_array[:price] = arr2
-               local_array[:cat1] = arr3
-               local_array[:cat2] = arr4
+               local_array2[:name] = arr1
+               local_array2[:price] = arr2
+               local_array2[:cat1] = arr3
+               local_array2[:cat2] = arr4
                fulfilled_avg << local_array2
             end
            p "Fullfilled avg is===> #{fulfilled_avg}"

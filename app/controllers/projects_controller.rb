@@ -113,11 +113,11 @@ class ProjectsController < ApplicationController
   end
 
   def mainInvestor
-    @open_trade = Share.where(is_trade_open: true).paginate(:page => params[:page], :per_page => 10).order('id DESC') rescue nil
+    @open_trade = Share.where(is_trade_open: true).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
   end
 
   def mainResearcher
-    @project = Project.all.paginate(:page => params[:page], :per_page => 10).order('id DESC')
+    @project = Project.all.paginate(:page => params[:page], :per_page => 4).order('id DESC')
   end
  
 

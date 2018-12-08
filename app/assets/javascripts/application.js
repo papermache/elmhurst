@@ -74,11 +74,11 @@ $('#new_user').submit(function(e){
          e.preventDefault();
        }
        else if($("#user_dln_no").val().length < 14){
-        alert("DLN  number field  must contain 14 digits.");
+        alert("DLN  number field  must be equal to 14 digits.");
          e.preventDefault();
        }
        else if($("#user_dln_no").val().length > 14){
-        alert("DLN number   field  must contain less than 14 digits.");
+        alert("DLN number   field  must be less than 14 digits.");
          e.preventDefault();
        }
 

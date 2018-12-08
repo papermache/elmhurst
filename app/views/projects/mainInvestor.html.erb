@@ -54,7 +54,7 @@
                      <div class="form-header header-primary chart">
                         <h4>
                            <i class="fa fa-bar-chart"></i>
-                           Charts
+                           AAPL/ELM
                         </h4>
                      </div>
                      <form id="form-ui" action="" method="post">
@@ -211,12 +211,23 @@
            type: "GET",
            dataType: 'json',
            success: function(result){
-               console.log(result);
+               //console.log(result);
                var annot = result.fulfilled_avg;
-               unfulfilled_requests = annot;
+               unfulfilled_requests = [
+                             [
+                                1481293800000,
+                                112.31,
+                                114.7,
+                                112.31,
+                                113.95,
+                                "amit",
+                                "Benjamin",
+                                1232,
+                                "Developer"
+                            ]];
    
-               console.log(unfulfilled_requests)
-               console.log(annot);
+               //console.log(unfulfilled_requests)
+               //console.log(annot);
                drawChart(unfulfilled_requests);
               
            }});
@@ -230,10 +241,7 @@
                                chart: {
                                marginTop: 50
                            },
-   
-                       title: {
-                           text: 'AAPL/ELM'
-                       },
+
                         rangeSelector: {
                            enabled: true,
                            selected: 1,
@@ -252,7 +260,16 @@
                                 fontWeight: 'bold'
                               },
                               formatter: function() {
-                                return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name
+                                a = this.point.series.userOptions.data;
+                                console.log("the data is======>",this.point.series.userOptions.data);
+                                console.log("the length of data is======>",a.length);
+
+                                var i;
+                                for (i = 0; i < a.length; i++) {
+                                  console.log(a[i]);
+                                   return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name
+                                }
+                                
                               }
                           },
                        series: [{

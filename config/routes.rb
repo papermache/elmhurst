@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   #Researcher
   get '/editProject' => 'projects#edit'
   get '/new' => 'projects#new'
-  get '/researcher_detail/id*:id' => 'projects#researchertDetail'
+  get '/researcher_detail/id*:id' => 'projects#researchertDetail',as: "researchertDetail"
 
   #Investor
   get '/investor_detail/id*:id'=> 'projects#investor_projectDetail'

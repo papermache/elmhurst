@@ -17,7 +17,7 @@ module Api
     		            x.update(item_price_dup: 0)
     		            local_array1 << x.Item_Price
                     item_price = x.Item_Price
-    		            item_name = x.Item_name
+    		            item_name = x.Item_Name
                     item_merchant = x.Merchant_Name
                     item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).first_name 
                     p "local array is #{local_array1}"

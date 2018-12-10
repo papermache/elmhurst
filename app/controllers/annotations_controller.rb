@@ -10,6 +10,7 @@ class AnnotationsController < ApplicationController
         @annotation.date = params["date"]
       end
       @annotation.item_price_dup = params[:Item_Price]
+       @annotation.annotation_creator_id = current_user.id
       if @annotation.save!
         flash[:success] = "Request Submit Successfully"
         redirect_to root_path

@@ -98,6 +98,7 @@ class ProjectsController < ApplicationController
 
   def researchertDetail
     @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title) rescue nil
+    @member = Project.find_by_id(params[:id]).members rescue nil
   end
 
   def accountHistory

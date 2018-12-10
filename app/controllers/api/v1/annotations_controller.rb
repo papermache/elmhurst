@@ -20,6 +20,10 @@ module Api
     		            item_name = x.Item_Name
                     item_merchant = x.Merchant_Name
                     item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).first_name 
+                    p "Item price  is #{item_price}"
+                    p "Item name is #{item_name}"
+                    p "Item merchant is #{item_merchant}"
+                    p "Item user is #{item_user}"
                     p "local array is #{local_array1}"
     	              @share.update(investment_principal_dup: investment_principal)
     		           Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),item_name: item_name,item_price: item_price,vendor: item_merchant,user: item_user)

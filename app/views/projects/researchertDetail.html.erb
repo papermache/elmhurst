@@ -1,156 +1,148 @@
 <section id="main-content">
-               <section class="wrapper">
-                    <div id="projectDetailsViewModel">
-                        <div class="row state-overview">
-                            <div class="col-md-6 ">
-                                <section class="panel">
-                                    <div class="symbol terques small-symbol">
-                                        <i class="icon-file"></i>
-                                    </div>
-                                    <div  data-bind="foreach: projects" class="value small-value">
-                                        <h1 class="count"><%= find_project_title %></h1>
-                                                 <div class="row ">
-                                           <p data-bind="foreach: project.authors" >Created by 
-                                           <a ><%= current_user.first_name + current_user.last_name %>
-                                           </a></p> 
-                                            <span data-bind="text: project.created_at"><%= find_project_created_at  %></span>
-                                        </div>
-                                     
-                                        
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-3 ammount">
-                                <section class="panel">
-                                    <div class="ammount-head">
-                                        <h5>Request amount</h5>
-                                    </div>
-                                    <footer class="ammount-footer">
-                                        <h4>$<%= item_price_sum %></h4>
-                                    </footer>
-                                </section>
-                            </div>
-                            <div class="col-md-3 ammount">
-                                <section class="panel">
-                                    <div class="ammount-head">
-                                        <h5>Purchasing Power</h5>
-                                    </div>
-                                    <footer class="ammount-footer">
-                                        <h4>$<%= purchasing_power %></h4>
-                                    </footer>
-                                </section>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <section class="panel">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div data-bind="foreach: projects" class="col-md-8">
-                                                <h4>Project Description</h4>
-                                                <p data-bind="text: project.description"><%= project_description %></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <h4>Project Members</h4>
-
-                                                <ul class="list-group">
-                                                    <div  data-bind="foreach: projects">
-                                                        <table class="list-group-item" data-bind="foreach: project.members" >
-                                                            <tr>
-                                                            <td data-bind="text: first_name + last_name"></td></tr>
-                                                        </table>
-                                                    </div>
-                                                                                     
-                                                    <li class="list-group-item" style="margin-top: -2px;">
-                                                        <div class="row">
-                                                            <div class="col-xs-12">
-                                                                <button class="btn btn-white btn-block" onclick=" postMember()"><i class="icon-plus"></i> Add a Member </button>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                        <div>
- 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <section class="panel">
-
-                                    <header class="panel-heading">
-                                        Project Requests
-                                        <a  href="/request" style="margin-left: 790px;width: 100px;" class="btn btn-white request">
-                                  <i class="icon-plus-sign"></i>
-                                   Request
-                              </a>
-                                    </header>
-                                    <div class="panel-body">
-                                        <div class="adv-table">
-                        
-                <table cellpadding="0" cellspacing="0"  class="display table" style="width: 100%; border:0 ">
-                                    <thead>
-                                        <tr>
-                                            <th  style="width: 20%;  text-align: center;">Item</th>
-                                            <th  style="width: 15%;  text-align: center;">Amount</th>
-                                            <th  style="width: 11%;  text-align: center;">Full Fill</th>
-                                            <th  style="width: 22%;  text-align: center;">Date</th>
-                                        </tr>
-                                    </thead>  
-                                      <tbody >
-                                            <% @annotation.each do |annotation| %>
-                                                    <tr>
-                                                        <td style="width: 22%; text-align: center;">
-                                                        <%= annotation.Item_Name %></td>
-                                                        <td  style="width: 25%; text-align: center;" data-bind="text: items.itemName"> <%= annotation.Item_Price %></td>
-                                                        <td  style="width: 20%; text-align: center;" data-bind="text: items.filledAmountUSD"><%= annotation.date.strftime("%d/%m/%Y") %></td>
-                                                        <td  style="width: 15%; text-align: center;" text-align: center; data-bind="text: items.priceUSD"><%= annotation.created_at.strftime("%d/%m/%Y") %></td>
-                                                    </tr>
-                                
-                                                    <% end if @annotation.present? %>
-                                                </tbody>
-
-
-                                </table>
-                                    <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
-
-                                        <li style="float: left;" data-bind="css: { disabled: request_Items.isFirstPage() }" class="previous disabled">
-                                            <a href="#" aria-label="First" data-bind="click: request_Items.toFirstPage">
-                                                First
-                                            </a>
-                                        </li>
-                                        <li style="float: left;" data-bind="css: { disabled: !request_Items.hasPreviousPage() }" class="previous disabled">
-                                            <a href="#" aria-label="Previous" data-bind="click: request_Items.toPreviousPage">
-                                                Previous
-                                            </a>
-                                        </li>
-                                        <!-- ko foreach: request_Items.pages -->
-                                        <li style="float: left;" data-bind="css: { active: $data == $parent.request_Items.pageNumber() }">
-                                            <a href="#" data-bind="text: $data, click:  $parent.request_Items.pageNumber.bind($data)"></a>
-                                        </li>
-                                        <!-- /ko -->
-                                        <li style="float: left;" data-bind="css: { disabled: !request_Items.hasNextPage() }" class="next disabled">
-                                            <a href="#" aria-label="Next" data-bind="click: request_Items.toNextPage">
-                                                Next
-                                            </a>
-                                        </li>
-                                        <li style="float: left;" data-bind="css: { disabled: request_Items.isLastPage() }" class="next disabled">
-                                            <a href="#" aria-label="Last" data-bind="click: request_Items.toLastPage">
-                                                Last
-                                            </a>
-                                        </li>
-                                    </ul>
-                                                                             </div>
-<script src="/assets/addMember.js"  type="text/javascript" /></script>
-
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+   <section class="wrapper">
+      <div id="projectDetailsViewModel">
+      <div class="row state-overview">
+         <div class="col-md-6 ">
+            <section class="panel">
+               <div class="symbol terques small-symbol">
+                  <i class="icon-file"></i>
+               </div>
+               <div  class="value small-value">
+                  <h1 class="count"><%= find_project_title %></h1>
+                  <div class="row ">
+                     <p>Created by 
+                        <a ><%= find_project_creator %>
+                        </a>
+                     </p>
+                     <span>created_at <%= find_project_created_at  %></span>
+                  </div>
+               </div>
             </section>
-         
+         </div>
+         <div class="col-md-3 ammount">
+            <section class="panel">
+               <div class="ammount-head">
+                  <h5>Request amount</h5>
+               </div>
+               <footer class="ammount-footer">
+                  <h4>$<%= item_price_sum %></h4>
+               </footer>
+            </section>
+         </div>
+         <div class="col-md-3 ammount">
+            <section class="panel">
+               <div class="ammount-head">
+                  <h5>Purchasing Power</h5>
+               </div>
+               <footer class="ammount-footer">
+                  <h4>$<%= purchasing_power %></h4>
+               </footer>
+            </section>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-xs-12">
+            <section class="panel">
+               <div class="panel-body">
+                  <div class="row">
+                     <div class="col-md-8">
+                        <h4>Project Description</h4>
+                        <p><%= project_description %></p>
+                     </div>
+                     <div class="col-md-4">
+                        <h4>Project Members</h4>
+                        <ul class="list-group">
+                           <div  data-bind="foreach: projects">
+                              <table class=list-group-item >
+                                 <% @member.each do |member|%>
+                                 <tr>
+                                    <td><%= member.first_name +' '+ member.last_name %></td>
+                                 </tr>
+                                 <% end if @member.present? %>
+                              </table>
+                           </div>
+                           <li class="list-group-item" style="margin-top: -2px;">
+                              <div class="row">
+                                 <div class="col-xs-12">
+                                    <button class="btn btn-white btn-block" onclick=" postMember()"><i class="icon-plus"></i> Add a Member </button>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+      </div>
+      <div>
+         <div class="row">
+            <div class="col-xs-12">
+               <section class="panel">
+                  <header class="panel-heading">
+                     Project Requests
+                     <a  href="/request" style="margin-left: 790px;width: 100px;" class="btn btn-white request">
+                     <i class="icon-plus-sign"></i>
+                     Request
+                     </a>
+                  </header>
+                  <div class="panel-body">
+                     <div class="adv-table">
+                        <table cellpadding="0" cellspacing="0"  class="display table" style="width: 100%; border:0 ">
+                           <thead>
+                              <tr>
+                                 <th  style="width: 20%;  text-align: center;">Item</th>
+                                 <th  style="width: 15%;  text-align: center;">Amount</th>
+                                 <th  style="width: 11%;  text-align: center;">Full Fill</th>
+                                 <th  style="width: 22%;  text-align: center;">Date</th>
+                              </tr>
+                           </thead>
+                           <tbody >
+                              <% @annotation.each do |annotation| %>
+                              <tr>
+                                 <td style="width: 22%; text-align: center;">
+                                    <%= annotation.Item_Name %>
+                                 </td>
+                                 <td  style="width: 25%; text-align: center;" data-bind="text: items.itemName"> <%= annotation.Item_Price %></td>
+                                 <td  style="width: 20%; text-align: center;" data-bind="text: items.filledAmountUSD"><%= annotation.date.strftime("%d/%m/%Y") %></td>
+                                 <td  style="width: 15%; text-align: center;" text-align: center; data-bind="text: items.priceUSD"><%= annotation.created_at.strftime("%d/%m/%Y") %></td>
+                              </tr>
+                              <% end if @annotation.present? %>
+                           </tbody>
+                        </table>
+                        <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
+                           <li style="float: left;" data-bind="css: { disabled: request_Items.isFirstPage() }" class="previous disabled">
+                              <a href="#" aria-label="First" data-bind="click: request_Items.toFirstPage">
+                              First
+                              </a>
+                           </li>
+                           <li style="float: left;" data-bind="css: { disabled: !request_Items.hasPreviousPage() }" class="previous disabled">
+                              <a href="#" aria-label="Previous" data-bind="click: request_Items.toPreviousPage">
+                              Previous
+                              </a>
+                           </li>
+                           <!-- ko foreach: request_Items.pages -->
+                           <li style="float: left;" data-bind="css: { active: $data == $parent.request_Items.pageNumber() }">
+                              <a href="#" data-bind="text: $data, click:  $parent.request_Items.pageNumber.bind($data)"></a>
+                           </li>
+                           <!-- /ko -->
+                           <li style="float: left;" data-bind="css: { disabled: !request_Items.hasNextPage() }" class="next disabled">
+                              <a href="#" aria-label="Next" data-bind="click: request_Items.toNextPage">
+                              Next
+                              </a>
+                           </li>
+                           <li style="float: left;" data-bind="css: { disabled: request_Items.isLastPage() }" class="next disabled">
+                              <a href="#" aria-label="Last" data-bind="click: request_Items.toLastPage">
+                              Last
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </section>
+            </div>
+         </div>
+      </div>
+   </section>
+</section>
+<script src="/assets/addMember.js"  type="text/javascript" /></script>

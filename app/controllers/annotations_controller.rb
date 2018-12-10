@@ -13,7 +13,7 @@ class AnnotationsController < ApplicationController
        @annotation.annotation_creator_id = current_user.id
       if @annotation.save!
         flash[:success] = "Request Submit Successfully"
-        redirect_to root_path
+        redirect_to researchertDetail_path(@annotation)
       else
         flash[:error] = "Request Submit Unsuccessful"
         redirect_to Register_path

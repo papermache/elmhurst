@@ -56,7 +56,7 @@
                               <table class=list-group-item >
                                  <% @member.each do |member|%>
                                  <tr>
-                                    <td><%= member.first_name +' '+ member.last_name %></td>
+                                    <td><%= member.first_name.capitalize + ' ' + member.last_name.capitalize %></td>
                                  </tr>
                                  <% end if @member.present? %>
                               </table>

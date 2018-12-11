@@ -16,8 +16,8 @@
    <li class="dropdown">
    <a  data-toggle="dropdown" class="dropdown-toggle" href="#">
    %span.username
-   = current_user.first_name
-   #{current_user.last_name}  
+   = current_user.first_name.capitalize
+   #{current_user.last_name.capitalize}  
    <b class="caret"></b>
    </a>
    <ul class="dropdown-menu extended logout">
@@ -91,8 +91,8 @@
    <li class="dropdown">
    <a   data-toggle="dropdown" class="dropdown-toggle" href="#">
    %span.username
-   = current_user.first_name
-   #{current_user.last_name}
+   = current_user.first_name.capitalize
+   #{current_user.last_name.capitalize}
    <b class="caret"></b>
    </a>
    <ul class="dropdown-menu extended logout">

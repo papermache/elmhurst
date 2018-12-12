@@ -12,8 +12,9 @@ class AnnotationsController < ApplicationController
       @annotation.item_price_dup = params[:Item_Price]
        @annotation.annotation_creator_id = current_user.id
       if @annotation.save!
+        @project = Project.find_by(title: @annotation.Project_Select)
         flash[:success] = "Request Submit Successfully"
-        redirect_to researchertDetail_path(@annotation)
+        redirect_to researchertDetail_path(@project)
       else
         flash[:error] = "Request Submit Unsuccessful"
         redirect_to Register_path

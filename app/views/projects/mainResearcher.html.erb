@@ -67,7 +67,7 @@
                                 </tbody>
                             </table>
                          <div class="digg_pagination">
-                           <%= will_paginate @project  %>
+                           <%= will_paginate @project rescue nil  %>
                          </div>   
                         </div>
                     </div>

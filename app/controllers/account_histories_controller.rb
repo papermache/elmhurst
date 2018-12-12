@@ -2,6 +2,7 @@ class AccountHistoriesController < ApplicationController
 
 	def create
 		@account_history = AccountHistory.new(account_history_params)
+		@account_history.user_id = current_user.id
 		if @account_history.save!
 			flash[:success] = "Account history saved successfully."
 			redirect_to accountHistory_path
@@ -16,6 +17,7 @@ class AccountHistoriesController < ApplicationController
 	  if @account_history.present?
 		  	@account_history.amount += params[:amount].to_f
 		  	@account_history.account = params[:account]
+		  	@account_history.user_id = current_user.id
 		  	@account_history.save!
 		  	flash[:success] = "Amount deposit successfully"
 		  	redirect_to accounthistory_path
@@ -31,6 +33,7 @@ class AccountHistoriesController < ApplicationController
 		  if @account_history.amount.present? && @account_history.amount >= params[:amount].to_f
 		  	@account_history.amount -= params[:amount].to_f
 		  	@account_history.account = params[:account]
+		  	@account_history.user_id = current_user.id
 		  	@account_history.save!
 		  	flash[:success] = "Amount withdrawl successfully"
 		  	redirect_to accounthistory_path
@@ -46,6 +49,7 @@ class AccountHistoriesController < ApplicationController
 		if @account_history.present?
 		  @account_history.first.amount = params[:amount].to_f
 		  @account_history.first.grant = params[:grant]
+		  @account_history.first.user_id = current_user.id
 		  @account_history.first.save!
           for i in 1..@account_history.length-1
             @account_history[i].delete

@@ -50,37 +50,13 @@
                                  <% end if @history.present? %>
                               </tbody>
                            </table>
-                           <div>
+                        <div>
                         <a class='btn btn-shadow btn-primary deposit'  href="#smart-modal-deposit-account" data-toggle="modal">Deposit</a>
                         </div>
-                           <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
-                              <li style="float: left;" data-bind="css: { disabled: items.isFirstPage() }" class="previous disabled">
-                                 <a href="#" aria-label="First" data-bind="click: items.toFirstPage">
-                                 First
-                                 </a>
-                              </li>
-                              <li style="float: left;" data-bind="css: { disabled: !items.hasPreviousPage() }" class="previous disabled">
-                                 <a href="#" aria-label="Previous" data-bind="click: items.toPreviousPage">
-                                 Previous
-                                 </a>
-                              </li>
-                              <!-- ko foreach: items.pages -->
-                              <li style="float: left;" data-bind="css: { active: $data == $parent.items.pageNumber() }">
-                                 <a href="#" data-bind="text: $data, click:  $parent.items.pageNumber.bind($data)"></a>
-                              </li>
-                              <!-- /ko -->
-                              <li style="float: left;" data-bind="css: { disabled: !items.hasNextPage() }" class="next disabled">
-                                 <a href="#" aria-label="Next" data-bind="click: items.toNextPage">
-                                 Next
-                                 </a>
-                              </li>
-                              <li style="float: left;" data-bind="css: { disabled: items.isLastPage() }" class="next disabled">
-                                 <a href="#" aria-label="Last" data-bind="click: items.toLastPage">
-                                 Last
-                                 </a>
-                              </li>
+                        <div class="digg_pagination">
+                           <%= will_paginate @history rescue nil  %>
+                         </div>
                         </div>
-                           </ul>
                      </div>
                   </section>
                </div>

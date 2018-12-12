@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
 
   has_many :projects
-
+  has_many :account_histories
   ## Validation             
 
   validates :first_name, presence: true 

@@ -110,33 +110,9 @@
                               <% end if @annotation.present? %>
                            </tbody>
                         </table>
-                        <ul class="pagination pagination-gap" style="display: inline-block; overflow: hidden; text-align: center; margin-bottom: 20px;">
-                           <li style="float: left;" data-bind="css: { disabled: request_Items.isFirstPage() }" class="previous disabled">
-                              <a href="#" aria-label="First" data-bind="click: request_Items.toFirstPage">
-                              First
-                              </a>
-                           </li>
-                           <li style="float: left;" data-bind="css: { disabled: !request_Items.hasPreviousPage() }" class="previous disabled">
-                              <a href="#" aria-label="Previous" data-bind="click: request_Items.toPreviousPage">
-                              Previous
-                              </a>
-                           </li>
-                           <!-- ko foreach: request_Items.pages -->
-                           <li style="float: left;" data-bind="css: { active: $data == $parent.request_Items.pageNumber() }">
-                              <a href="#" data-bind="text: $data, click:  $parent.request_Items.pageNumber.bind($data)"></a>
-                           </li>
-                           <!-- /ko -->
-                           <li style="float: left;" data-bind="css: { disabled: !request_Items.hasNextPage() }" class="next disabled">
-                              <a href="#" aria-label="Next" data-bind="click: request_Items.toNextPage">
-                              Next
-                              </a>
-                           </li>
-                           <li style="float: left;" data-bind="css: { disabled: request_Items.isLastPage() }" class="next disabled">
-                              <a href="#" aria-label="Last" data-bind="click: request_Items.toLastPage">
-                              Last
-                              </a>
-                           </li>
-                        </ul>
+                        <div class="digg_pagination">
+                           <%= will_paginate @annotation rescue nil  %>
+                         </div>
                      </div>
                   </div>
                </section>

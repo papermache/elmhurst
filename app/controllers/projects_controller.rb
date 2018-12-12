@@ -97,12 +97,18 @@ class ProjectsController < ApplicationController
 
 
   def researchertDetail
-    @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title) rescue nil
+    @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
     @member = Project.find_by_id(params[:id]).members rescue nil
   end
 
   def accountHistory
-    @history = AccountHistory.all.order('created_at ASC')  rescue nil
+    @history = [] 
+    AccountHistory.all.each do |x|
+      if x.user_id == current_user.id && current_user.researcher == true
+        @history << x
+      end
+    end
+    @history.paginate(:page => params[:page], :per_page => 1).order('created_at DESC')  rescue nil
   end
 
   def viewOpenTrade
@@ -117,8 +123,24 @@ class ProjectsController < ApplicationController
     @open_trade = Share.where(is_trade_open: true).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
   end
 
+  def researcherViewProjects
+    @project=[];
+    Project.all.each do |x|
+    if x.authors.last == current_user && current_user.researcher == true
+      @project << x    
+     end  
+    end    
+    @project.paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
+  end
+
   def mainResearcher
-    @project = Project.all.paginate(:page => params[:page], :per_page => 4).order('id DESC')
+    @project=[];
+    Project.all.each do |x|
+    if x.authors.last == current_user && current_user.researcher == true
+      @project << x    
+     end  
+    end    
+    @project.paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
   end
  
 

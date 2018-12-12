@@ -233,8 +233,8 @@
                                     var series = this.series[0];
                                     setInterval(function() {
 
-                                        var x = (new Date()).getTime();
-                                        if(index > unfulfilled_requests.length){
+                                        //var x = (new Date()).getTime();
+                                        if(index >= unfulfilled_requests.length){
                                             index = 0;
                                             return;
                                         }

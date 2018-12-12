@@ -234,13 +234,17 @@
                                     setInterval(function() {
 
                                     while (index < unfulfilled_requests.length) {
-                                        series.addPoint([
-                                        unfulfilled_requests[index]["x"]*1,
-                                        unfulfilled_requests[index]["open"]*1,
-                                        unfulfilled_requests[index]["high"]*1,
-                                        unfulfilled_requests[index]["low"]*1,
-                                        unfulfilled_requests[index]["close"]*1,
-                                        ], true, true);
+                                        series.addPoint([{
+                                        x: unfulfilled_requests[index]["x"]*1,
+                                        open:unfulfilled_requests[index]["open"]*1,
+                                        close: unfulfilled_requests[index]["high"]*1,
+                                        min: unfulfilled_requests[index]["low"]*1,
+                                        max: unfulfilled_requests[index]["close"]*1,
+                                        cat1: unfulfilled_requests[index]["cat1"],
+                                        cat2: unfulfilled_requests[index]["cat1"],
+                                        price: unfulfilled_requests[index]["price"],
+                                        name: unfulfilled_requests[index]["name"]
+                                        }], true, true);
                                         index ++;
                                       }
                                         //temp = unfulfilled_requests[index]["close"]*1;

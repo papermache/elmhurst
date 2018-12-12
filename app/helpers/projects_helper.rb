@@ -1,6 +1,6 @@
 module ProjectsHelper
 	def project_description
-    Project.find_by_id(params[:id]).description  rescue nil
+    Project.find_by_id(params[:id]).description.capitalize  rescue nil
 	end
 
 	def find_project_created_at
@@ -8,7 +8,7 @@ module ProjectsHelper
 	end
 
 	def find_project_title
-    Project.find_by_id(params[:id]).try(:title) rescue nil
+    Project.find_by_id(params[:id]).try(:title).capitalize rescue nil
   end
 
   # def principal principal

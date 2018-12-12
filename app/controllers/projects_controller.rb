@@ -108,7 +108,7 @@ class ProjectsController < ApplicationController
         @history << x
       end
     end
-    @history.paginate(:page => params[:page], :per_page => 1).order('created_at DESC')  rescue nil
+    @history.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')  rescue nil
   end
 
   def viewOpenTrade

@@ -221,40 +221,37 @@
            function drawChart(data){
    
                    // create the chart
-                   var index = 0;
+                   // var index = 0;
                    //var x = (new Date()).getTime();
                    Highcharts.stockChart('chart', {
                                chart: {
-                               marginTop: 50,
-                               events: {
-                                load: function() {
+                               marginTop: 50
+                            //    events: {
+                            //     load: function() {
 
-                                    // set up the updating of the chart each second
-                                    var series = this.series[0];
-                                    
-                                    setInterval(function() {
+                            //         // set up the updating of the chart each second
+                            //         var series = this.series[0];
+                            //         while (index < unfulfilled_requests.length) {
+                            //         setInterval(function() {
 
-                                        //var x = (new Date()).getTime();
-                                        if(index > unfulfilled_requests.length){
-                                            index = 0;
-                                            return;
-                                        }
-                                        series.addPoint([
-                                        unfulfilled_requests[index]["x"]*1,
-                                        unfulfilled_requests[index]["open"]*1,
-                                        unfulfilled_requests[index]["high"]*1,
-                                        unfulfilled_requests[index]["low"]*1,
-                                        unfulfilled_requests[index]["close"]*1,
-                                        unfulfilled_requests[index]["cat1"],
-                                        unfulfilled_requests[index]["cat2"],
-                                        unfulfilled_requests[index]["price"],
-                                        unfulfilled_requests[index]["name"],
-                                        ], true, true);
-                                        index ++;
-                                        //temp = unfulfilled_requests[index]["close"]*1;
-                                    }, 1000);
-                                }
-                            }
+                            //             // //var x = (new Date()).getTime();
+                            //             // if(index > unfulfilled_requests.length){
+                            //             //     index = 0;
+                            //             //     return;
+                            //             // }
+                            //             series.addPoint([
+                            //             unfulfilled_requests[index]["x"]*1,
+                            //             unfulfilled_requests[index]["open"]*1,
+                            //             unfulfilled_requests[index]["high"]*1,
+                            //             unfulfilled_requests[index]["low"]*1,
+                            //             unfulfilled_requests[index]["close"]*1,
+                            //             ], true, true);
+                            //             index ++;
+                            //             //temp = unfulfilled_requests[index]["close"]*1;
+                            //         }, 1000);
+                            //       }
+                            //     }
+                            // }
                            },
 
                         rangeSelector: {

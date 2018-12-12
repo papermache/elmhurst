@@ -11,10 +11,10 @@ module ProjectsHelper
     Project.find_by_id(params[:id]).try(:title) rescue nil
   end
 
-  def principal principal
-    stocks = StockQuote::Stock.quote("aapl").as_json
-    principal > stocks["latest_price"] ? (principal/stocks["latest_price"]) : principal == 0 ? (stocks["latest_price"]/1) : (stocks["latest_price"]/principal)
-  end
+  # def principal principal
+  #   stocks = StockQuote::Stock.quote("aapl").as_json
+  #   principal > stocks["latest_price"] ? (principal/stocks["latest_price"]) : principal == 0 ? (stocks["latest_price"]/1) : (stocks["latest_price"]/principal)
+  # end
 
   def dividend grant
     stocks = StockQuote::Stock.quote("aapl").as_json

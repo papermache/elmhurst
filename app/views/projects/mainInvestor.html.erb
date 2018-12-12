@@ -231,14 +231,14 @@
 
                                     // set up the updating of the chart each second
                                     var series = this.series[0];
-                                    while (index < unfulfilled_requests.length) {
+                                    
                                     setInterval(function() {
 
-                                        // //var x = (new Date()).getTime();
-                                        // if(index > unfulfilled_requests.length){
-                                        //     index = 0;
-                                        //     return;
-                                        // }
+                                        //var x = (new Date()).getTime();
+                                        if(index > unfulfilled_requests.length){
+                                            index = 0;
+                                            return;
+                                        }
                                         series.addPoint([
                                         unfulfilled_requests[index]["x"]*1,
                                         unfulfilled_requests[index]["open"]*1,
@@ -249,7 +249,6 @@
                                         index ++;
                                         //temp = unfulfilled_requests[index]["close"]*1;
                                     }, 1000);
-                                  }
                                 }
                             }
                            },

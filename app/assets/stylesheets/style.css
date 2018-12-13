@@ -4761,11 +4761,11 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 }
 
 .dash_pic{
-    background-image: url(redrover.png);
+    /*background-image: url(redrover.png);*/
     width: 75px;
     height: 75px;
     border: 0px;
-        background-size: 75px 75px;
+    background-size: 75px 75px;
 
 }
 

@@ -91,7 +91,12 @@ class ProjectsController < ApplicationController
 
 
   def  requestsByProject
-    @affilates = Project.all.pluck(:title)  rescue nil
+    @affilates = [] 
+    Project.all.each do |project|
+    if project.authors.last == current_user && current_user.researcher == true
+      @affilates << project.title    
+     end  
+    end 
     #@affilates = Project.where(id: current_user.authorships.pluck(:project_id)).pluck(:title) rescue nil
   end
 

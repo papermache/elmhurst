@@ -14,6 +14,12 @@
                     = f.email_field :email, autofocus: true, class: "form-control" , :placeholder => "User Email"
                     %span.field-icon
                       %i.icon-envelope
+
+                  .form-group.prepend-icon
+                    = f.label :image
+                    = f.file_field :image, class: "form-control"
+                    %span.field-icon
+                      %i.icon-user
       
                   .form-group.prepend-icon
                     = f.label :password

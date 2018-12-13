@@ -5,10 +5,14 @@
                 <section class="panel">
                     <div class="panel-body">
                         <a class="task-thumb" href="#">
-                            <img class="dash_pic"/>
+                        <% if current_user.image.present? %>
+                            <img class="dash_pic"  src="<%=current_user.image.try(:url)%>" />
+                        <%else%>
+                            <img class="dash_pic"  src="/assets/redrover.png" />
+                        <%end%>
                         </a>
-                        <div  data-bind="foreach: getUser" class="task-thumb-details">
-                            <h1><a href="#" data-bind="text: first_name + last_name"></a></h1>
+                        <div  class="task-thumb-details">
+                            <h1><a href="/users/edit" ><%=current_user.first_name.capitalize%>&nbsp<%=current_user.last_name.capitalize%></a></h1>
                         </div>
                     </div>
                     <table class="table table-hover personal-task">
@@ -58,8 +62,8 @@
                                 <tbody>
                                 <% @project.each do |project| %>
                                     <tr >
-                                        <td><%= project.title %></td>
-                                        <td><p><%= project&.authors&.last.first_name + ' ' + project&.authors&.last.last_name if project.authors.present?%></p></td>
+                                        <td><%= project.title.capitalize %></td>
+                                        <td><p><%= project&.authors&.last.first_name.capitalize + ' ' + project&.authors&.last.last_name.capitalize if project.authors.present?%></p></td>
                                         <td><%= project.created_at.strftime("%d-%m-%Y") %></td>
                                         <td  style="text-align: center;"><a href="/researcher_detail/id*<%= project.id %>" class="btn btn-info btn-xs">&puncsp;<i class="icon-info"></i>&puncsp;</a></td>
                                     </tr>

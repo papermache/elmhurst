@@ -1,0 +1,23 @@
+---
+development:
+  # cloud_name: dewdtthcr
+  # api_key: '958532245147856'
+  # api_secret: Pa5S6coEIjA9Y3CoBRrQjDqC5jk
+  # enhance_image_tag: true
+  cloud_name: di8lsuqdb
+  api_key: '574356496195828'
+  api_secret: gHqlcQhbmWlVwHJ5LyuCQ7qabzQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: di8lsuqdb
+  api_key: '574356496195828'
+  api_secret: gHqlcQhbmWlVwHJ5LyuCQ7qabzQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: di8lsuqdb
+  api_key: '574356496195828'
+  api_secret: gHqlcQhbmWlVwHJ5LyuCQ7qabzQ
+  enhance_image_tag: true
+  static_image_support: false

@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   has_many :invested_projects, through: :investment, dependent: :destroy, source: :project
 
 
-  has_many :projects
-  has_many :account_histories
+  has_many :projects, dependent: :destroy
+  has_many :account_histories, dependent: :destroy
   ## Validation             
 
   validates :first_name, presence: true 

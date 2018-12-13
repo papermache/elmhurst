@@ -87,4 +87,32 @@ $('#new_user').submit(function(e){
 
 
 });
-      
+ $(document).on('change', '#user_image', function() {
+   var ext;
+   ext = $(this).val().split('.').pop().toLowerCase();
+   
+   jpg_check = ext.indexOf("jpg");
+   jpeg_check = ext.indexOf("jpeg");
+   png_check = ext.indexOf("png");
+   
+   readURL1(this);
+   });
+   
+   function readURL1(input) {
+       if (jpg_check === 0 || jpeg_check === 0 || png_check === 0){
+   
+               if (input.files && input.files[0]) {
+                   var reader = new FileReader();
+                   reader.onload = function(e) {
+                   $('#generate_img').attr('src', e.target.result);
+                   }
+   
+                   reader.readAsDataURL(input.files[0]);
+               }
+       }
+       else{
+           $("#user_image").val('');
+           alert("Invalid format! Only jpeg, jpg, and png are allowed.");
+           $(this).val('');
+       }
+   }

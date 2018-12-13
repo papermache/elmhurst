@@ -14,13 +14,7 @@
                     = f.email_field :email, autofocus: true, class: "form-control" , :placeholder => "User Email"
                     %span.field-icon
                       %i.icon-envelope
-
-                  .form-group.prepend-icon
-                    = f.label :image
-                    = f.file_field :image, class: "form-control"
-                    %span.field-icon
-                      %i.icon-user
-      
+                 
                   .form-group.prepend-icon
                     = f.label :password
                     
@@ -69,6 +63,14 @@
                       %span.field-icon
                         %i.icon-star
                                  
+                - if current_user.researcher? 
+                  .form-group.prepend-icon
+                    = f.label :image
+                    = f.file_field :image, class: "form-control"
+                    %span.field-icon
+                      %i.icon-user
+                    #generate_img
+
 
               
               = f.submit t('.update', :default => "Update"), class: "btn btn-shadow btn-primary"

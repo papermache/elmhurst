@@ -29,6 +29,8 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'alertifyjs-rails'
 gem 'clockwork'
 gem 'will_paginate'
+gem 'carrierwave'
+gem 'cloudinary'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

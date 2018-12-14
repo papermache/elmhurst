@@ -119,7 +119,7 @@ class ProjectsController < ApplicationController
 
 
   def researchertDetail
-    @annotation = Annotation.where(Project_Select: "fghgdgjgjfgjgj").where(annotation_creator_id: current_user.id).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
+    @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title,annotation_creator_id: current_user.id).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
     @member = Project.find_by_id(params[:id]).members rescue nil
   end
 

@@ -25,11 +25,12 @@ Rails.application.routes.draw do
   #resources :users ,only: [:index]
 
   #Researcher
-  get '/researcher-project' => 'projects#researcherViewProjects'
+  get '/researcher-project' => 'projects#researcherViewProjects',as: 'researcher_project'
   get '/request' => 'projects#requestsByProject'
   get '/Researcher' => 'projects#mainResearcher'
-  get '/edit-project/id*:id'=> 'projects#updateProject'
+  get '/edit_project/id*:id'=> 'projects#editProject'
   get '/accountHistory' => 'projects#accountHistory'
+  post '/update/:id' => 'projects#update_project',as: "update_project"
 
   #Investor
   # get '/investor-project' => 'projects#investorViewProjects'

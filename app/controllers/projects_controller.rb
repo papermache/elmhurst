@@ -89,8 +89,21 @@ class ProjectsController < ApplicationController
     end
   end
   
-  def updateProject
+  def editProject
      @project = Project.find_by_id(params[:id])
+  end
+
+  def update_project
+    @project = Project.find_by_id(params[:id])
+    if @project.update(update_project_params)
+      @project.reload
+      flash[:success]="Project updated successfully."
+      redirect_to researcher_project_path
+    else
+      flash[:error] = "Project not updated."
+      redirect_to request.referer
+    end
+
   end
 
 
@@ -163,5 +176,9 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params[:project].permit(:title, :description)
+    end
+
+    def update_project_params
+      params.permit(:title, :description)
     end
 end

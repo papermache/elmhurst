@@ -25147,6 +25147,18 @@ $(document).ready(function () {
         }
 
     });
+
+
+    $("#project_validation").validate({
+        rules: {
+            "title": {required: true},
+            "description": {required: true}
+        },
+        messages: {
+            "title": {required: "Please enter a project title"},
+            "description": {required: "Please enter a project description"}
+        }
+    });
   
 $('#new_user').submit(function(e){ 
    if ($('#user_researcher').is(':checked')) {

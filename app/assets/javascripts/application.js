@@ -67,13 +67,15 @@ $(document).ready(function () {
 
     });
 
-    
-    $("#projectForm").validate({
+
+    $("#project_validation").validate({
         rules: {
-            Project_Name: {required: true}
+            "title": {required: true},
+            "description": {required: true}
         },
         messages: {
-            Project_Name: {required: "Please enter a project name"}
+            "title": {required: "Please enter a project title"},
+            "description": {required: "Please enter a project description"}
         }
     });
   

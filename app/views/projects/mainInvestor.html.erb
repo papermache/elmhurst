@@ -313,26 +313,26 @@
                            //              return chart_data;
                            //           }())
                            //         }]
-                       series: [{
-                           type: 'candlestick',
-                           name: 'AAPL/ELM',
-                           data: data,
-                           dataGrouping: {
-                               units: [
-                                   [
-                                       'week', // unit name
-                                       [1] // allowed multiples
-                                   ], [
-                                       'month',
-                                       [1, 2, 3, 4, 6]
-                                   ]
-                               ]
-                           }
-                       }]
-                   });
-           }
-   });
-   
+                                               series: [{
+                                                   type: 'candlestick',
+                                                   name: 'AAPL/ELM',
+                                                   data: data,
+                                                   dataGrouping: {
+                                                       units: [
+                                                           [
+                                                               'week', // unit name
+                                                               [1] // allowed multiples
+                                                           ], [
+                                                               'month',
+                                                               [1, 2, 3, 4, 6]
+                                                           ]
+                                                       ]
+                                                   }
+                                               }]
+                                           });
+                                   }
+                           });
+                           
    
                // Investment Principal Data
                $('#buy_share').on('keyup',function(){

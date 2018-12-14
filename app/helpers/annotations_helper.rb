@@ -13,7 +13,7 @@ module AnnotationsHelper
 	end
 
 	def annotation_item_price_sum
-       @annotation_price = Annotation.where(annotation_creator_id: current_user.id).pluck(:Item_Price).compact.sum.round(4)
+       @annotation_price = Annotation.where(Project_Select: "fghgdgjgjfgjgj").where(annotation_creator_id: current_user.id).pluck(:Item_Price).compact.sum.round(4)
        @annotation_price.present?  ? @annotation_price : 0
 	end
 

@@ -5,7 +5,7 @@
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <section id="main-content">
    <section id="userViewModel" class="wrapper">
-      <div style="display: none;" id="c_username" ><%= current_user.first_name %> <%= current_user.last_name %></div>
+      <div style="display: none;" id="c_username" ><%= current_user.first_name.capitalize %> &nbsp <%= current_user.last_name.capitalize %></div>
       <div class="row">
          <div class="col-lg-4">
             <!--user info table start-->
@@ -15,7 +15,7 @@
                   <img class="dash_pic" src="/assets/redrover.png" />
                   </a>
                   <div  data-bind="foreach: getUser" class="task-thumb-details">
-                     <h1><a href="#" data-bind="text: first_name + last_name"></a></h1>
+                     <h1><a href="/users/edit"><%= current_user.first_name.capitalize %>&nbsp<%= current_user.last_name.capitalize %></a></h1>
                      <p>Investor</p>
                   </div>
                </div>
@@ -25,22 +25,22 @@
                         <td>
                            <i class="icon-exchange"></i>
                         </td>
-                        <td>New Trades</td>
-                        <td data-bind="text: leng"> </td>
+                        <td>Close Trades</td>
+                        <td><%= close_trade_count %></td>
                      </tr>
                      <tr>
                         <td>
                            <i class="icon-exchange"></i>
                         </td>
                         <td>Open Trades</td>
-                        <td> 14</td>
+                        <td><%= open_trade_count %></td>
                      </tr>
                      <tr>
                         <td>
                            <i class="icon-exchange"></i>
                         </td>
                         <td>Total Trades</td>
-                        <td data-bind="text: lenght"></td>
+                        <td><%= total_trade_count %></td>
                      </tr>
                   </tbody>
                </table>
@@ -253,6 +253,10 @@
                             //             unfulfilled_requests[index]["high"]*1,
                             //             unfulfilled_requests[index]["low"]*1,
                             //             unfulfilled_requests[index]["close"]*1,
+                            //             unfulfilled_requests[index]["cat1"],
+                            //             unfulfilled_requests[index]["cat2"],
+                            //             unfulfilled_requests[index]["price"],
+                            //             unfulfilled_requests[index]["name"]
                             //             ], true, true);
                             //             index ++;
                             //             //temp = unfulfilled_requests[index]["close"]*1;
@@ -285,6 +289,30 @@
                                 
                               }
                           },
+                           // series: [{
+                           //           type: 'candlestick',
+                           //           name: 'AAPL/ELM',
+                           //           data: (function () {
+                           //              // generate an array of random data
+                           //              var chart_data = [],i;
+
+                           //              for (i = 0; i <= data.length-1; i += 1) {
+                           //                  chart_data.push({
+                           //                      x: data[i][0],
+                           //                      open: data[i][1],
+                           //                      low: data[i][2],
+                           //                      high: data[i][3],
+                           //                      close: data[i][4],
+                           //                      cat1: data[i][5],
+                           //                      cat2: data[i][6],
+                           //                      price: data[i][7],
+                           //                      name: data[i][8], 
+
+                           //                  });
+                           //              }
+                           //              return chart_data;
+                           //           }())
+                           //         }]
                        series: [{
                            type: 'candlestick',
                            name: 'AAPL/ELM',

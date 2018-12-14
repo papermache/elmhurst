@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    # binding.pry
   end
 
   # POST /projects
@@ -87,7 +88,10 @@ class ProjectsController < ApplicationController
       redirect_to Register_path
     end
   end
- 
+  
+  def updateProject
+     @project = Project.find_by_id(params[:id])
+  end
 
 
   def  requestsByProject
@@ -152,6 +156,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
+      # binding.pry
       @project = Project.find(params[:id])
     end
 

@@ -66,6 +66,16 @@ $(document).ready(function () {
         }
 
     });
+
+    
+    $("#projectForm").validate({
+        rules: {
+            Project_Name: {required: true}
+        },
+        messages: {
+            Project_Name: {required: "Please enter a project name"}
+        }
+    });
   
 $('#new_user').submit(function(e){ 
    if ($('#user_researcher').is(':checked')) {

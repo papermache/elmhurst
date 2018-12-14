@@ -16,6 +16,21 @@ module ProjectsHelper
   #   principal > stocks["latest_price"] ? (principal/stocks["latest_price"]) : principal == 0 ? (stocks["latest_price"]/1) : (stocks["latest_price"]/principal)
   # end
 
+  def open_trade_count
+    @open_count = Share.where(is_trade_open: true).count
+    @open_count.present? ? @open_count : 0
+  end
+
+  def close_trade_count
+    @close_count = Share.where(is_trade_open: false).count
+    @close_count.present? ? @close_count : 0
+  end
+
+  def total_trade_count
+    @total_count = Share.all.count
+    @total_count.present? ? @total_count : 0
+  end
+
   def dividend grant
     stocks = StockQuote::Stock.quote("aapl").as_json
     fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1

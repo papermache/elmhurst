@@ -11,7 +11,8 @@ module ApplicationHelper
 	end
     
     def purchasing_power
-      @purchasing_power = ((Share.where(is_trade_open: true).pluck(:investment_principal).compact.sum + AccountHistory.where(user_id: current_user.id).pluck(:amount).compact.sum)/(Share.where(is_trade_open: true).pluck(:investment_principal).count + AccountHistory.where(user_id: current_user.id).pluck(:amount).count).to_f).round(4) rescue nil
+      @purchasing_power = ((Share.where(is_trade_open: true).pluck(:investment_principal).compact.sum +                   AccountHistory.where(user_id: current_user.id).pluck(:amount).compact.sum)/(                   Share.where(is_trade_open: true).pluck(:investment_principal).count + 
+                             AccountHistory.where(user_id: current_user.id).pluck(:amount).count).to_f).round(4) rescue nil
       @purchasing_power.nan? ?  0 : @purchasing_power 
     end
 	

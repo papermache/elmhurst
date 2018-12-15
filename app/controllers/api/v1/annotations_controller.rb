@@ -19,14 +19,16 @@ module Api
                     item_price = x.Item_Price
     		            item_name = x.Item_Name
                     item_merchant = x.Merchant_Name
-                    item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).last_name 
+                    item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).last_name
+                    invoice = x.Note 
                     p "Item price  is #{item_price}"
                     p "Item name is #{item_name}"
                     p "Item merchant is #{item_merchant}"
                     p "Item user is #{item_user}"
+                    p "Item note is #{invoice}"
                     p "local array is #{local_array1}"
     	              @share.update(investment_principal_dup: investment_principal)
-    		           Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),item_name: item_name,item_price: item_price,vendor: item_merchant,user: item_user)
+    		           Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),item_name: item_name,item_price: item_price,vendor: item_merchant,user: item_user,invoice: invoice)
     		          elsif @share.present? && x.item_price_dup > investment_principal
     		            val = x.item_price_dup - investment_principal
     		            x.update(item_price_dup: val)
@@ -35,7 +37,7 @@ module Api
     		      end
     	      end
           end
-            @graph = Graph.all.pluck(:graph_data,:created_at,:item_name,:item_price,:vendor,:user) rescue nil
+            @graph = Graph.all.pluck(:graph_data,:created_at,:item_name,:item_price,:vendor,:user,:invoice) rescue nil
             @graph.each_with_index do |val,index|
               local_array2={}
                arr = @graph.take(index+1).last[1].to_i
@@ -43,6 +45,7 @@ module Api
                arr2 = @graph.take(index+1).last[3].to_f
                arr3 = @graph.take(index+1).last[4]
                arr4 = @graph.take(index+1).last[5]
+               arr5 = @graph.take(index+1).last[6]
                transpose = @graph.take(index+1).transpose.first
                local_array2[:x] = arr
                local_array2[:open] = transpose.first
@@ -53,6 +56,7 @@ module Api
                local_array2[:price] = arr2
                local_array2[:cat1] = arr3
                local_array2[:cat2] = arr4
+               local_array2[:invoice] = arr5
                fulfilled_avg << local_array2
             end
            p "Fullfilled avg is===> #{fulfilled_avg}"

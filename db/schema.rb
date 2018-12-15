@@ -11,24 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181026041529) do
+ActiveRecord::Schema.define(version: 20181215085415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "account_histories", force: :cascade do |t|
+    t.string   "grant"
+    t.datetime "date"
+    t.string   "account"
+    t.string   "market"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
   create_table "annotations", force: :cascade do |t|
     t.string   "Item_Name"
-    t.integer  "Item_Price"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "Item_Price",            limit: 8
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "Project_Select"
     t.string   "Merchant_Name"
     t.string   "Source"
     t.string   "Note"
-    t.datetime "Order"
-    t.datetime "Delivery"
     t.integer  "item_price_dup"
-    t.decimal  "balance",        default: 0.0
+    t.decimal  "balance",                         default: 0.0
+    t.datetime "date"
+    t.string   "date_status"
+    t.integer  "annotation_creator_id"
   end
 
   create_table "authorships", force: :cascade do |t|
@@ -42,9 +54,14 @@ ActiveRecord::Schema.define(version: 20181026041529) do
   add_index "authorships", ["user_id"], name: "index_authorships_on_user_id", using: :btree
 
   create_table "graphs", force: :cascade do |t|
-    t.decimal  "graph_data", precision: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.float    "graph_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "item_name"
+    t.float    "item_price"
+    t.string   "vendor"
+    t.string   "user"
+    t.string   "invoice"
   end
 
   create_table "investments", force: :cascade do |t|
@@ -97,9 +114,10 @@ ActiveRecord::Schema.define(version: 20181026041529) do
     t.integer  "shares"
     t.integer  "investment_principal"
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "investment_principal_dup"
+    t.boolean  "is_trade_open",            default: false
   end
 
   add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
@@ -120,28 +138,29 @@ ActiveRecord::Schema.define(version: 20181026041529) do
     t.boolean  "investor"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "university"
-    t.string   "department"
-    t.text     "interests"
     t.string   "avatar"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                    default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "authentication_token"
+    t.integer  "dln_no",                 limit: 8
+    t.text     "address"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "account_histories", "users"
   add_foreign_key "authorships", "projects"
   add_foreign_key "authorships", "users"
   add_foreign_key "investments", "projects"

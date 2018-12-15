@@ -19,7 +19,7 @@ module Api
                     item_price = x.Item_Price
     		            item_name = x.Item_Name
                     item_merchant = x.Merchant_Name
-                    item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).first_name 
+                    item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).last_name 
                     p "Item price  is #{item_price}"
                     p "Item name is #{item_name}"
                     p "Item merchant is #{item_merchant}"

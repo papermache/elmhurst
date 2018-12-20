@@ -211,15 +211,18 @@
            type: "GET",
            dataType: 'json',
            success: function(result){
+            // alert(result.fulfilled_avg);
                var annot = result.fulfilled_avg;
+            // console.log(result);
                unfulfilled_requests = annot;
+               // console.log("dgfdgbudf");
+               // console.log(unfulfilled_requests);
                drawChart(unfulfilled_requests);
               
            }});
           
            //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
            function drawChart(data){
-   
                    // create the chart
                     var index = 0;
                    //var x = (new Date()).getTime();
@@ -236,7 +239,6 @@
                                marginTop: 50,
                                events: {
                                 load: function() {
-
                                     // set up the updating of the chart each second
                                     var series = this.series[0];
                                     // while (index < unfulfilled_requests.length) {
@@ -247,6 +249,12 @@
                                             index = 0;
                                             return;
                                         }
+                                         if ((unfulfilled_requests[index]["x"] != undefined && unfulfilled_requests[index]["open"] != undefined && unfulfilled_requests[index]["high"] != undefined && unfulfilled_requests[index]["low"] != undefined && unfulfilled_requests[index]["cat1"] != undefined &&
+                                           unfulfilled_requests[index]["cat2"] != undefined &&
+                                           unfulfilled_requests[index]["price"] != undefined &&
+                                           unfulfilled_requests[index]["name"] != undefined
+                                          )){
+                                      // alert(unfulfilled_requests[index]["x"]);
                                         series.addPoint([
                                         unfulfilled_requests[index]["x"]*1,
                                         unfulfilled_requests[index]["open"]*1,
@@ -258,6 +266,8 @@
                                         unfulfilled_requests[index]["price"],
                                         unfulfilled_requests[index]["name"]
                                         ], true, true);
+
+                                     }
                                         index ++;
                                         //temp = unfulfilled_requests[index]["close"]*1;
                                     }, 1000);
@@ -271,24 +281,24 @@
                            selected: 1,
                            inputEnabled: false
                            },
-                          //  tooltip: {
-                          //     split: false,
-                          //     shared: false,
-                          //     shadow: false,
-                          //     shape: 'square',
-                          //     backgroundColor: '#ffffff',
-                          //     borderColor: '#000000',
-                          //     borderWidth: 1.5,
-                          //     padding: 2,
-                          //     style: {
-                          //       fontWeight: 'bold'
-                          //     },
-                          //     formatter: function() {
-                          //       console.log(data);
-                          //       return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice
+                           tooltip: {
+                              split: false,
+                              shared: false,
+                              shadow: false,
+                              shape: 'square',
+                              backgroundColor: '#ffffff',
+                              borderColor: '#000000',
+                              borderWidth: 1.5,
+                              padding: 2,
+                              style: {
+                                fontWeight: 'bold'
+                              },
+                              formatter: function() {
+                                console.log(data);
+                                return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice
                                 
-                          //     }
-                          // },
+                              }
+                          },
                            // series: [{
                            //           type: 'candlestick',
                            //           name: 'AAPL/ELM',

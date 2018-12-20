@@ -63,7 +63,7 @@
                   /     %span.field-icon
                   /       %i.icon-star
                                  
-                - if current_user.researcher? 
+                / - if current_user.researcher? 
                   .form-group.prepend-icon
                     = f.label :image
                     = f.file_field :image, class: "form-control"

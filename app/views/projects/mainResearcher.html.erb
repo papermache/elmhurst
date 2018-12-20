@@ -12,7 +12,7 @@
                         <%end%>
                         </a>
                         <div  class="task-thumb-details">
-                            <h1><a href="/users/edit" ><%=current_user.first_name.capitalize%>&nbsp<%=current_user.last_name.capitalize%></a></h1>
+                            <h1><a href="/users/edit" ><%=current_user.first_name.titleize%>&nbsp<%=current_user.last_name.titleize%></a></h1>
                         </div>
                     </div>
                     <table class="table table-hover personal-task">
@@ -62,8 +62,8 @@
                                 <tbody>
                                 <% @project.each do |project| %>
                                     <tr >
-                                        <td><%= project.title.capitalize %></td>
-                                        <td><p><%= project&.authors&.last.first_name.capitalize + ' ' + project&.authors&.last.last_name.capitalize if project.authors.present?%></p></td>
+                                        <td><%= project.title.titleize %></td>
+                                        <td><p><%= project&.authors&.last.first_name.capitalize + ' ' + project&.authors&.last.last_name.titleize if project.authors.present?%></p></td>
                                         <td><%= project.created_at.strftime("%d-%m-%Y") %></td>
                                         <!-- <td  style="text-align: center;"><a href="/researcher_detail/id*<%= project.id %>" class="btn btn-info btn-xs">&puncsp;<i class="icon-info"></i>&puncsp;</a></td> -->
                                     </tr>

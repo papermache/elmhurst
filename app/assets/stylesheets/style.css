@@ -4945,3 +4945,10 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }  
+
+ .normalText a,.normalText a:hover {
+   color: #69665e;
+    text-decoration: none;
+ }   
+  
+ 

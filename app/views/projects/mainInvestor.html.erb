@@ -249,11 +249,7 @@
                                             index = 0;
                                             return;
                                         }
-                                         if ((unfulfilled_requests[index]["x"] != undefined && unfulfilled_requests[index]["open"] != undefined && unfulfilled_requests[index]["high"] != undefined && unfulfilled_requests[index]["low"] != undefined && unfulfilled_requests[index]["cat1"] != undefined &&
-                                           unfulfilled_requests[index]["cat2"] != undefined &&
-                                           unfulfilled_requests[index]["price"] != undefined &&
-                                           unfulfilled_requests[index]["name"] != undefined
-                                          )){
+                                   
                                       // alert(unfulfilled_requests[index]["x"]);
                                         series.addPoint([
                                         unfulfilled_requests[index]["x"]*1,
@@ -267,8 +263,7 @@
                                         unfulfilled_requests[index]["name"]
                                         ], true, true);
 
-                                     }
-                                        index ++;
+                                                                             index ++;
                                         //temp = unfulfilled_requests[index]["close"]*1;
                                     }, 1000);
                                   

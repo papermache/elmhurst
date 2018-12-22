@@ -2,10 +2,15 @@ class AnnotationsController < ApplicationController
 	
 	def create
 	  @annotation = Annotation.new(annotation_params)
+    
       if params["date_status"] == "order"
+        # opted order
+        # if order date is same as current date, request should appear on chart
         @annotation.date_status = params["date_status"]
         @annotation.date = params["date"]
       else
+        # opted delivery, request should immediately showup in chart..
+
         @annotation.date_status = params["date_status"]
         @annotation.date = params["date"]
       end

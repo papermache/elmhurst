@@ -96,7 +96,13 @@ module Api
 
 
             @graph = @temp_graph
+            #binding.pry
             @graph.each_with_index do |val,index|
+              #@time = Time.now.to_i
+              #binding.pry
+              #if (val[1].to_i < Time.now.to_i)
+                #next
+              #end
               local_array2={}
                arr = @graph.take(index+1).last[1].to_i
                arr1 = @graph.take(index+1).last[2]

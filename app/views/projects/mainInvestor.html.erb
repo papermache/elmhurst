@@ -170,6 +170,7 @@
                         </thead>
                         <tbody data-bind="foreach: info">
                            <% @open_trade.each do |trade| %>
+                           <% #binding.pry %>
                            <tr>
                               <td><%=  trade.user.first_name.capitalize + ' ' + trade.user.last_name.capitalize %></td>
                               <td><%= trade.created_at.strftime("%d-%m-%Y") %></td>

@@ -7,6 +7,11 @@ module Api
         local_array1 = []
         fulfilled_avg =[]
         @annotation = Annotation.where.not(item_price_dup: 0)
+        
+        #my code line below
+        @annotation = @annotation.where((:date.to_i > Time.now.to_i) || (:date_status.to_s == "delivery"))
+        #binding.pry
+
           if @annotation.present? 
             @annotation.each do |x|
               if x.date.to_date == Date.today
@@ -32,7 +37,7 @@ module Api
 
                     # add space in name
                     temp_item_name = item_name.split('')
-                    binding.pry
+                    #binding.pry
                     i=0
                     temp_str = ''
                     temp_item_name.each do |ch|
@@ -49,7 +54,7 @@ module Api
                     end
                     # space added in array
                     item_name = temp_str
-                    binding.pry
+                    #binding.pry
                     @share.update(investment_principal_dup: investment_principal)
                    Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),item_name: item_name,item_price: item_price,vendor: item_merchant,user: item_user,invoice: invoice)
                   elsif @share.present? && x.item_price_dup > investment_principal

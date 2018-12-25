@@ -29,12 +29,13 @@
                                  </tr>
                               </thead>
                               <tbody >
+                              <% #binding.pry %>
                                  <% @close_trade.each do |trade|%>
                                  <tr>
                                     <td><%=  trade.user.first_name + ' ' + trade.user.last_name %></td>
                                     <td><%= trade.created_at.strftime("%d-%m-%Y")%></td>
-                                    <td>$<%= trade.investment_principal.round(4) %></td>
-                                    <td><%= profit_loss(trade.investment_principal).round(4) %><span>%</span></td>
+                                    <td>$<%= trade.investment_principal.round(4) rescue ""%></td>
+                                    <td><%= profit_loss(trade.investment_principal).round(4) rescue ""%><span>%</span></td>
                                  </tr>
                                  <% end if @close_trade.present? %> 
                               </tbody>

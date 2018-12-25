@@ -138,11 +138,14 @@ class ProjectsController < ApplicationController
   end
 
   def viewTradeHistory
-    @close_trade = Share.where(is_trade_open: false) rescue nil  
+    #@close_trade = Share.where(is_trade_open: false) rescue nil  
+    @close_trade = Share.all rescue nil
   end
 
   def mainInvestor
+    #@open_trade = Share.where(is_trade_open: true && ((:date.to_i > Time.now.to_i) || (:date_status.to_s == "delivery"))).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
     @open_trade = Share.where(is_trade_open: true).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
+    #binding.pry
   end
 
   def researcherViewProjects

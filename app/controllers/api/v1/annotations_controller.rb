@@ -6,11 +6,16 @@ module Api
       def index
         local_array1 = []
         fulfilled_avg =[]
+        #@annotation = Annotation.where.not(item_price_dup: 0).where.not(date_status: "order")
         @annotation = Annotation.where.not(item_price_dup: 0)
         
         #my code line below
-        @annotation = @annotation.where((:date.to_i > Time.now.to_i) || (:date_status.to_s == "delivery"))
+        #@annotation = @annotation.where.not(date_status: "order")
         #binding.pry
+
+        @annotation = @annotation.where.not("date_status =? AND date < ?","order",Date.today )
+        #binding.pry
+
 
           if @annotation.present? 
             @annotation.each do |x|
@@ -99,9 +104,8 @@ module Api
             end
             # space added in name
 
-
+            
             @graph = @temp_graph
-            #binding.pry
             @graph.each_with_index do |val,index|
               #@time = Time.now.to_i
               #binding.pry

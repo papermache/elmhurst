@@ -43,7 +43,7 @@ module Api
       end
 
       def destroy
-        respond_with Prpject.destroy(params[:id])
+        respond_with Project.destroy(params[:id])
       end
 
     end

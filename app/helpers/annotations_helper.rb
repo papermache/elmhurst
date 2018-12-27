@@ -24,4 +24,8 @@ module AnnotationsHelper
 	def find_Merchant_Name
 		@annotation_project=Annotation.find_by_id(params[:id]).Merchant_Name.capitalize
 	end
+
+	def find_Affiliate_Name
+		@annotation_project=Annotation.find_by_id(params[:id]).Project_Select.capitalize
+	end
 end

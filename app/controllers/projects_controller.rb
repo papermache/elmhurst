@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
-
+  before_action :load_selected_affiliate, only: [:requestsByProject]
 
   ## Add a member to the project
   def add_member
@@ -109,17 +108,17 @@ class ProjectsController < ApplicationController
 
   def  requestsByProject
     @affilates = [] 
-    Project.all.each do |project|
-    if project.authors.last == current_user && current_user.researcher == true
-      @affilates << project.title    
-     end  
-    end 
-    #@affilates = Project.where(id: current_user.authorships.pluck(:project_id)).pluck(:title) rescue nil
+    Project.find_each do |project|
+      if project.authors.last == current_user && current_user.researcher == true
+        @affilates << { title: project.title, id: project.id }
+      end
+    end
   end
 
 
   def researchertDetail
-    @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title,annotation_creator_id: current_user.id).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
+    @project = Project.find_by_id(params[:id])
+    @annotation = Annotation.where(Project_Select: Project.find_by_id(params[:id]).title, annotation_creator_id: current_user.id).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
     @member = Project.find_by_id(params[:id]).members rescue nil
   end
 
@@ -170,18 +169,23 @@ class ProjectsController < ApplicationController
  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      # binding.pry
-      @project = Project.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params[:project].permit(:title, :description)
-    end
+  def load_selected_affiliate
+    @selected_affiliate = Project.find_by(id: params[:affiliate_id])
+  end
 
-    def update_project_params
-      params.permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    # binding.pry
+    @project = Project.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params[:project].permit(:title, :description)
+  end
+
+  def update_project_params
+    params.permit(:title, :description)
+  end
 end

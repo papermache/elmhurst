@@ -55,21 +55,12 @@
                         = f.text_field :last_name, autofocus: true, class: "form-control", :placeholder => "User Last Name"
                         %span.field-icon
                           %i.icon-user
-               
-                  / .col-lg-13      
-                  /   .form-group.prepend-icon 
-                  /     = f.label :address
-                  /     = f.text_area :address, autofocus: true, rows: '5', class: "form-control" , :placeholder => "User Address"
-                  /     %span.field-icon
-                  /       %i.icon-star
-                                 
-                / - if current_user.researcher? 
-                  .form-group.prepend-icon
-                    = f.label :image
-                    = f.file_field :image, class: "form-control"
-                    %span.field-icon
-                      %i.icon-user
-                    #generate_img
+                      .form-group.prepend-icon
+                        = f.label :image
+                        = f.file_field :image, class: "form-control"
+                        %span.field-icon
+                          %i.icon-user
+                        #generate_img
 
 
               

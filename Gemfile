@@ -53,7 +53,7 @@ end
 
 gem 'devise', '3.5.2'
 gem 'bootstrap-sass'
-gem 'devise-bootstrap-views', '0.0.6'
+gem 'devise-bootstrap-views'
 gem 'haml-rails'
 gem 'tzinfo-data'
 

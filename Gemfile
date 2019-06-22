@@ -31,6 +31,8 @@ gem 'clockwork'
 gem 'will_paginate'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'whenever', require: false
+gem 'iex-ruby-client'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

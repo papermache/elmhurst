@@ -1,8 +1,8 @@
 module ApplicationHelper
-	def item_price_avg
-	  stocks = StockQuote::Stock.quote("aapl").as_json
+	def item_price_avg(client)
+	  stocks = client.quote("aapl")
       @avg = (Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.sum / Annotation.where.not(item_price_dup: 0).pluck(:Item_Price).compact.count) rescue 1
-	  @avg > stocks["latest_price"] ? (@avg/stocks["latest_price"]).round(4) : (stocks["latest_price"]/@avg).round(4)  
+	  @avg > stocks.latest_price ? (@avg/stocks.latest_price).round(4) : (stocks.latest_price/@avg).round(4)  
 	end
 
 	def item_price_sum
@@ -16,9 +16,9 @@ module ApplicationHelper
       @purchasing_power.nan? ?  0 : @purchasing_power 
     end
 	
-	def current_btc_price
-      response= StockQuote::Stock.quote("aapl").as_json 
-      @current_btc_price_usd =  response["latest_price"] 
+	def current_btc_price(client)
+      response= client.quote("aapl")
+      @current_btc_price_usd =  response.latest_price
     end
     
 end

@@ -1,4 +1,5 @@
 class Annotation < ActiveRecord::Base
+  scope :perpetuity, -> { where(date_status: "perpetuity") }
 
   def self.test1
   end

@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
 gem 'pg', '0.18.4'
+
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,7 +37,7 @@ gem 'whenever', require: false
 gem 'iex-ruby-client'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

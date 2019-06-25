@@ -1,0 +1,18 @@
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/json-1.8.6/ext/json
+/usr/share/rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20190624-29861-aznl0y.rb extconf.rb
+Ignoring kgio-2.11.2 because its extensions are not built.  Try: gem pristine kgio --version 2.11.2
+Ignoring pg-0.18.4 because its extensions are not built.  Try: gem pristine pg --version 0.18.4
+Ignoring puma-3.12.1 because its extensions are not built.  Try: gem pristine puma --version 3.12.1
+Ignoring raindrops-0.19.0 because its extensions are not built.  Try: gem pristine raindrops --version 0.19.0
+Ignoring unicorn-5.5.1 because its extensions are not built.  Try: gem pristine unicorn --version 5.5.1
+creating Makefile
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/json-1.8.6/ext/json
+make "DESTDIR=" install

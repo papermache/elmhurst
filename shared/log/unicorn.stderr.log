@@ -1,0 +1,38 @@
+I, [2019-06-23T05:26:30.528261 #23958]  INFO -- : Refreshing Gem list
+I, [2019-06-23T05:26:32.832967 #23958]  INFO -- : listening on addr=/home/ubuntu/elmhurst/shared/sockets/unicorn.sock fd=12
+I, [2019-06-23T05:26:32.833103 #23958]  INFO -- : worker=0 spawning...
+I, [2019-06-23T05:26:32.834916 #23958]  INFO -- : worker=1 spawning...
+I, [2019-06-23T05:26:32.835507 #23961]  INFO -- : worker=0 spawned pid=23961
+I, [2019-06-23T05:26:32.835675 #23961]  INFO -- : worker=0 ready
+I, [2019-06-23T05:26:32.837193 #23958]  INFO -- : master process ready
+I, [2019-06-23T05:26:32.837657 #23964]  INFO -- : worker=1 spawned pid=23964
+I, [2019-06-23T05:26:32.837790 #23964]  INFO -- : worker=1 ready
+I, [2019-06-23T05:31:15.139178 #23958]  INFO -- : reaped #<Process::Status: pid 23961 exit 0> worker=0
+I, [2019-06-23T05:31:15.139292 #23958]  INFO -- : reaped #<Process::Status: pid 23964 exit 0> worker=1
+I, [2019-06-23T05:31:15.139354 #23958]  INFO -- : master complete
+I, [2019-06-23T05:34:31.040401 #25198]  INFO -- : Refreshing Gem list
+I, [2019-06-23T05:34:33.348807 #25198]  INFO -- : unlinking existing socket=/home/ubuntu/elmhurst/shared/sockets/unicorn.sock
+I, [2019-06-23T05:34:33.348963 #25198]  INFO -- : listening on addr=/home/ubuntu/elmhurst/shared/sockets/unicorn.sock fd=12
+I, [2019-06-23T05:34:33.349059 #25198]  INFO -- : worker=0 spawning...
+I, [2019-06-23T05:34:33.351190 #25198]  INFO -- : worker=1 spawning...
+I, [2019-06-23T05:34:33.351724 #25201]  INFO -- : worker=0 spawned pid=25201
+I, [2019-06-23T05:34:33.351889 #25201]  INFO -- : worker=0 ready
+I, [2019-06-23T05:34:33.353448 #25198]  INFO -- : master process ready
+I, [2019-06-23T05:34:33.353913 #25204]  INFO -- : worker=1 spawned pid=25204
+I, [2019-06-23T05:34:33.354088 #25204]  INFO -- : worker=1 ready
+I, [2019-06-23T05:37:22.437215 #25198]  INFO -- : reaped #<Process::Status: pid 25201 exit 0> worker=0
+I, [2019-06-23T05:37:22.437322 #25198]  INFO -- : reaped #<Process::Status: pid 25204 exit 0> worker=1
+I, [2019-06-23T05:37:22.437391 #25198]  INFO -- : master complete
+I, [2019-06-23T05:38:13.642991 #25913]  INFO -- : Refreshing Gem list
+I, [2019-06-23T05:38:15.986895 #25913]  INFO -- : unlinking existing socket=/home/ubuntu/elmhurst/shared/sockets/unicorn.sock
+I, [2019-06-23T05:38:15.987057 #25913]  INFO -- : listening on addr=/home/ubuntu/elmhurst/shared/sockets/unicorn.sock fd=12
+I, [2019-06-23T05:38:15.987155 #25913]  INFO -- : worker=0 spawning...
+I, [2019-06-23T05:38:15.989209 #25913]  INFO -- : worker=1 spawning...
+I, [2019-06-23T05:38:15.989802 #25916]  INFO -- : worker=0 spawned pid=25916
+I, [2019-06-23T05:38:15.989963 #25916]  INFO -- : worker=0 ready
+I, [2019-06-23T05:38:15.991558 #25913]  INFO -- : master process ready
+I, [2019-06-23T05:38:15.994560 #25919]  INFO -- : worker=1 spawned pid=25919
+I, [2019-06-23T05:38:15.994722 #25919]  INFO -- : worker=1 ready
+I, [2019-06-23T19:29:25.076369 #25913]  INFO -- : reaped #<Process::Status: pid 25916 exit 0> worker=0
+I, [2019-06-23T19:29:25.076476 #25913]  INFO -- : reaped #<Process::Status: pid 25919 exit 0> worker=1
+I, [2019-06-23T19:29:25.076537 #25913]  INFO -- : master complete

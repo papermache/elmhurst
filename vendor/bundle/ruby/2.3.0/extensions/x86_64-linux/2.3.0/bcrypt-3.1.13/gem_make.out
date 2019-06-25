@@ -1,0 +1,31 @@
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.13/ext/mri
+/usr/share/rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20190624-29861-ugurpt.rb extconf.rb
+Ignoring bcrypt-ruby-3.1.1.rc1 because its extensions are not built.  Try: gem pristine bcrypt-ruby --version 3.1.1.rc1
+Ignoring binding_of_caller-0.8.0 because its extensions are not built.  Try: gem pristine binding_of_caller --version 0.8.0
+Ignoring byebug-11.0.1 because its extensions are not built.  Try: gem pristine byebug --version 11.0.1
+Ignoring debug_inspector-0.0.3 because its extensions are not built.  Try: gem pristine debug_inspector --version 0.0.3
+Ignoring ffi-1.11.1 because its extensions are not built.  Try: gem pristine ffi --version 1.11.1
+Ignoring json-1.8.6 because its extensions are not built.  Try: gem pristine json --version 1.8.6
+Ignoring kgio-2.11.2 because its extensions are not built.  Try: gem pristine kgio --version 2.11.2
+Ignoring pg-0.18.4 because its extensions are not built.  Try: gem pristine pg --version 0.18.4
+Ignoring puma-3.12.1 because its extensions are not built.  Try: gem pristine puma --version 3.12.1
+Ignoring raindrops-0.19.0 because its extensions are not built.  Try: gem pristine raindrops --version 0.19.0
+Ignoring unf_ext-0.0.7.6 because its extensions are not built.  Try: gem pristine unf_ext --version 0.0.7.6
+Ignoring unicorn-5.5.1 because its extensions are not built.  Try: gem pristine unicorn --version 5.5.1
+creating Makefile
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+gcc  -D__SKIP_GNU     -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -m 0755 bcrypt_ext.so ./.gem.20190624-29861-1gl32w3

@@ -1,0 +1,24 @@
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-ruby-3.1.1.rc1/ext/mri
+/home/ubuntu/.rbenv/versions/2.3.0/bin/ruby -r ./siteconf20190624-7835-7qe9em.rb extconf.rb
+checking for ruby/util.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0-static/bcrypt-ruby-3.1.1.rc1/mkmf.log
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-ruby-3.1.1.rc1/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-ruby-3.1.1.rc1/ext/mri
+make "DESTDIR="
+compiling crypt_blowfish.c
+compiling crypt.c
+compiling bcrypt_ext.c
+compiling wrapper.c
+compiling crypt_gensalt.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/bcrypt-ruby-3.1.1.rc1/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20190624-7835-7lm6qf

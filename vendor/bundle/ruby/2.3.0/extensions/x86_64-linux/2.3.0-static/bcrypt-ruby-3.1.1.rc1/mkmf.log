@@ -1,0 +1,23 @@
+have_header: checking for ruby/util.h... -------------------- yes
+
+"gcc -o conftest -I/home/ubuntu/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-linux -I/home/ubuntu/.rbenv/versions/2.3.0/include/ruby-2.3.0/ruby/backward -I/home/ubuntu/.rbenv/versions/2.3.0/include/ruby-2.3.0 -I. -I/home/ubuntu/.rbenv/versions/2.3.0/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat -Wno-maybe-uninitialized conftest.c  -L. -L/home/ubuntu/.rbenv/versions/2.3.0/lib -Wl,-R/home/ubuntu/.rbenv/versions/2.3.0/lib -L. -L/home/ubuntu/.rbenv/versions/2.3.0/lib  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R/home/ubuntu/.rbenv/versions/2.3.0/lib -L/home/ubuntu/.rbenv/versions/2.3.0/lib -lruby-static  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -E -I/home/ubuntu/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-linux -I/home/ubuntu/.rbenv/versions/2.3.0/include/ruby-2.3.0/ruby/backward -I/home/ubuntu/.rbenv/versions/2.3.0/include/ruby-2.3.0 -I. -I/home/ubuntu/.rbenv/versions/2.3.0/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat -Wno-maybe-uninitialized  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/util.h>
+/* end */
+
+--------------------
+

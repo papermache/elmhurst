@@ -15,7 +15,8 @@ class AnnotationsController < ApplicationController
       @annotation.date_status = params["date_status"]
       @annotation.date = params["date"]
     end
-    @annotation.item_price_dup = params[:Item_Price]
+    @annotation.Item_Price     =   params[:Item_Price].to_f
+    @annotation.item_price_dup = params[:Item_Price].to_f
       @annotation.annotation_creator_id = current_user.id
     if @annotation.save!
       flash[:success] = "Request Submit Successfully"

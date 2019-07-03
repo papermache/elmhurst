@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181215085415) do
+ActiveRecord::Schema.define(version: 20190703191729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(version: 20181215085415) do
 
   create_table "annotations", force: :cascade do |t|
     t.string   "Item_Name"
-    t.integer  "Item_Price",            limit: 8
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.float    "Item_Price"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "Project_Select"
     t.string   "Merchant_Name"
     t.string   "Source"
     t.string   "Note"
-    t.integer  "item_price_dup"
-    t.decimal  "balance",                         default: 0.0
+    t.float    "item_price_dup"
+    t.decimal  "balance",               default: 0.0
     t.datetime "date"
     t.string   "date_status"
     t.integer  "annotation_creator_id"
@@ -93,11 +93,11 @@ ActiveRecord::Schema.define(version: 20181215085415) do
     t.string   "name"
     t.integer  "trade_principal"
     t.string   "security"
-    t.integer  "security_price"
+    t.float    "security_price"
     t.decimal  "shares",             precision: 10, scale: 2
     t.integer  "security_principal"
     t.integer  "elmhurst_principal"
-    t.integer  "profit_loss"
+    t.float    "profit_loss"
     t.string   "receipient"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false

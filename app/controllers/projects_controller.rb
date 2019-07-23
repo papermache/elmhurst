@@ -2,6 +2,18 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :load_selected_affiliate, only: [:requestsByProject]
 
+  
+  # 
+  def main 
+    if current_user
+      if current_user && current_user.investor == true
+#         redirect_to investor_dashboard_url
+      else
+        redirect_to researcher_url 
+      end
+    end
+  end
+  # 
   ## Add a member to the project
   def add_member
     @project = Project.find(params[:id])
@@ -9,6 +21,7 @@ class ProjectsController < ApplicationController
     redirect_to @project
   end
 
+  
   ## Add an investor to the project
   def add_investor
     @project = Project.find(params[:id])
@@ -52,9 +65,9 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     #if @project.update(project_params)
-     # redirect_to @project
+    # redirect_to @project
     #else
-     # render :edit
+    # render :edit
     #end
   end
 
@@ -62,7 +75,7 @@ class ProjectsController < ApplicationController
     if @project.find(:id)
       redirect_to @project
     else
-    redirect_to projects_url
+      redirect_to projects_url
     end
   end
 
@@ -89,7 +102,7 @@ class ProjectsController < ApplicationController
   end
   
   def editProject
-     @project = Project.find_by_id(params[:id])
+    @project = Project.find_by_id(params[:id])
   end
 
   def update_project
@@ -109,6 +122,7 @@ class ProjectsController < ApplicationController
   def  requestsByProject
     @affilates = [] 
     Project.find_each do |project|
+      @affilates << { title: project.title, id: project.id }
       if project.authors.last == current_user && current_user.researcher == true
         @affilates << { title: project.title, id: project.id }
       end
@@ -150,9 +164,11 @@ class ProjectsController < ApplicationController
   def researcherViewProjects
     @project=[];
     Project.all.each do |x|
-    if x.authors.last == current_user && current_user.researcher == true
-      @project << x    
-     end  
+      
+      @project << x
+      if x.authors.last == current_user && current_user.researcher == true
+        @project << x    
+      end  
     end    
     @project.paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
   end
@@ -160,9 +176,10 @@ class ProjectsController < ApplicationController
   def mainResearcher
     @project=[];
     Project.all.each do |x|
-    if x.authors.last == current_user && current_user.researcher == true
-      @project << x    
-     end  
+      @project << x
+      if x.authors.last == current_user && current_user.researcher == true
+        @project << x    
+      end  
     end    
     @project.paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
   end

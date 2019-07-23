@@ -23,7 +23,7 @@
                                     <% @project.each do |project| %>
                                     <tr >
                                         <!--<td><%#= project.title.titleize %></td>-->
-                                        <td><%= project.title %>
+                                        <td><%= project.title %> </td>
 
                                         <td><p><%= project&.authors&.last.first_name.capitalize + ' ' + project&.authors&.last.last_name.titleize if project.authors.present?%></p></td>
                                         

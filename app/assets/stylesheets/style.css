@@ -4951,4 +4951,6 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     text-decoration: none;
  }   
   
- 
+ .bold-text{
+     font-size: 20px !important;
+ }

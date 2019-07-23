@@ -4,7 +4,7 @@
       #userInfoViewModel.col-md-12
         %section.panel
           %header.panel-heading
-            User Information
+            User Information 
           .panel-body
             = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
               .row
@@ -61,8 +61,8 @@
                         %span.field-icon
                           %i.icon-user
                         #generate_img
-
-
+                      .form-group.prepend-icon
+                        = link_to '1099', '#', class: 'btn btn-primary bold-text'
               
               = f.submit t('.update', :default => "Update"), class: "btn btn-shadow btn-primary"
               

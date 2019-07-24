@@ -64,7 +64,7 @@
                                     class="table table-striped table-condensed">
                                 <thead>
                                     <tr>
-                                        <th style="width: 25%">Affiliates Name 2</th>
+                                        <th style="width: 25%">Affiliates Name </th>
                                         <th style="width: 25%">Affiliates User</th>
                                         <th style="width: 25%">Affiliates Duration</th>
                                         <th style="width: 10%; text-align: center;">Edit</th>
@@ -78,7 +78,7 @@
                                               <p><%= project&.authors&.last.first_name.titleize + ' ' + project&.authors&.last.last_name.titleize if project.authors.present?%></p>
                                           </td>
                                           <td><%= project.created_at.strftime("%d-%m-%Y") %></td>
-                                          <td  style="text-align: center;"><a href= "/edit_project/id*<%= project.id %>"  class="btn btn-info btn-xs">&puncsp;<i class="icon-info"></i>&puncsp;</a></td>
+                                          <td  style="text-align: center;"><a href= "/edit_project/id*<%= project.id %>"  class="btn btn-info btn-xs" style="color: green">&puncsp;<i class="icon-info"></i>&puncsp;</a></td>
                                           <td  style="text-align: center;"><a href="/researcher_detail/id*<%= project.id %>" class="btn btn-info btn-xs">&puncsp;<i class="icon-info"></i>&puncsp;</a></td> 
                                       </tr>
                                     <% end if @project.present?%>

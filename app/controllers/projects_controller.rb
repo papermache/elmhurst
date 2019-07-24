@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def main 
     if current_user
       if current_user && current_user.investor == true
-        #         redirect_to investor_dashboard_url
+       
       else
         redirect_to researcher_url 
       end

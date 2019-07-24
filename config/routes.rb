@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/researcher-project' => 'projects#researcherViewProjects',as: 'researcher_project'
   get '/request' => 'projects#requestsByProject'
   get '/Researcher' => 'projects#mainResearcher'
+  get '/researcher' => 'projects#mainResearcher'
   get '/edit_project/id*:id'=> 'projects#editProject'
   get '/accountHistory' => 'projects#accountHistory'
   post '/update/:id' => 'projects#update_project',as: "update_project"
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   get '/open-trades' => 'projects#viewOpenTrade'
   get '/trade-history' => 'projects#viewTradeHistory'
   get '/Investor' => 'projects#mainInvestor'
+  get '/investor/dashboard' => 'projects#mainInvestor'
   get '/accounthistory' => 'projects#accountHistory'
   
   #Researcher

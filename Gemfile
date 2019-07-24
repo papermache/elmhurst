@@ -31,6 +31,8 @@ gem 'clockwork'
 gem 'will_paginate'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'whenever', require: false
+gem 'iex-ruby-client'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -53,7 +55,7 @@ end
 
 gem 'devise', '3.5.2'
 gem 'bootstrap-sass'
-gem 'devise-bootstrap-views', '0.0.6'
+gem 'devise-bootstrap-views'
 gem 'haml-rails'
 gem 'tzinfo-data'
 

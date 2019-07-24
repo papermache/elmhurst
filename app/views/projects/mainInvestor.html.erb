@@ -75,8 +75,8 @@
                                     </div>
                                  </div>
                                  <div style="height: 400px; ">
-                                    <div>Index Price : <span id="item_price_avg"><%= item_price_avg %></span>$</div>
-                                    <div>Current AAPL/USD Rate: <span id="btc_usd">$<%= current_btc_price %></span>USD</div>
+                                    <div>Index Price : <span id="item_price_avg"><%= item_price_avg(@client) %></span>$</div>
+                                    <div>Current AAPL/USD Rate: <span id="btc_usd">$<%= current_btc_price(@client) %></span>USD</div>
                                     <br>
                                     <div>
                                        <a class='button btn-primary pushed button-left smartforms-modal-trigger'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
@@ -104,6 +104,10 @@
                                        <label for="Buy Share">Buy Share</label>
                                        <input id="buy_share" class="form-control" type="number" placeholder="Number Of Share" name="shares" min="1" max="1000000">
                                        <span class="field-icon share"><i class="icon-credit-card"></i></span> 
+                                    </div>
+                                    <div class="form-group prepend-icon">
+                                       <label for="Profit Fee">Profit Fee</label>
+                                       <input id="profit_rate" class="form-control" type="text" placeholder="Profit Fee" name="profit_fee" readonly>
                                     </div>
                                     <div class="form-group prepend-icon">
                                        <label for="Buy Share">Investment Principal</label>

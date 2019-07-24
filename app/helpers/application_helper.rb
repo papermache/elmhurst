@@ -1,4 +1,5 @@
 module ApplicationHelper
+
 	def item_price_avg
     begin
       stocks = StockQuote::Stock.quote("aapl").as_json
@@ -6,6 +7,7 @@ module ApplicationHelper
       @avg > stocks["latest_price"] ? (@avg/stocks["latest_price"]).round(4) : (stocks["latest_price"]/@avg).round(4)  
     rescue => e
     end
+
 	end
 
 	def item_price_sum
@@ -24,9 +26,9 @@ module ApplicationHelper
       response= StockQuote::Stock.quote("aapl").as_json 
       @current_btc_price_usd =  response["latest_price"] 
     rescue
+     
     end
   end
-    
 end
 
 

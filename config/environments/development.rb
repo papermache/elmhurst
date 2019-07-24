@@ -40,6 +40,18 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   
+  config.action_mailer.default_url_options = { host: 'https://fanconnection.herokuapp.com' }
+
+  config.action_mailer.smtp_settings = {
+    :user_name => 'app54620698@heroku.com',
+    :password => 'rhq71q1l8539',
+    :domain => 'heroku.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+  
   config.middleware.use ExceptionNotification::Rack,
     :email => {
     :email_prefix => "[Fan Connection Errors] ",

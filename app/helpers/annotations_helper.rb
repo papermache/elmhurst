@@ -28,6 +28,6 @@ module AnnotationsHelper
 	def find_Affiliate_Name
 		# affiliate name is stored as project_select
 		@annotation_project = Annotation.find_by_id(params[:id]).Project_Select.capitalize
-    puts"ssssssssssssssssssssssssssss", @annotation_project.inspect
   end
+  
 end

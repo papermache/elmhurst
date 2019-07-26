@@ -49,6 +49,9 @@ module ProjectsHelper
   end
 
   def find_project_creator
-    Project.find_by_id(params[:id]).authors.last.first_name.capitalize + ' ' + Project.find_by_id(params[:id]).authors.last.last_name.capitalize
+    puts"sssssssssssssssssssssssss", Project.find_by_id(params[:id]).authors.inspect
+    if Project.find_by_id(params[:id]).authors
+      Project.find_by_id(params[:id]).authors.last.first_name.capitalize + ' ' + Project.find_by_id(params[:id]).authors.last.last_name.capitalize
+    end
   end
 end

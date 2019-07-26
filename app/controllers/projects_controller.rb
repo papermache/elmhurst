@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def main 
     if current_user
       if current_user && current_user.investor == true
-       
+        redirect_to user_investor_url
       else
         redirect_to researcher_url 
       end
@@ -166,8 +166,6 @@ class ProjectsController < ApplicationController
   def researcherViewProjects
     @project=[];
     Project.all.each do |x|
-      
-      @project << x
       if x.authors.last == current_user && current_user.researcher == true
         @project << x    
       end  

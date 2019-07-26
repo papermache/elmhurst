@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get '/open-trades' => 'projects#viewOpenTrade'
   get '/trade-history' => 'projects#viewTradeHistory'
   get '/Investor' => 'projects#mainInvestor'
-  get '/investor/dashboard' => 'projects#mainInvestor'
+  get '/user/investor' => 'projects#mainInvestor'
   get '/accounthistory' => 'projects#accountHistory'
   
   #Researcher

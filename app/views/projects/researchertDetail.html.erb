@@ -108,7 +108,7 @@
                                                   <td  style="width: 25%; text-align: center;"> <%= annotation.Item_Price %></td>
                                                   <td  style="width: 20%; text-align: center;"><%= annotation.date.strftime("%d/%m/%Y") %></td>
                                                   <td  style="width: 15%; text-align: center;"><%= annotation.created_at.strftime("%d/%m/%Y") %></td>
-                                                  <td style="text-align: center;"><a href= "/annotations/<%= annotation.id %>"  class="btn btn-info btn-xs">&puncsp;<i class="icon-info"> </i> </a></td> 
+                                                  <td style="text-align: center;"><a href= "<%= edit_annotation_url(annotation)%>"  class="btn btn-info btn-xs">&puncsp;<i class="icon-info"> </i> &puncsp;</a></td> 
                                               </tr>
                                             <% end if @annotation.present? %>
                                         </tbody>

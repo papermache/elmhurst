@@ -52,7 +52,7 @@ class AnnotationsController < ApplicationController
       redirect_to researchertDetail_path(id: @project.id)
     else
       flash[:error] = "Request Submit Unsuccessful"
-      redirect_to Register_path
+      redirect_to researchertDetail_path(id: @project.id)
     end
   end
 

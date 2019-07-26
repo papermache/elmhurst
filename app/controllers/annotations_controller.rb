@@ -1,6 +1,7 @@
 class AnnotationsController < ApplicationController
 
-  before_action :load_project, only: [:create]
+  before_action :load_project, only: [:create, :update]
+  before_action :get_annotation, only: [:edit, :update]
 	
   def create
     @annotation = Annotation.new(annotation_params.merge!({Project_Select: @project.title}))
@@ -17,7 +18,7 @@ class AnnotationsController < ApplicationController
     end
     @annotation.Item_Price     =   params[:Item_Price].to_f
     @annotation.item_price_dup = params[:Item_Price].to_f
-      @annotation.annotation_creator_id = current_user.id
+    @annotation.annotation_creator_id = current_user.id
     if @annotation.save!
       flash[:success] = "Request Submit Successfully"
       redirect_to researchertDetail_path(id: @project.id)
@@ -31,6 +32,29 @@ class AnnotationsController < ApplicationController
     @annotation = Annotation.where(annotation_creator_id: current_user.id).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')  rescue nil
     @member = Project.find_by(title: Annotation.find_by_id(params[:id]).Project_Select).members rescue nil
   end 
+  
+  
+  def edit  
+    @affilates = [] 
+    Project.find_each do |project|
+      @affilates << { title: project.title, id: project.id }
+      if project.authors.last == current_user && current_user.researcher == true
+        @affilates << { title: project.title, id: project.id }
+      end
+    end
+  end
+  
+  def update
+    if @annotation && @annotation.update(annotation_params.merge!({Project_Select: @project.title}))
+      @annotation.Item_Price     =   params[:Item_Price].to_f
+      @annotation.item_price_dup = params[:Item_Price].to_f
+      flash[:success] = "Request Submit Successfully"
+      redirect_to researchertDetail_path(id: @project.id)
+    else
+      flash[:error] = "Request Submit Unsuccessful"
+      redirect_to Register_path
+    end
+  end
 
   private
 
@@ -43,6 +67,11 @@ class AnnotationsController < ApplicationController
   end
   
   def annotation_params
-      params.permit(:Item_Name, :Item_Price, :Merchant_Name, :Source, :Note)
+    params.permit(:Item_Name, :Item_Price, :Merchant_Name, :Source, :Note)
   end
+  
+  def get_annotation
+    @annotation = Annotation.find_by_id(params[:id])
+  end
+  
 end

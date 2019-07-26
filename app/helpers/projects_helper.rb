@@ -9,7 +9,6 @@ module ProjectsHelper
 
 	def find_project_title
     Project.find_by_id(params[:id]).try(:title).capitalize rescue nil
-    puts"ssss----------------------- here", Project.find_by_id(params[:id]).inspect
   end
 
   # def principal principal

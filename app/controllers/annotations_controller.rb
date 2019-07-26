@@ -48,6 +48,7 @@ class AnnotationsController < ApplicationController
     if @annotation && @annotation.update(annotation_params.merge!({Project_Select: @project.title}))
       @annotation.Item_Price     =   params[:Item_Price].to_f
       @annotation.item_price_dup = params[:Item_Price].to_f
+      @annotation.date = params["date"]
       flash[:success] = "Request Submit Successfully"
       redirect_to researchertDetail_path(id: @project.id)
     else

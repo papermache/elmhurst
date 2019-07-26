@@ -92,7 +92,7 @@
                                                 <th  style="width: 20%;  text-align: center;">Amount</th>
                                                 <th  style="width: 20%;  text-align: center;">Full Fill</th>
                                                 <th  style="width: 20%;  text-align: center;">Date</th>
-                                                <th  style="width: 20%;  text-align: center;">Details</th>
+                                                <th  style="width: 20%;  text-align: center;">Edit</th>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -112,20 +112,26 @@
                                                         <%= annotation.created_at.strftime("%d/%m/%Y") %>
                                                       <% end %>
                                                   </td>
-                                                  <td style="text-align: center;"><a href= "/annotations/<%= annotation.id %>"  class="btn btn-info btn-xs">&puncsp;<i class="icon-info"></td>
-                                                              </tr>
-                                                            <% end if @annotation.present? %>
-                                                            </tbody>
-                                                            </table>
-                                                            <div class="digg_pagination">
-                                                                <%= will_paginate @annotation rescue nil  %>
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                            </section>
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                            </section>
-                                                            </section>
-                                                            <script src="/assets/addMember.js"  type="text/javascript" /></script>
+                                                  <td style="text-align: center;">
+                                                      <a href= "<%= edit_annotation_url(annotation)%>"  class="btn btn-info btn-xs">
+                                                          &puncsp;
+                                                          <i class="icon-info"></i> 
+                                                          &puncsp;
+                                                      </a>
+                                                  </td>
+                                              </tr>
+                                            <% end if @annotation.present? %>
+                                        </tbody>
+                                    </table>
+                                    <div class="digg_pagination">
+                                        <%= will_paginate @annotation rescue nil  %>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+    </section>
+</section>
+<script src="/assets/addMember.js"  type="text/javascript" /></script>

@@ -68,12 +68,13 @@
                                         <th style="width: 25%">Affiliates User</th>
                                         <th style="width: 25%">Affiliates Duration</th>
                                         <th style="width: 10%; text-align: center;">Edit</th>
-                                        <th style="width: 10%; text-align: center;">Details</th>                                    </tr>
+                                        <th style="width: 10%; text-align: center;">Details</th>                                   
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <% @project.each do |project| %>
                                       <tr >
-                                          <td style=" text-transform: uppercase;"><%= project.title.titleize %> IT</td>
+                                          <td style=" text-transform: uppercase;"><%= project.title.titleize %></td>
                                           <td>
                                               <p><%= project&.authors&.last.first_name.titleize + ' ' + project&.authors&.last.last_name.titleize if project.authors.present?%></p>
                                           </td>

@@ -216,7 +216,6 @@
       /*************************Date Receive From API**************************************/
       var data = [], data1 = [];
       $.ajax({
-          //url:"https://elmhur.st/api/v1/annotations",
           url: "/api/v1/annotations",
           type: "GET",
           dataType: 'json',
@@ -233,52 +232,11 @@
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       function drawChart(data) {
-          // create the chart
-          var index = 0;
+          console.log(' data is here')
+          console.log(data)
+          console.log(' data is here')
           //var x = (new Date()).getTime();
-          Highcharts.stockChart('chart', {
-              // plotOptions: {
-              //     candlestick: {
-              //         color: 'white',
-              //         upColor: 'skyblue'
-              //     }
-              // },
-
-              chart: {
-                  marginTop: 50,
-                  events: {
-                      load: function () {
-                          // set up the updating of the chart each second
-                          var series = this.series[0];
-                          // while (index < unfulfilled_requests.length) {
-                          setInterval(function () {
-
-                              //var x = (new Date()).getTime();
-                              if (index > unfulfilled_requests.length) {
-                                  index = 0;
-                                  return;
-                              }
-
-                              // alert(unfulfilled_requests[index]["x"]);
-                              series.addPoint([
-                                  unfulfilled_requests[index]["x"] * 1,
-                                  unfulfilled_requests[index]["open"] * 1,
-                                  unfulfilled_requests[index]["high"] * 1,
-                                  unfulfilled_requests[index]["low"] * 1,
-                                  unfulfilled_requests[index]["close"] * 1,
-                                  unfulfilled_requests[index]["cat1"],
-                                  unfulfilled_requests[index]["cat2"],
-                                  unfulfilled_requests[index]["price"],
-                                  unfulfilled_requests[index]["name"]
-                              ], true, true);
-
-                              index++;
-                              //temp = unfulfilled_requests[index]["close"]*1;
-                          }, 1000);
-
-                      }
-                  }
-              },
+            Highcharts.stockChart('chart', {
               rangeSelector: {
                   enabled: true,
                   selected: 1,
@@ -297,35 +255,9 @@
                       fontWeight: 'bold'
                   },
                   formatter: function () {
-                      console.log(data);
-                      return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice
-
+                      return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice;
                   }
               },
-              // series: [{
-              //           type: 'candlestick',
-              //           name: 'AAPL/ELM',
-              //           data: (function () {
-              //              // generate an array of random data
-              //              var chart_data = [],i;
-
-              //              for (i = 0; i <= data.length-1; i += 1) {
-              //                  chart_data.push({
-              //                      x: data[i][0],
-              //                      open: data[i][1],
-              //                      low: data[i][2],
-              //                      high: data[i][3],
-              //                      close: data[i][4],
-              //                      cat1: data[i][5],
-              //                      cat2: data[i][6],
-              //                      price: data[i][7],
-              //                      name: data[i][8], 
-
-              //                  });
-              //              }
-              //              return chart_data;
-              //           }())
-              //         }]
               series: [{
                       type: 'candlestick',
                       name: 'AAPL/ELM',

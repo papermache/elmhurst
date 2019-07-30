@@ -159,13 +159,11 @@ var projectsViewModelOperation = {
     },
     getUser: function () {
         self.getUser = ko.observableArray([]);
-
         $.ajax({
             type: 'GET',
             url: mainUrl +'users/' + user_id,
             success: function (data) {
                 self.getUser(data);
-                console.log("details", self.getUser());
             }
         });
 

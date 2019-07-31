@@ -137,14 +137,7 @@ class ProjectsController < ApplicationController
   end
 
   def accountHistory
-    @history = [] 
-    AccountHistory.all.each do |x|
-      if x.user_id == current_user.id && current_user.researcher == true
-        @history << x
-      end
-    end
-    
-    @history.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')  rescue nil
+    @history = current_user.account_histories.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')  rescue nil
   end
 
   def viewOpenTrade

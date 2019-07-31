@@ -4893,7 +4893,8 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     pointer-events: none;
   }
    .deposit{
-    margin-left: 1111px;
+    /*margin-left: 1111px;*/
+    float: right;
    }
   /*body:before,body:after{content:'';}*/
 

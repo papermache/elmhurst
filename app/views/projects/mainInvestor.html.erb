@@ -220,12 +220,8 @@
           type: "GET",
           dataType: 'json',
           success: function (result) {
-              // alert(result.fulfilled_avg);
               var annot = result.fulfilled_avg;
-              // console.log(result);
               unfulfilled_requests = annot;
-              // console.log("dgfdgbudf");
-              // console.log(unfulfilled_requests);
               drawChart(unfulfilled_requests);
 
           }});
@@ -265,8 +261,8 @@
                       dataGrouping: {
                           units: [
                               [
-                                  'week', // unit name
-                                  [1] // allowed multiples
+                                  'week', 
+                                  [1] 
                               ], [
                                   'month',
                                   [1, 2, 3, 4, 6]

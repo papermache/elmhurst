@@ -5,22 +5,14 @@ class AnnotationsController < ApplicationController
 	
   def create
     @annotation = Annotation.new(annotation_params.merge!({Project_Select: @project.title}))
-    if params["date_status"] == "order"
-      # opted order
-      # if order date is same as current date, request should appear on chart
-      @annotation.date_status = params["date_status"]
-      @annotation.date = params["date"]
-    else
-      # opted delivery, request should immediately showup in chart..
-
-      @annotation.date_status = params["date_status"]
-      @annotation.date = params["date"]
-    end
-    @annotation.Item_Price     =   params[:Item_Price].to_f
+    @annotation.date_status = params["date_status"]
+    @annotation.date = params["date"].to_datetime
+    @annotation.Item_Price = params[:Item_Price].to_f
     @annotation.item_price_dup = params[:Item_Price].to_f
     @annotation.annotation_creator_id = current_user.id
+    
     if @annotation.save!
-      flash[:success] = "Request Submit Successfully"
+      flash[:success] = "Request Submit Successfully!"
       redirect_to researchertDetail_path(id: @project.id)
     else
       flash[:error] = "Request Submit Unsuccessful"

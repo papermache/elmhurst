@@ -8,7 +8,7 @@ module ProjectsHelper
 	end
 
 	def find_project_title
-    Project.find_by_id(params[:id]).try(:title).capitalize rescue nil
+    Project.find_by_id(params[:id]).try(:title) rescue nil
   end
 
   # def principal principal

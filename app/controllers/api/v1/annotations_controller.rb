@@ -8,9 +8,6 @@ module Api
         fulfilled_avg =[]
         
         @annotation = Annotation.where.not(item_price_dup: 0)
-        puts"sssssssssssssssssssss here we are now", @annotation.inspect
-        @annotation = @annotation.where.not("date_status =? AND date < ?","order",Date.today )
-
 
         if @annotation.present? 
           @annotation.each do |x|
@@ -26,15 +23,14 @@ module Api
               item_user = User.find_by_id(x.annotation_creator_id).first_name + User.find_by_id(x.annotation_creator_id).last_name
               invoice = x.Note 
               temp_item_name = item_name.split('')
-
-              i=0
+              i = 0
               temp_str = ''
               temp_item_name.each do |ch|
                 if (temp_item_name[i] == temp_item_name[i].downcase && temp_item_name[i+1]==temp_item_name[i+1].upcase)
                   temp_str += ' '
                 end
                 temp_str += ch
-                i+=1
+                 i+=1
                       
                 if i>=temp_item_name.length-1
                   temp_str +=temp_item_name[i]

@@ -1,4 +1,5 @@
 class SharesController < ApplicationController
+  
 	def buy
 		  @share = Share.new(share_params)
 		  @share.investment_principal_dup = params[:investment_principal] 

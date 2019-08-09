@@ -14,9 +14,6 @@ module Api
             investment_principal = @share.try(:investment_principal_dup)
             if @share.present?
               investment_principal = investment_principal - x.item_price_dup
-              puts"ssssssssssssssssssssssssssssss----- here we are now", x.inspect
-              
-              #             
               local_array1 << x.Item_Price
               item_price = x.Item_Price
               item_name = x.Item_Name

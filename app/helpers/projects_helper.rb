@@ -42,14 +42,18 @@ module ProjectsHelper
   end
 
   def profit_loss invesment_principal
-    stocks = StockQuote::Stock.quote("aapl").as_json
-    fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1
-    @profit_loss = (((stocks["latest_price"]/fa)/invesment_principal)*100).round(4)
-    @profit_loss.finite? ?  @profit_loss : 0
+    begin
+      stocks = StockQuote::Stock.quote("aapl").as_json
+      puts"pppppppppppppppppppppppppppppppppppppppppppppppppppppp", stocks.inspect
+      fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1
+      @profit_loss = (((stocks["latest_price"]/fa)/invesment_principal)*100).round(4)
+      @profit_loss.finite? ?  @profit_loss : 0
+    rescue
+      @profit_loss = 0
+    end
   end
 
   def find_project_creator
-    puts"sssssssssssssssssssssssss", Project.find_by_id(params[:id]).authors.inspect
     if Project.find_by_id(params[:id]).authors
       Project.find_by_id(params[:id]).authors.last.first_name.capitalize + ' ' + Project.find_by_id(params[:id]).authors.last.last_name.capitalize
     end

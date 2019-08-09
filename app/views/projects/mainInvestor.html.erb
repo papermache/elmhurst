@@ -184,7 +184,7 @@
                               <td><%=  trade.user.first_name.capitalize + ' ' + trade.user.last_name.capitalize %></td>
                               <td><%= trade.created_at.strftime("%d-%m-%Y") %></td>
                               <td>$<%= trade.try(:investment_principal).round(4) rescue "" %></td>
-                              <td ><%= profit_loss(trade.investment_principal) rescue ""%><span>%</span></td>
+                              <td > PL <%= profit_loss(trade.investment_principal)%><span>%</span></td>
                           </tr>
                         <% end if @open_trade.present? %>
                         </tr>
@@ -222,14 +222,88 @@
           success: function (result) {
               var annot = result.fulfilled_avg;
               unfulfilled_requests = annot;
-              drawChart(unfulfilled_requests);
+              //drawChart(unfulfilled_requests);
+              var groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]];
+              var ohlc = [], volume = [], i = 0;
+
+              for (i; i < unfulfilled_requests.length; i += 1) {
+                  ohlc.push([
+                      unfulfilled_requests[i]['x'], // the date
+                      unfulfilled_requests[i]['open'], // open
+                      unfulfilled_requests[i]['high'], // high
+                      unfulfilled_requests[i]['low'], // low
+                      unfulfilled_requests[i]['close'] // close
+                  ]);
+
+                  volume.push([
+                      unfulfilled_requests[i]['x'], // the date
+                      unfulfilled_requests[i]['price'] // the volume
+                  ]);
+              }
+              volumeChart(ohlc, volume, groupingUnits)
 
           }});
 
+      function volumeChart(ohlc, volume, groupingUnits) {
+          Highcharts.stockChart('chart', {
+              rangeSelector: {
+                  enabled: true,
+                  selected: 1,
+                  inputEnabled: false
+              },
+              yAxis: [{
+                      labels: {
+                          align: 'right',
+                          x: -3
+                      },
+                      title: {
+                          text: 'OHLC'
+                      },
+                      height: '60%',
+                      lineWidth: 2,
+                      resize: {
+                          enabled: true
+                      }
+                  }, {
+                      labels: {
+                          align: 'right',
+                          x: -3
+                      },
+                      title: {
+                          text: 'Volume'
+                      },
+                      top: '75%',
+                      height: '25%',
+                      offset: 0,
+                      lineWidth: 2
+                  }],
+              tooltip: {
+                  split: true
+              },
+              series: [{
+                      type: 'candlestick',
+                      name: 'AAPL',
+                      data: ohlc,
+                      dataGrouping: {
+                          units: groupingUnits
+                      }
+                  }, {
+                      type: 'column',
+                      name: 'Volume',
+                      data: volume,
+                      yAxis: 1,
+                      dataGrouping: {
+                          units: groupingUnits
+                      }
+                  }]
+          });
+      }
+
+
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       function drawChart(data) {
-         
-            Highcharts.stockChart('chart', {
+
+          Highcharts.stockChart('chart', {
               rangeSelector: {
                   enabled: true,
                   selected: 1,
@@ -258,8 +332,8 @@
                       dataGrouping: {
                           units: [
                               [
-                                  'week', 
-                                  [1] 
+                                  'week',
+                                  [1]
                               ], [
                                   'month',
                                   [1, 2, 3, 4, 6]

@@ -6,16 +6,17 @@ module Api
       def index
         local_array1 = []
         fulfilled_avg =[]
-        
-        @annotation = Annotation.where.not(item_price_dup: 0)
+        @annotations = Annotation.where("item_price_dup != ? ", 0)
 
-        if @annotation.present? 
-          @annotation.each do |x|
+        if @annotations.present? 
+          @annotations.each do |x|
             @share = Share.find_by("investment_principal_dup > ?", 0)
             investment_principal = @share.try(:investment_principal_dup)
             if @share.present?
               investment_principal = investment_principal - x.item_price_dup
-              x.update(item_price_dup: 0)
+              puts"ssssssssssssssssssssssssssssss----- here we are now", x.inspect
+              
+              #             
               local_array1 << x.Item_Price
               item_price = x.Item_Price
               item_name = x.Item_Name
@@ -30,18 +31,17 @@ module Api
                   temp_str += ' '
                 end
                 temp_str += ch
-                 i+=1
+                i+=1
                       
                 if i>=temp_item_name.length-1
                   temp_str +=temp_item_name[i]
                   break
                 end
               end
-              # space added in array
               item_name = temp_str
-              #binding.pry
+              calculate_annotions(x, local_array1, item_name, item_price, item_merchant, item_user, invoice)
               @share.update(investment_principal_dup: investment_principal)
-              Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),item_name: item_name,item_price: item_price,vendor: item_merchant,user: item_user,invoice: invoice)
+                  
             elsif @share.present? && x.item_price_dup > investment_principal
               val = x.item_price_dup - investment_principal
               x.update(item_price_dup: val)
@@ -106,6 +106,33 @@ module Api
         render json: {fulfilled_avg: fulfilled_avg}
         
       end
+      
+      private
+      
+      def calculate_annotions(annotation, local_array1, item_name, item_price, item_merchant, item_user, invoice)
+        if annotation.date_status == 'order'
+          if annotation.date.today? || annotation.date.past?
+            annotation.update(item_price_dup: 0)
+            Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),
+              item_name: item_name,item_price: item_price,
+              vendor: item_merchant,user: item_user,invoice: invoice)
+          end
+        elsif annotation.date_status == 'delivery'
+          annotation.update(item_price_dup: 0)
+          Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),
+            item_name: item_name,item_price: item_price,
+            vendor: item_merchant,user: item_user,invoice: invoice)
+        elsif  annotation.date_status == "perpetuity"
+          if annotation.date.today? || annotation.date.past?
+            date =  annotation.date + 3.months
+            annotation.update(date: date)
+            Graph.create!(graph_data: (local_array1.sum/local_array1.count.to_f).round(4),
+              item_name: item_name,item_price: item_price,
+              vendor: item_merchant,user: item_user,invoice: invoice)
+          end            
+        end
+      end
+      
     end
   end
 end

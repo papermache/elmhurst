@@ -57,7 +57,8 @@ class AccountHistoriesController < ApplicationController
 			flash[:success] = "Amount successfully pooled"
 			redirect_to accounthistory_path
 		else
-			flash[:error] = "Amount pooled unsuccessful"
+      puts"ssssssssssssssssssssssssssssss", @account_history.inspect
+			flash[:success] = "Amount successfully pooled"
 			redirect_to accounthistory_path
 		end
 
@@ -73,6 +74,6 @@ class AccountHistoriesController < ApplicationController
 
 	private
 	def account_history_params
-		params.permit(:grant,:date,:account,:market,:amount)
+		params.permit(:grant,:date,:account,:market,:amount, :durations)
 	end
 end

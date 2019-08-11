@@ -1,90 +1,95 @@
 <!-- Deposit in  Account Modal -->
 <div role="dialog" class="modal" id="smart-modal-deposit-account" data-backdrop="static">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-            <h4 class="modal-title">Deposit Fund</h4>
-         </div>
-         <div class="modal-body">
-            <form id="deposit_fund_form" role="form" action="/account_histories" method="post">
-               <div class="row">
-                  <div class="col-sm-12">
-                   <div class="form-group prepend-icon">
-                        <label for="Buy Share">Deposit Name</label>
-                        <input id="grant_name" class="form-control" type="text" placeholder="Deposit Name" name="grant" required="true">
-                        <span class="field-icon "><i class="icon-user"></i></span> 
-                     </div>
-                      <div class="form-group prepend-icon">
-                        <label for="Buy Share">Date</label>
-                        <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
-                        <span class="field-icon "><i class="icon-calendar"></i></span> 
-                     </div>
-                      <div class="form-group prepend-icon">
-                        <label for="Buy Share">Account</label>
-                        <select class="form-control" id="account" name="account">
-                        <option value="">Select Source</option>
-                        <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
-                        </select>
-                        <span class="field-icon "><i class="icon-file"></i></span> 
-                     </div>
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Market</label>
-                        <input id="market" class="form-control" type="text" placeholder="Market" name="market" required="true">
-                        <span class="field-icon "><i class="icon-archive"></i></span> 
-                     </div>
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Deposit Amount</label>
-                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="amount" min="1" max="1000000" required="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
-                     </div>
-                     <div class="form-group">
-                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Submit </button>
-                     </div>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Deposit Fund</h4>
+            </div>
+            <div class="modal-body">
+                <form id="deposit_fund_form" role="form" action="/account_histories" method="post">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Deposit Name </label>
+                                <input id="grant_name" class="form-control" type="text" placeholder="Deposit Name" name="grant" required="true">
+                                <span class="field-icon "><i class="icon-user"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Date</label>
+                                <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
+                                <span class="field-icon "><i class="icon-calendar"></i></span> 
+                            </div>
+
+                            <div class="form-group" style="text-align: center;margin-bottom: 0;margin-top: 11px;">
+                                <input type="radio" id="durations" name="durations" value="quarterly" > <label for="Note"> Quarterly </label>
+                                <input type="radio" id="durations" name="durations" value="annually"  ><label for="Note">Annually</label>
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Account</label>
+                                <select class="form-control" id="account" name="account">
+                                    <option value="">Select Source</option>
+                                    <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
+                                </select>
+                                <span class="field-icon "><i class="icon-file"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Market</label>
+                                <input id="market" class="form-control" type="text" placeholder="Market" name="market" required="true">
+                                <span class="field-icon "><i class="icon-archive"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Deposit Amount</label>
+                                <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="amount" min="1" max="1000000" required="true">
+                                <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Submit </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <!-- Deposit Modal -->
 <div role="dialog" class="modal" id="smart-modal-deposit" data-backdrop="static" >
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-            <h4 class="modal-title">Deposit Form</h4>
-         </div>
-         <div class="modal-body">
-            <form id="deposit_form" role="form" action="/account_histories/deposit" method="post">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Deposit Amount</label>
-                        <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="amount" min="1" max="1000000" required="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
-                     </div>
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Source</label>
-                          <select class="form-control" id="deposit_source" name="account" required="true">
-                        <option value="">Select Source</option>
-                         <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
-                        </select>
-                        <span class="field-icon "><i class="icon-file"></i></span>
-                     </div>
-                     <input type="hidden" name="id" id="deposit_id" value="">
-                     <div class="form-group">
-                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Deposit </button>
-                     </div>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Deposit Form</h4>
+            </div>
+            <div class="modal-body">
+                <form id="deposit_form" role="form" action="/account_histories/deposit" method="post">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Deposit Amount</label>
+                                <input id="deposit_amount" class="form-control" type="number" placeholder="Deposit Amount" name="amount" min="1" max="1000000" required="true">
+                                <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Source</label>
+                                <select class="form-control" id="deposit_source" name="account" required="true">
+                                    <option value="">Select Source</option>
+                                    <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
+                                </select>
+                                <span class="field-icon "><i class="icon-file"></i></span>
+                            </div>
+                            <input type="hidden" name="id" id="deposit_id" value="">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Deposit </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -93,72 +98,82 @@
 
 
 <div role="dialog" class="modal" id="smart-modal-withdraw" data-backdrop="static" >
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-            <h4 class="modal-title">Withdrawl  Form</h4>
-         </div>
-         <div class="modal-body">
-            <form id="withdraw_form" role="form" action="/account_histories/withdraw" method="post">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Withdrawl Amount</label>
-                        <input id="withdraw_amount" class="form-control" type="number" placeholder="Withdraw Amount" name="amount" min="1" max="1000000" required="true">
-                        <span class="field-icon"><i class="icon-credit-card"></i></span> 
-                     </div>
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Source </label>
-                        <select class="form-control" id="withdraw_source" name="account" required="true">
-                        <option value="">Select Source</option>
-                         <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
-                        </select>
-                        <span class="field-icon "><i class="icon-file"></i></span>
-                     </div>
-                     <input type="hidden" name="id" id="withdrawl_id" value="">
-                     <div class="form-group">
-                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Withdrawl </button>
-                     </div>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Withdrawl  Form</h4>
+            </div>
+            <div class="modal-body">
+                <form id="withdraw_form" role="form" action="/account_histories/withdraw" method="post">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Withdrawl Amount</label>
+                                <input id="withdraw_amount" class="form-control" type="number" placeholder="Withdraw Amount" name="amount" min="1" max="1000000" required="true">
+                                <span class="field-icon"><i class="icon-credit-card"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Source </label>
+                                <select class="form-control" id="withdraw_source" name="account" required="true">
+                                    <option value="">Select Source</option>
+                                    <option value="Bank of AmericaXXX3">Bank of AmericaXXX3</option>
+                                </select>
+                                <span class="field-icon "><i class="icon-file"></i></span>
+                            </div>
+                            <input type="hidden" name="id" id="withdrawl_id" value="">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Withdrawl </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <!-- pool modal -->
 <div role="dialog" class="modal" id="smart-modal-pool" data-backdrop="static">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-            <h4 class="modal-title">Pool Form</h4>
-         </div>
-         <div class="modal-body">
-            <form id="pool_form" role="form" action="/account_histories/pool" method="post">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Pool Amount</label>
-                        <input id="pool_amount" name="amount" class="form-control" type="number"  value="" readonly="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
-                     </div>
-                     <div class="form-group prepend-icon">
-                        <label for="Buy Share">Grant Name</label>
-                        <input id="pool_grant" class="form-control" type="text" placeholder="Grant Name" name="grant" required="true">
-                        <span class="field-icon "><i class="icon-credit-card"></i></span> 
-                     </div>
-                        <input type="hidden" name="value" id="pool_value" value="">
-                        <div class="form-group">
-                        <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Pool </button>
-                     </div>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Pool Form</h4>
+            </div>
+            <div class="modal-body">
+                <form id="pool_form" role="form" action="/account_histories/pool" method="post">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Pool Amount</label>
+                                <input id="pool_amount" name="amount" class="form-control" type="number"  value="" readonly="true">
+                                <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Grant Name</label>
+                                <input id="pool_grant" class="form-control" type="text" placeholder="Grant Name" name="grant" required="true">
+                                <span class="field-icon "><i class="icon-credit-card"></i></span> 
+                            </div>
+                            <div class="form-group prepend-icon">
+                                <label for="Buy Share">Date</label>
+                                <input id="date" class="form-control" type="date" placeholder="Date" name="date" required="true">
+                                <span class="field-icon "><i class="icon-calendar"></i></span> 
+                            </div>
+
+                            <div class="form-group" style="text-align: center;margin-bottom: 0;margin-top: 11px;">
+                                <input type="radio" id="durations" name="durations" value="quarterly" > <label for="Note"> Quarterly </label>
+                                <input type="radio" id="durations" name="durations" value="annually"  ><label for="Note">Annually</label>
+                            </div>
+                            <input type="hidden" name="value" id="pool_value" value="">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-shadow btn-block "><i class="icon-chevron-sign-up"></i>  Pool </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

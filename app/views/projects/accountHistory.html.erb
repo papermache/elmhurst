@@ -1,72 +1,76 @@
 <section id="main-content">
-   <section class="wrapper">
-      <!DOCTYPE html>
-      <html lang="en">
-         <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description" content="">
-            <meta name="author" content="Mosaddek">
-            <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-         </head>
-         <body>
-            <div class="row">
-               <div class="col-lg-12">
-                  <section class="panel">
-                     <header class="panel-heading">
-                        Account History 
-                     </header>
-                     <div class="panel-body">
-                        <div class="adv-table">
-                           <table cellpadding="0" cellspacing="0" border="0" 
-                              class="table table-striped table-condensed">
-                              <thead>
-                                 <tr>
-                                    <th></th>
-                                    <th style="text-align: center;">Name</th>
-                                    <th style="text-align: center;">Date</th>
-                                    <th style="text-align: center;">Market</th>
-                                    <th style="text-align: center;">Duration</th>
-                                    <th style="text-align: center;">Dividend</th>
-                                    <th style="text-align: center;">Balance</th>
-                                    <th style="text-align: center;">Action</th>
-                                 </tr>
-                              </thead>
-                              <tbody id="trade_history">
-                                 <% @history.each do |history|%>
-                                 <tr>
-                                    <td style="text-align: center;"><input type="checkbox" name="account" id="test" class="amit" value="<%= history.id%>"></td>
-                                    <td style="text-align: center;"><%= history.grant %></td>
-                                    <td style="text-align: center;"><%= history.date.strftime("%d-%m-%Y") %></td>
-                                    <td style="text-align: center;"><%= history.market%></td>
-                                    <td style="text-align: center;"><%= history.durations%></td>
+    <section class="wrapper">
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="">
+                <meta name="author" content="Mosaddek">
+                <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+            </head>
+            <body>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Account History 
+                            </header>
+                            <div class="panel-body">
+                                <div class="adv-table">
+                                    <table cellpadding="0" cellspacing="0" border="0" 
+                                           class="table table-striped table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th style="text-align: center;">Name</th>
+                                                <th style="text-align: center;">Date</th>
+                                                <th style="text-align: center;">Market</th>
+                                                <th style="text-align: center;">Duration</th>
+                                                <th style="text-align: center;">Dividend</th>
+                                                <th style="text-align: center;">Balance</th>
+                                                <th style="text-align: center;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="trade_history">
+                                            <% @history.each do |history|%>
+                                              <tr>
+                                                  <td style="text-align: center;"><input type="checkbox" name="account" id="test" class="amit" value="<%= history.id%>"></td>
+                                                  <td style="text-align: center;"><%= history.grant %></td>
+                                                  <td style="text-align: center;"><%= history.date.strftime("%d-%m-%Y") %></td>
+                                                  <td style="text-align: center;"><%= history.market%></td>
+                                                  <td style="text-align: center;"><%= history.durations%></td>
 
-                                    <td style="text-align: center;"><%= dividend(history.amount) %><span>%</span></td>
-                                    <td style="text-align: center;">$<%= history.amount %></td>
-                                    <td style="text-align: center;">
-                                       <a class='btn btn-shadow btn-primary deposit1'  href="#smart-modal-deposit" data-toggle="modal" data-id="<%= history.id %>">Deposit</a> 
-                                       <a  class='btn btn-shadow btn-primary withdraw1'  href="#smart-modal-withdraw" data-toggle="modal" data-id="<%= history.id %>">Withdrawl </a>
-                                       <a  class='btn btn-shadow btn-primary pool1'  href="#smart-modal-pool" data-toggle="modal" data-id="<%= history.id %>"
-                                          >Pool </a>
-                                    </td>
-                                 </tr>
-                                 <% end if @history.present? %>
-                              </tbody>
-                           </table>
-                        <div>
-                        <a class='btn btn-shadow btn-primary deposit'  href="#smart-modal-deposit-account" data-toggle="modal">Deposit</a>
-                        </div>
-                        <div class="digg_pagination">
-                           <%= will_paginate @history rescue nil  %>
-                         </div>
-                        </div>
-                     </div>
-                  </section>
-               </div>
-            </div>
-   </section>
-<%= render 'partials/modals' %>  
-   <!--main content end-->
+                                                  <td style="text-align: center;">
+                                                      <%= account_dividend(history) %>
+                                                      <span>%</span>
+                                                  </td>
+                                                  
+                                                  <td style="text-align: center;">$<%= history.amount %></td>
+                                                  <td style="text-align: center;">
+                                                      <a class='btn btn-shadow btn-primary deposit1'  href="#smart-modal-deposit" data-toggle="modal" data-id="<%= history.id %>">Deposit</a> 
+                                                      <a  class='btn btn-shadow btn-primary withdraw1'  href="#smart-modal-withdraw" data-toggle="modal" data-id="<%= history.id %>">Withdrawl </a>
+                                                      <a  class='btn btn-shadow btn-primary pool1'  href="#smart-modal-pool" data-toggle="modal" data-id="<%= history.id %>"
+                                                          >Pool </a>
+                                                  </td>
+                                              </tr>
+                                            <% end if @history.present? %>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <a class='btn btn-shadow btn-primary deposit'  href="#smart-modal-deposit-account" data-toggle="modal">Deposit</a>
+                                    </div>
+                                    <div class="digg_pagination">
+                                        <%= will_paginate @history rescue nil  %>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+    </section>
+    <%= render 'partials/modals' %>  
+    <!--main content end-->
 </body>
 </html>
 </section>
@@ -79,46 +83,46 @@
 <script type="text/javascript">
   var today = new Date().toISOString().split('T')[0];
   document.getElementsByName("date")[0].setAttribute('min', today);
-  
-   $('[id^=test]').click(function(){
-    if($(this).is(":checked")) {
-        $(this).addClass('red');
-    } else {
-        $(this).removeClass('red');
-    }
-    var values = [];
-   $('.red').each(function(){
-    values.push(this.value ); 
-   });
-   //use values after the loop
-   $('#pool_value').val(values);
-    });
-     
-  $('.deposit1').click(function(){
-    var my_id_value = $(this).data('id');
-    $("#deposit_id").val(my_id_value);
+
+  $('[id^=test]').click(function () {
+      if ($(this).is(":checked")) {
+          $(this).addClass('red');
+      } else {
+          $(this).removeClass('red');
+      }
+      var values = [];
+      $('.red').each(function () {
+          values.push(this.value);
+      });
+      //use values after the loop
+      $('#pool_value').val(values);
   });
 
-  $('.withdraw1').click(function(){
-   var my_id_value = $(this).data('id');
-    $("#withdrawl_id").val(my_id_value);
+  $('.deposit1').click(function () {
+      var my_id_value = $(this).data('id');
+      $("#deposit_id").val(my_id_value);
   });
-  
-  $(".pool1").click(function() {
-    $.ajax({
-        type: "get",
-        url: "/account_histories/pool_amount",
-        data: { 
-            id: $("#pool_value").val() 
-        },
-        success: function(result) {
-            console.log(result);
-        },
-        error: function(result) {
-            alert('error');
-        }
-    });
-   });
+
+  $('.withdraw1').click(function () {
+      var my_id_value = $(this).data('id');
+      $("#withdrawl_id").val(my_id_value);
+  });
+
+  $(".pool1").click(function () {
+      $.ajax({
+          type: "get",
+          url: "/account_histories/pool_amount",
+          data: {
+              id: $("#pool_value").val()
+          },
+          success: function (result) {
+              console.log(result);
+          },
+          error: function (result) {
+              alert('error');
+          }
+      });
+  });
 
 
 </script>

@@ -221,33 +221,34 @@
           dataType: 'json',
           success: function (result) {
               var annot = result.fulfilled_avg;
+              console.log(annot)
               unfulfilled_requests = annot;
-              //drawChart(unfulfilled_requests);
-              var groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]];
-              var ohlc = [], volume = [], i = 0;
+              drawChart(unfulfilled_requests);
+              <%#*var groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]];%>
+              <%#*var ohlc = [], volume = [], i = 0;%>
 
-              for (i; i < unfulfilled_requests.length; i += 1) {
-                  ohlc.push([
-                      unfulfilled_requests[i]['x'], // the date
-                      unfulfilled_requests[i]['open'], // open
-                      unfulfilled_requests[i]['high'], // high
-                      unfulfilled_requests[i]['low'], // low
-                      unfulfilled_requests[i]['close'] // close
-                  ]);
+              <%#*for (i; i < unfulfilled_requests.length; i += 1) {%>
+                  <%#*ohlc.push([%>
+                      <%#*unfulfilled_requests[i]['x'], // the date%>
+                      <%#*unfulfilled_requests[i]['open'], // open%>
+                      <%#*unfulfilled_requests[i]['high'], // high%>
+                      <%#*unfulfilled_requests[i]['low'], // low%>
+                      <%#*unfulfilled_requests[i]['close'], // close%>
+                      <%#*unfulfilled_requests[i]['x']%>
+                  <%#*]);%>
 
-                  volume.push([
-                      unfulfilled_requests[i]['x'], // the date
-                      1 // the volume
-                  ]);
-              }
-              volumeChart(ohlc, volume, groupingUnits)
+                  <%#*volume.push([%>
+                      <%#*unfulfilled_requests[i]['x'], // the date%>
+                      <%#*1 // the volume%>
+                  <%#*]);%>
+              <%#*}%>
+              <%#*volumeChart(ohlc, volume, groupingUnits)%>
 
           }});
 
       function volumeChart(ohlc, volume, groupingUnits) {
           Highcharts.stockChart('chart', {
               rangeSelector: {
-                  enabled: true,
                   selected: 1,
                   inputEnabled: false
               },
@@ -272,13 +273,23 @@
                       title: {
                           text: 'Volume'
                       },
-                      top: '75%',
-                      height: '25%',
+                      top: '65%',
+                      height: '35%',
                       offset: 0,
                       lineWidth: 2
                   }],
               tooltip: {
-                  split: true
+                  split: true,
+                  shared: false,
+                  shadow: false,
+                  shape: 'square',
+                  backgroundColor: '#ffffff',
+                  borderColor: '#000000',
+                  borderWidth: 1.5,
+                  padding: 2,
+                  style: {
+                      fontWeight: 'bold'
+                  }
               },
               series: [{
                       type: 'candlestick',

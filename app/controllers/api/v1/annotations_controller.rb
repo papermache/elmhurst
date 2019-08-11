@@ -87,6 +87,7 @@ module Api
           arr3 = @graph.take(index+1).last[4]
           arr4 = @graph.take(index+1).last[5]
           arr5 = @graph.take(index+1).last[6]
+          arr6 =  @graph.take(index+1).last[1]
           transpose = @graph.take(index+1).transpose.first
           local_array2[:x] = arr
           local_array2[:open] = transpose.first
@@ -98,6 +99,7 @@ module Api
           local_array2[:cat1] = arr3
           local_array2[:cat2] = arr4
           local_array2[:invoice] = arr5
+          local_array2[:date] = arr6.strftime("%m/%d/%Y")
           fulfilled_avg << local_array2
         end
         render json: {fulfilled_avg: fulfilled_avg}

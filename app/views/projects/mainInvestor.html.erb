@@ -221,7 +221,6 @@
           dataType: 'json',
           success: function (result) {
               var annot = result.fulfilled_avg;
-              console.log(annot)
               unfulfilled_requests = annot;
               drawChart(unfulfilled_requests);
               <%#*var groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]];%>
@@ -313,7 +312,7 @@
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       function drawChart(data) {
-
+          console.log(data)
           Highcharts.stockChart('chart', {
               rangeSelector: {
                   enabled: true,
@@ -333,7 +332,7 @@
                       fontWeight: 'bold'
                   },
                   formatter: function () {
-                      return this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice;
+                      return this.point.date + '<br>'+this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice;
                   }
               },
               series: [{

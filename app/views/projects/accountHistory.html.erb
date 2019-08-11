@@ -14,7 +14,7 @@
                <div class="col-lg-12">
                   <section class="panel">
                      <header class="panel-heading">
-                        Account History
+                        Account History 
                      </header>
                      <div class="panel-body">
                         <div class="adv-table">
@@ -26,6 +26,7 @@
                                     <th style="text-align: center;">Name</th>
                                     <th style="text-align: center;">Date</th>
                                     <th style="text-align: center;">Market</th>
+                                    <th style="text-align: center;">Duration</th>
                                     <th style="text-align: center;">Dividend</th>
                                     <th style="text-align: center;">Balance</th>
                                     <th style="text-align: center;">Action</th>
@@ -38,6 +39,8 @@
                                     <td style="text-align: center;"><%= history.grant %></td>
                                     <td style="text-align: center;"><%= history.date.strftime("%d-%m-%Y") %></td>
                                     <td style="text-align: center;"><%= history.market%></td>
+                                    <td style="text-align: center;"><%= history.durations%></td>
+
                                     <td style="text-align: center;"><%= dividend(history.amount) %><span>%</span></td>
                                     <td style="text-align: center;">$<%= history.amount %></td>
                                     <td style="text-align: center;">

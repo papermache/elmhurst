@@ -82,6 +82,7 @@
                                             <div style="height: 400px; ">
                                                 <div>Index Price : <span id="item_price_avg"><%= item_price_avg(@client) %></span>$</div>
                                                 <div>Current AAPL/USD Rate: <span id="btc_usd">$<%= current_btc_price(@client) %></span>USD</div>
+                                                 <div>: <span id="btc_usd">$<%= get_open_price(@client) %></span>USD</div>
                                                 <br>
                                                 <div>
                                                     <a class='button btn-primary pushed button-left smartforms-modal-trigger'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
@@ -99,20 +100,25 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                    <h4 class="modal-title">Buy Share Form</h4>
+                                    <h4 class="modal-title">Buy Share Form </h4>
                                 </div>
                                 <div class="modal-body">
                                     <form id="share_buy" role="form" action="/buy" method="post">
                                         <div class="row">
                                             <div class="col-sm-12">
+
+                                                <input id="profit_loss" class="form-control" type="text" value="<%= %>">
+
                                                 <div class="form-group prepend-icon">
                                                     <label for="Buy Share">Buy Share</label>
-                                                    <input id="buy_share" class="form-control" type="number" placeholder="Number Of Share" name="shares" min="1" max="1000000">
+                                                    <input id="buy_share" class="form-control"  onchange="shareChange()" type="number" placeholder="Number Of Share" name="shares" min="1" max="1000000">
                                                     <span class="field-icon share"><i class="icon-credit-card"></i></span> 
                                                 </div>
                                                 <div class="form-group prepend-icon">
                                                     <label for="Profit Fee">Profit Fee</label>
-                                                    <input id="profit_rate" class="form-control" type="text" placeholder="Profit Fee" name="profit_fee" readonly>
+                                                    <span class="field-icon share"><i class="icon-dollar"></i></span> 
+                                                    <input id="profit_rate" class="form-control" 
+                                                           type="text" placeholder="Profit Fee" name="profit_fee" readonly value="$0">
                                                 </div>
                                                 <div class="form-group prepend-icon">
                                                     <label for="Buy Share">Investment Principal</label>
@@ -179,7 +185,6 @@
                     </thead>
                     <tbody data-bind="foreach: info">
                         <% @open_trade.each do |trade| %>
-                          <% #binding.pry %>
                           <tr>
                               <td><%=  trade.user.first_name.capitalize + ' ' + trade.user.last_name.capitalize %></td>
                               <td><%= trade.created_at.strftime("%d-%m-%Y") %></td>
@@ -223,96 +228,10 @@
               var annot = result.fulfilled_avg;
               unfulfilled_requests = annot;
               drawChart(unfulfilled_requests);
-              <%#*var groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]];%>
-              <%#*var ohlc = [], volume = [], i = 0;%>
-
-              <%#*for (i; i < unfulfilled_requests.length; i += 1) {%>
-                  <%#*ohlc.push([%>
-                      <%#*unfulfilled_requests[i]['x'], // the date%>
-                      <%#*unfulfilled_requests[i]['open'], // open%>
-                      <%#*unfulfilled_requests[i]['high'], // high%>
-                      <%#*unfulfilled_requests[i]['low'], // low%>
-                      <%#*unfulfilled_requests[i]['close'], // close%>
-                      <%#*unfulfilled_requests[i]['x']%>
-                  <%#*]);%>
-
-                  <%#*volume.push([%>
-                      <%#*unfulfilled_requests[i]['x'], // the date%>
-                      <%#*1 // the volume%>
-                  <%#*]);%>
-              <%#*}%>
-              <%#*volumeChart(ohlc, volume, groupingUnits)%>
-
           }});
-
-      function volumeChart(ohlc, volume, groupingUnits) {
-          Highcharts.stockChart('chart', {
-              rangeSelector: {
-                  selected: 1,
-                  inputEnabled: false
-              },
-              yAxis: [{
-                      labels: {
-                          align: 'right',
-                          x: -3
-                      },
-                      title: {
-                          text: 'OHLC'
-                      },
-                      height: '60%',
-                      lineWidth: 2,
-                      resize: {
-                          enabled: true
-                      }
-                  }, {
-                      labels: {
-                          align: 'right',
-                          x: -3
-                      },
-                      title: {
-                          text: 'Volume'
-                      },
-                      top: '65%',
-                      height: '35%',
-                      offset: 0,
-                      lineWidth: 2
-                  }],
-              tooltip: {
-                  split: true,
-                  shared: false,
-                  shadow: false,
-                  shape: 'square',
-                  backgroundColor: '#ffffff',
-                  borderColor: '#000000',
-                  borderWidth: 1.5,
-                  padding: 2,
-                  style: {
-                      fontWeight: 'bold'
-                  }
-              },
-              series: [{
-                      type: 'candlestick',
-                      name: 'AAPL',
-                      data: ohlc,
-                      dataGrouping: {
-                          units: groupingUnits
-                      }
-                  }, {
-                      type: 'column',
-                      name: 'Volume',
-                      data: volume,
-                      yAxis: 1,
-                      dataGrouping: {
-                          units: groupingUnits
-                      }
-                  }]
-          });
-      }
-
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       function drawChart(data) {
-          console.log(data)
           Highcharts.stockChart('chart', {
               rangeSelector: {
                   enabled: true,
@@ -332,7 +251,7 @@
                       fontWeight: 'bold'
                   },
                   formatter: function () {
-                      return this.point.date + '<br>'+this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice;
+                      return this.point.date + '<br>' + this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice;
                   }
               },
               series: [{
@@ -361,6 +280,7 @@
       var value = $("#buy_share").val();
       var item_price = $("#item_price_avg").html();
       $('#rate').val(value * item_price);
+   
 
   });
 
@@ -370,5 +290,7 @@
       $('#rate1').val(value * item_price);
 
   });
+
+
 
 </script>

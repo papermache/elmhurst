@@ -43,14 +43,14 @@ module ProjectsHelper
   end
 
   def profit_loss invesment_principal
-#    begin
+    begin
       stocks = StockQuote::Stock.quote("aapl").as_json
       fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1
       @profit_loss = (((stocks["latest_price"]/fa)/invesment_principal)*100).round(4)
       @profit_loss.finite? ?  @profit_loss : 0
-#    rescue
-#      @profit_loss = 4
-#    end
+    rescue
+      @profit_loss = 0
+    end
   end
 
   def find_project_creator

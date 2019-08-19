@@ -23,9 +23,6 @@ module ApplicationHelper
     
   def get_open_price(client)
       stocks = client.quote("aapl")
-      puts"ssssssssssssssss==== Open", stocks.open.inspect
-      puts"Sssssssssssssssssss==== close", stocks.close.inspect
-
   end
   
   def get_close_price

@@ -151,7 +151,7 @@ class ProjectsController < ApplicationController
 
   def mainInvestor
     
-    @client = IEX::Api::Client.new(publishable_token: 'sk_d27489df47ab4defa515437f7704231a')
+    @client = IEX::Api::Client.new(publishable_token: 'pk_b57fb74c90c5440fb039cc1874ba5f11')
     @open_trade = Share.where(is_trade_open: true).paginate(:page => params[:page], :per_page => 4).order('id DESC') rescue nil
   end
 

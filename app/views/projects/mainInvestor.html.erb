@@ -107,7 +107,8 @@
                                         <div class="row">
                                             <div class="col-sm-12">
 
-                                                <input id="profit_loss" class="form-control" type="text" value="<%= %>">
+                                                <input id="profit_loss_id" class="form-control" 
+                                                       type="text" value="<%= stock_cal_price(@client)%>">
 
                                                 <div class="form-group prepend-icon">
                                                     <label for="Buy Share">Buy Share</label>
@@ -279,8 +280,21 @@
   $('#buy_share').on('keyup', function () {
       var value = $("#buy_share").val();
       var item_price = $("#item_price_avg").html();
-      $('#rate').val(value * item_price);
-   
+      var investmentPrice = value * item_price;
+      console.log(investmentPrice)
+      $('#rate').val(investmentPrice);
+      var stockValue = $('profit_loss_id').val();
+      console.log('stock price');
+      console.log(stockValue);
+      console.log('stock price');
+      var profit_price =  (stockValue/investmentPrice) * 100;
+      console.log('price after investemnt');
+      console.log(profit_price);
+    if(profit_price > 0){
+        $('#profit_rate').val(profit_price.toFixed(2));  
+      } else {
+        $('#profit_rate').val(0)   
+      }
 
   });
 

@@ -283,7 +283,7 @@
       var investmentPrice = value * item_price;
       console.log(investmentPrice)
       $('#rate').val(investmentPrice);
-      var stockValue = $('profit_loss_id').val();
+      var stockValue = $('#profit_loss_id').val();
       console.log('stock price');
       console.log(stockValue);
       console.log('stock price');
@@ -291,7 +291,7 @@
       console.log('price after investemnt');
       console.log(profit_price);
     if(profit_price > 0){
-        $('#profit_rate').val(profit_price.toFixed(2));  
+        $('#profit_rate').val(profit_price);  
       } else {
         $('#profit_rate').val(0)   
       }

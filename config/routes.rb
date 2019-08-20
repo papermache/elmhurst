@@ -20,7 +20,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:show ]
+  resources :users, only: [:show ] do
+    collection do
+      post :search
+    end
+  end
   #resources :users, defaults: {format: 'xml'} ,only: [:show , :index]
   #resources :users ,only: [:index]
 

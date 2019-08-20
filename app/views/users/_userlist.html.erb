@@ -1,0 +1,27 @@
+<% if !@users.blank? %>
+  <div class="row">
+      <% @users.each do |user| %>
+        <div class="col-md-12" style="padding: 20px">
+            <hr>
+            <div class="col-md-9">
+                <p>
+                    <%= user.try(:email) %>
+                </p> 
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary" data-method="post" 
+                   href="<%= memberships_url(user_id: user.try(:id), project_id: @project_id)%>">
+                    Add Member               
+                </a>
+            </div>
+        </div>
+      <% end %>
+  </div>
+<% else %>
+  <div class="row" style="margin-top: 20px">
+      <div class="col-md-12 text-center">
+          <p> No User found</p>
+      </div>
+  </div>
+<% end %>
+

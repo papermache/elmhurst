@@ -1,7 +1,7 @@
 class AnnotationsController < ApplicationController
 
-  before_action :load_project, only: [:create, :update]
-  before_action :get_annotation, only: [:edit, :update]
+  before_action :load_project, only: [:create, :update, :destroy]
+  before_action :get_annotation, only: [:edit, :update, :destroy]
 	
   def create
     @annotation = Annotation.new(annotation_params.merge!({Project_Select: @project.title}))
@@ -45,6 +45,17 @@ class AnnotationsController < ApplicationController
       redirect_to researchertDetail_path(id: @project.id)
     else
       flash[:error] = "Request Submit Unsuccessful"
+      redirect_to researchertDetail_path(id: @project.id)
+    end
+  end
+  
+  
+  def destroy
+    if @annotation && @annotation.destroy
+      flash[:success] = "Request Delete Successfully"
+      redirect_to researchertDetail_path(id: @project.id)
+    else
+      flash[:success] = "Request Did Not Deleted. Try Again"
       redirect_to researchertDetail_path(id: @project.id)
     end
   end

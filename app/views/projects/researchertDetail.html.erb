@@ -80,7 +80,7 @@
                     <div class="col-xs-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                Project Requests 
+                                Project Requests 1 
                                 <a  href= <%= "/request?affiliate_id=#{@project.id}" %> style="margin-left: 790px;width: 100px;" class="btn btn-white request">
                                     <i class="icon-plus-sign"></i>
                                     Request
@@ -95,7 +95,8 @@
                                                 <th  style="width: 20%;  text-align: center;">Amount</th>
                                                 <th  style="width: 20%;  text-align: center;">Full Fill</th>
                                                 <th  style="width: 20%;  text-align: center;">Date</th>
-                                                <th  style="width: 20%;  text-align: center;">Edit</th>
+                                                <th  style="width: 10%;  text-align: center;">Edit</th>
+                                                <th  style="width: 10%;  text-align: center;">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -112,7 +113,12 @@
                                                       <% end %>
                                                   </td>
                                                   <td  style="width: 15%; text-align: center;"><%= annotation.created_at.strftime("%d/%m/%Y") %></td>
-                                                  <td style="text-align: center;"><a href= "<%= edit_annotation_url(annotation)%>"  class="btn btn-info btn-xs">&puncsp;<i class="icon-info"> </i> &puncsp;</a></td> 
+                                                  <td style="text-align: center;"><a href= "<%= edit_annotation_url(annotation)%>"  class="btn btn-info btn-xs">&puncsp; <i class="icon-info"> </i> &puncsp;</a></td> 
+                                                  <td style="text-align: center;">
+                                                      <a data-confirm="Are you sure delete?" rel="nofollow" data-method="delete" href="<%= annotation_url(id: annotation.try(:id), Project_Select:@project.id)%>" class="btn btn-info btn-xs" style="background-color: #af0808; border-color: #af0808">&puncsp; 
+                                                          <i class="icon-trash"> </i> &puncsp;
+                                                      </a>
+                                                  </td>
                                               </tr>
                                             <% end if @annotation.present? %>
                                         </tbody>

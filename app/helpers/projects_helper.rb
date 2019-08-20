@@ -31,11 +31,11 @@ module ProjectsHelper
     @total_count.present? ? @total_count : 0
   end
 
-  def dividend grant
+  def dividend (grant, client)
     begin
-      stocks = StockQuote::Stock.quote("aapl").as_json
+      stocks = client.quote("aapl")
       fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1
-      @dividend = (((stocks["latest_price"]/fa)/grant)*100).round(4)
+      @dividend = (((stocks.latest_price/fa)/grant)*100).round(4)
       @dividend.nan? ?  0 : @dividend 
     rescue
       @dividend  = 0
@@ -43,15 +43,14 @@ module ProjectsHelper
   end
 
   def profit_loss(invesment_principal, client)
-#    begin
+    begin
       stocks = client.quote("aapl")
-      puts"ssssssssssssssssssssssssssssssssssssssssssssss checking profit lost", stocks.inspect
       fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1
       @profit_loss = (((stocks.latest_price/fa)/invesment_principal)*100).round(4)
       @profit_loss.finite? ?  @profit_loss : 0
-#    rescue
-#      @profit_loss = 0
-#    end
+    rescue
+      @profit_loss = 0
+    end
   end
 
   def find_project_creator
@@ -66,7 +65,8 @@ module ProjectsHelper
     if account
       if  Date.today == account.date.to_date
         amount = account.amount 
-        dividend(account.amount)
+        @client = IEX::Api::Client.new(publishable_token: 'sk_b9257341ee8e443f9e0781c7f466db4f')
+        dividend(account.amount, @client)
         if account.durations == 'quarterly'
           date = Date.today + 3.months
         else
@@ -81,6 +81,17 @@ module ProjectsHelper
       end
     end
     return account.try(:dividend)
+  end
+  
+  def stock_cal_price(client)
+    begin
+      stocks = client.quote("aapl")
+      fa = Annotation.where(item_price_dup: 0).pluck(:item_price).compact.sum rescue 1
+      @total_price = stocks.latest_price/fa
+    rescue
+      @total_price = 0
+    end
+    return @total_price
   end
   
 end

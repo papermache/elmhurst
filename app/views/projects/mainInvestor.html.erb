@@ -284,12 +284,8 @@
       console.log(investmentPrice)
       $('#rate').val(investmentPrice);
       var stockValue = $('#profit_loss_id').val();
-      console.log('stock price');
-      console.log(stockValue);
-      console.log('stock price');
-      var profit_price =  (stockValue/investmentPrice) * 100;
-      console.log('price after investemnt');
-      console.log(profit_price);
+      var pl =  (stockValue/investmentPrice);
+      var profit_price = pl * value;
     if(profit_price > 0){
         $('#profit_rate').val(profit_price);  
       } else {

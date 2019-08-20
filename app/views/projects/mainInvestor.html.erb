@@ -189,7 +189,7 @@
                               <td><%=  trade.user.first_name.capitalize + ' ' + trade.user.last_name.capitalize %></td>
                               <td><%= trade.created_at.strftime("%d-%m-%Y") %></td>
                               <td>$<%= trade.try(:investment_principal).round(4) rescue "" %></td>
-                              <td > PL <%= profit_loss(trade.investment_principal)%><span>%</span></td>
+                              <td > PL <%= profit_loss(trade.investment_principal, @client)%><span>%</span></td>
                           </tr>
                         <% end if @open_trade.present? %>
                         </tr>

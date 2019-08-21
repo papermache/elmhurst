@@ -52,15 +52,22 @@
                                 <div class="col-md-4">
                                     <h4>Project Members</h4>
                                     <ul class="list-group">
-                                        <div  data-bind="foreach: projects">
-                                            <table class=list-group-item >
-                                                <% @member.each do |member|%>
-                                                  <tr>
-                                                      <td><%= member.first_name.capitalize + ' ' + member.last_name.capitalize %></td>
-                                                  </tr>
-                                                <% end if @member.present? %>
-                                            </table>
+                                        <div class="list-group-item" >
+                                            <% @member.each do |member|%>
+                                              <div class="col-md-12">
+                                                  <div>
+                                                      <%= member.first_name.capitalize + ' ' + member.last_name.capitalize %>
+                                                      <a data-confirm="Are you sure delete?" 
+                                                         rel="nofollow" data-method="delete" 
+                                                         href="<%= membership_url(id: member.try(:id), project_id: @project.id)%>">
+                                                          <i class="icon-remove" style="color: red"> </i> 
+                                                      </a>
+                                                  </div>
+                                              </div>
+
+                                            <% end if @member.present? %>
                                         </div>
+
                                         <li class="list-group-item" style="margin-top: -2px;">
                                             <div class="row">
                                                 <div class="col-xs-12">

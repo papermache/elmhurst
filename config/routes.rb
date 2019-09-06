@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post :withdraw
       post :pool
       get :pool_amount
-    end 
+    end
   end
   #resources :investor
  # get 'investor' => 'investor#index'
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   get '/Investor' => 'projects#mainInvestor'
   get '/user/investor' => 'projects#mainInvestor'
   get '/accounthistory' => 'projects#accountHistory'
-  
+
   #Researcher
   get '/editProject' => 'projects#edit'
   get '/new' => 'projects#new'
@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 
   #shares
   post '/buy' => 'shares#buy'
-  post '/sell' => 'shares#sell' 
+  post '/sell' => 'shares#sell'
 
   resources :projects do
     member do
@@ -71,8 +71,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :annotations 
-  
+  resources :annotations
+
   # root 'home#index'
   root 'projects#main'
   get 'main' => 'projects#main'
@@ -85,10 +85,11 @@ Rails.application.routes.draw do
       resources :investments
       resources :authorships
       resources :memberships
-      resources :logins  ,:only => [:create] 
+      resources :logins  ,:only => [:create]
       resources :tokens
       resources :annotations
       resources :order_books
+      resources :graphs, :only => [:index]
        end
   end
 
@@ -100,5 +101,3 @@ Rails.application.routes.draw do
   #get 'detail/:id', to: 'projects#show', as: 'detail'
 
 end
-
-

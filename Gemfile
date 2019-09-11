@@ -36,7 +36,6 @@ gem 'cloudinary'
 gem 'whenever', require: false
 gem 'iex-ruby-client'
 
-gem 'puma'
 
 # Use Unicorn as the app server
  gem 'unicorn'

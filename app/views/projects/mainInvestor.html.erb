@@ -85,7 +85,7 @@
 
                                                 <br>
                                                 <div>
-                                                    <a class='button btn-primary pushed button-left smartforms-modal-trigger'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a> 
+                                                    <a class='button btn-primary pushed button-left smartforms-modal-trigger'  href="#smart-modal-buy" data-toggle="modal"><i class='icon-chevron-sign-up'></i>  Buy </a>
                                                     <a class='button btn-primary pushed button-right smartforms-modal-trigger'  href="#smart-modal-sell" data-toggle="modal"><i class='icon-chevron-sign-down'></i>  Sell </a>
                                                 </div>
                                             </div>
@@ -107,18 +107,18 @@
                                         <div class="row">
                                             <div class="col-sm-12">
 
-                                                <input id="profit_loss_id" class="form-control" 
+                                                <input id="profit_loss_id" class="form-control"
                                                        type="hidden" value="<%= stock_cal_price(@client)%>">
 
                                                 <div class="form-group prepend-icon">
                                                     <label for="Buy Share">Buy Share</label>
                                                     <input id="buy_share" class="form-control"  onchange="shareChange()" type="number" placeholder="Number Of Share" name="shares" min="1" max="1000000">
-                                                    <span class="field-icon share"><i class="icon-credit-card"></i></span> 
+                                                    <span class="field-icon share"><i class="icon-credit-card"></i></span>
                                                 </div>
                                                 <div class="form-group prepend-icon">
                                                     <label for="Profit Fee">Profit Fee</label>
-                                                    <span class="field-icon share"><i class="icon-dollar"></i></span> 
-                                                    <input id="profit_rate" class="form-control" 
+                                                    <span class="field-icon share"><i class="icon-dollar"></i></span>
+                                                    <input id="profit_rate" class="form-control"
                                                            type="text" placeholder="Profit Fee" name="profit_fee" readonly value="$0">
                                                 </div>
                                                 <div class="form-group prepend-icon">
@@ -149,7 +149,7 @@
                                                 <div class="form-group prepend-icon">
                                                     <label for="Buy Share">Sell Share</label>
                                                     <input id="sell_share" class="form-control" type="number" placeholder="Number Of Share" name="shares" min="1" max="1000000">
-                                                    <span class="field-icon share"><i class="icon-credit-card"></i></span> 
+                                                    <span class="field-icon share"><i class="icon-credit-card"></i></span>
                                                 </div>
                                                 <div class="form-group prepend-icon">
                                                     <label for="Buy Share">Investment Principal</label>
@@ -173,7 +173,7 @@
         </header>
         <div class="panel-body">
             <div class="adv-table">
-                <table  cellpadding="0" cellspacing="0" border="0" 
+                <table  cellpadding="0" cellspacing="0" border="0"
                         class="table table-striped table-condensed">
                     <thead>
                         <tr>
@@ -201,7 +201,7 @@
             </div>
             <div class="digg_pagination">
                 <%= will_paginate @open_trade  %>
-            </div>  
+            </div>
         </div>
     </section>
 </div>
@@ -218,19 +218,22 @@
       // var file;
       // var fileInput = document.getElementById('fileInput');
       var username = document.getElementById('c_username').innerText;
+      openTooltips = [];
+      var toolTipWidth = 100;
+      var toolTipHeight = 80;
+      var toolTipMargin = 15;
+      stickyTooltips = false;
 
       //
       //-- Data Read part end --
       /*************************Date Receive From API**************************************/
       var data = [], data1 = [];
       $.ajax({
-          url: "/api/v1/annotations",
+          url: "/api/v1/graphs?group_by_minutes=15",
           type: "GET",
           dataType: 'json',
           success: function (result) {
-              var annot = result.fulfilled_avg;
-              unfulfilled_requests = annot;
-              drawChart(unfulfilled_requests);
+              drawChart(result.graphs);
           }});
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -242,41 +245,115 @@
                   inputEnabled: false
               },
               tooltip: {
-                  split: false,
-                  shared: false,
-                  shadow: false,
-                  shape: 'square',
-                  backgroundColor: '#ffffff',
-                  borderColor: '#000000',
-                  borderWidth: 1.5,
-                  padding: 2,
-                  style: {
-                      fontWeight: 'bold'
-                  },
-                  formatter: function () {
-                      return this.point.date + '<br>' + this.point.cat1 + '<br>' + this.point.cat2 + '<br>' + '$' + this.point.price + '<br>' + this.point.name + '<br>' + this.point.invoice;
-                  }
+                enabled: false,
+                shared: false
               },
               series: [{
                       type: 'candlestick',
                       name: 'AAPL/ELM',
                       data: data,
-                      dataGrouping: {
-                          units: [
-                              [
-                                  'week',
-                                  [1]
-                              ], [
-                                  'month',
-                                  [1, 2, 3, 4, 6]
-                              ]
-                          ]
+                  }],
+              chart: {
+                events: {
+                  click: function(event) {
+                    stickyTooltips = !stickyTooltips;
+                  }
+                }
+              },
+              plotOptions: {
+                series: {
+                  findNearestPointBy: "xy",
+                  point: {
+                    events: {
+                      mouseOver: function (event) {
+
+                      if (!stickyTooltips) {
+                        var chart = this.series.chart;
+
+                        // Remove any currently open tooltips
+                        for(var i = 0; i < openTooltips.length; i++) {
+                          chart.container.removeChild(openTooltips[i]);
+                        }
+                        // Reset array
+                        openTooltips = [];
+
+                        console.log(this)
+                        var currX = this.plotX;
+                        var currY = chart.chartHeight * 0.25;
+
+                        var pos = getTooltipPos(0, currX, currY);
+                        var tooltip = createTooltip([
+                          `Open: ${this.open}`,
+                          `High: ${this.high}`,
+                          `Low: ${this.low}`,
+                          `Close: ${this.close}`].join("<br />"),
+                          undefined,
+                          undefined,
+                          pos.x, pos.y);
+                        openTooltips.push(tooltip);
+                        this.options.item_tooltips.forEach( (item, i) => {
+                          pos = getTooltipPos(i + 1, currX, currY);
+                          tooltip = createTooltip(item.body, item.url, item.url_text, pos.x, pos.y);
+                          openTooltips.push(tooltip);
+                        });
+                        openTooltips.forEach( (tooltip) => {
+                          chart.container.appendChild(tooltip);
+                        });
                       }
-                  }]
-          });
+                    }
+                  }
+                },
+              }
+            }
+        });
+      }
+
+      function createTooltip(body, url, linkText, x, y) {
+        var toolTipWidth = 100;
+        var toolTipHeight = 90;
+        var toolTipMargin = 15;
+
+        var toolTip = document.createElement('div');
+
+        toolTip.className = 'floating-tooltip';
+        toolTip.style.display = 'block';
+        toolTip.style.left = x + 'px';
+        toolTip.style.top = y + 'px';
+
+        body = body.replace(/\n/g, "<br />");
+        toolTip.innerHTML = '<div style="color: rgba(128, 128, 128, 1)">' +
+                            body +
+                            '</div>';
+         if (url && linkText) {
+           toolTip.innerHTML = toolTip.innerHTML + '<div>' +
+                                '<a href="' + url + '">' + linkText + '</a>' +
+                                '</div>';
+         }
+
+         return toolTip;
+      }
+
+      function getTooltipPos(num, currX, currY) {
+        switch (num) {
+          case (0):
+            return { x: currX + toolTipMargin, y: currY + toolTipMargin }
+          case (1):
+            return { x: currX - toolTipWidth, y: currY + toolTipMargin }
+          case (2):
+            return { x: currX + toolTipMargin, y: currY + toolTipHeight + toolTipMargin * 2 }
+          case (3):
+            return { x: currX - toolTipWidth, y: currY + toolTipHeight + toolTipMargin * 2 }
+          case (4):
+            return { x: currX - toolTipWidth * 2, y: currY + toolTipMargin }
+          case (5):
+            return { x: currX - toolTipWidth * 2, y: currY + toolTipHeight + toolTipMargin * 2 }
+          case (6):
+            return { x: currX + toolTipWidth + toolTipMargin, y: currY + toolTipMargin }
+          case (7):
+            return { x: currX + toolTipWidth + toolTipMargin, y: currY + toolTipHeight + toolTipMargin * 2 }
+        }
       }
   });
-
 
   // Investment Principal Data
   $('#buy_share').on('keyup', function () {

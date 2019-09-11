@@ -1,11 +1,38 @@
-Elmhurst
-Market simulation demos purchasing power, grant deposits, and chart activity principles and mechanics.
+Elmhurst Nonprofit Bank is a 501(c)3 philanthropic brokerage and the first organization of its kind to provide financial products and services exclusively to nonprofits and their affiliates. 
 
 
-Elmhurst Nonprofit Bank is a 501(c)3 philanthropic brokerage designed to achieve purchasing power parity thru its supply and demand-side financial products and services customized to the unique needs of exempt organizations. This repo is a simulation and demo version of market principles we use to forecast growth and test new features before building them into the production version.
+The primary purpose of this repository is to simulate market mechanics for account holders, potential clients, and our own forecasts.
 
-Chart versions are on different branches and will be updated independent from the core build. Sample data will be cleaned before pushing however some reminant data may remain.
+Note: *this repository is for simulation purposes and paper trading only. No routing or deposit functionality is built in.* 
 
-A live version is located at www.elmhur.st. Contact the repo owner to submit a budget if you are interested in creating an account, for credentials if you would like a tour, or submit a pull request to create your own accounts and activity.
+Fork this repo and work on it for free otherwise email gjeffery@freelancer.com to work on it and get paid.
 
-All unathorized accounts created at www.elmhur.st will be deleted.
+A live version is located at www.elmhur.st
+
+For production version employment opportunities please visit www.elmhurst.bank.
+
+To Access the Build:
+
+Account credentials are in Trello by way of Slack. Please contact George gjefferey@freelancer.com or *Vancouver liaison* for an invite link.
+
+For those who already have access:
+
+Please push changes to both AWS and GitHub.
+
+GitHub branch: Elmhurst_new_changes
+AWS instance: New_Elmhurst_Instance
+
+We will probably establish new GitHub branches with different versions in the future.
+
+Steps to deploy:
+
+1: ssh -i  PEMFILE ubuntu@35.164.187.50
+(using terminal)
+2:  Go to "elmhurst" folder
+3: git pull for pulling data from github
+4:  Restart Puma "bundle exec pumactl -P /home/deploy/.pids/puma.pid restart"
+5:  Restart Nginx "sudo service nginx restart"
+
+If you perform work on Elmhurst’s Simulation please update your location at https://drive.google.com/open?id=1h4IOIvdOrF8KDY3Wef4CHhliyjRsgass&usp=sharing 
+in addition to using Freelancer.com’s time tracker.
+

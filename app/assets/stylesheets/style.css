@@ -4714,7 +4714,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     position: relative;
 }
 
-.btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus,  
+.btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus,
 .btn-primary[disabled]:active, .btn-primary.active[disabled] {
     background-color: #41cac0;
     border-color: #29b392;
@@ -4816,7 +4816,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 
 .dropdown-menu.extended.logout > li.active {
     background: #a9d96c none repeat scroll 0 0 !important;
-    color: #fff !important; 
+    color: #fff !important;
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
@@ -4945,13 +4945,35 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
   * html .digg_pagination {
     height: 1%; }
   *:first-child + html .digg_pagination {
-    overflow: hidden; }  
+    overflow: hidden; }
 
  .normalText a,.normalText a:hover {
    color: #69665e;
     text-decoration: none;
- }   
-  
+ }
+
  .bold-text{
      font-size: 20px !important;
  }
+
+.floating-tooltip {
+  width: 100px;
+  height: 90px;
+  position: absolute;
+  display: none;
+  padding: 4px;
+  box-sizing: border-box;
+  font-size: 10px;
+  color: #131722;
+  background-color: rgba(255, 255, 255, 1);
+  text-align: left;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  pointer-events: auto;
+  border: 1px solid rgba(173, 216, 230, 1);
+  border-radius: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

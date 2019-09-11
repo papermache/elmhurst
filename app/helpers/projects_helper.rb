@@ -63,21 +63,25 @@ module ProjectsHelper
   def account_dividend(account)
 
     if account
+      amount = account.amount 
+      @client = IEX::Api::Client.new(publishable_token: 'sk_b9257341ee8e443f9e0781c7f466db4f')
+      dividend(account.amount, @client)
+      if @dividend > 0
+        per = @dividend * amount
+        amount = per/100
+      end
+      
       if  Date.today == account.date.to_date
-        amount = account.amount 
-        @client = IEX::Api::Client.new(publishable_token: 'sk_b9257341ee8e443f9e0781c7f466db4f')
-        dividend(account.amount, @client)
         if account.durations == 'quarterly'
           date = Date.today + 3.months
         else
           date = Date.today + 1.year
         end
         
-        if @dividend > 0
-          per = @dividend * amount
-          amount = per/100
-        end
+        
         account.update(date: date, dividend: @dividend)
+      else
+        account.update(dividend: @dividend)
       end
     end
     return account.try(:dividend)
@@ -92,6 +96,24 @@ module ProjectsHelper
       @total_price = 0
     end
     return @total_price
+  end
+  
+  def total_profit(trade, client)
+    pl =  profit_loss(trade.investment_principal, client)
+    invest =  trade.investment_principal.to_f
+    total =  invest + (invest * pl)
+    if total > 0
+      total = total.round(2)
+    end
+    return total
+  end
+  
+  def total_gain(account)
+    total = account.dividend
+    if account.amount > 0
+      total = (account.amount * 2) + total
+    end
+    return total
   end
   
 end

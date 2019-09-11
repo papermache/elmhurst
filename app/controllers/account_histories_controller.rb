@@ -57,7 +57,6 @@ class AccountHistoriesController < ApplicationController
 			flash[:success] = "Amount successfully pooled"
 			redirect_to accounthistory_path
 		else
-      puts"ssssssssssssssssssssssssssssss", @account_history.inspect
 			flash[:success] = "Amount successfully pooled"
 			redirect_to accounthistory_path
 		end

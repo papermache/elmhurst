@@ -365,17 +365,11 @@
       var stockValue = $('#profit_loss_id').val();
       var pl = (stockValue / investmentPrice);
       var profit_price = pl * value;
-<<<<<<< HEAD
-    if(profit_price > 0){
-        $('#profit_rate').val(profit_price);
-      } else {
-        $('#profit_rate').val(0)
-=======
+
       if (profit_price > 0) {
           $('#profit_rate').val(profit_price);
       } else {
           $('#profit_rate').val(0)
->>>>>>> 2a41d9b9f8feaeac5aa70ac0b806caafc316ead2
       }
 
   });

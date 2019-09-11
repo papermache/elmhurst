@@ -178,10 +178,11 @@
                     <thead>
                         <tr>
                         <tr>
-                            <th style="width: 25%">Trade</th>
-                            <th style="width: 25%">Date</th>
-                            <th style="width: 25%">Principal</th>
-                            <th style="width: 25%">P/L</th>
+                            <th style="width: 20%">Trade</th>
+                            <th style="width: 20%">Date</th>
+                            <th style="width: 20%">Principal</th>
+                            <th style="width: 20%">P/L</th>
+                            <th style="width: 20%">Total Profit</th>
                         </tr>
                     </thead>
                     <tbody data-bind="foreach: info">
@@ -190,7 +191,8 @@
                               <td><%=  trade.user.first_name.capitalize + ' ' + trade.user.last_name.capitalize %></td>
                               <td><%= trade.created_at.strftime("%d-%m-%Y") %></td>
                               <td>$<%= trade.try(:investment_principal).round(4) rescue "" %></td>
-                              <td > PL <%= profit_loss(trade.investment_principal, @client)%><span>%</span></td>
+                              <td ><%= profit_loss(trade.investment_principal, @client)%><span>%</span></td>
+                              <td>$<%=  total_profit(trade, @client) %></td>
                           </tr>
                         <% end if @open_trade.present? %>
                         </tr>
@@ -361,12 +363,19 @@
       console.log(investmentPrice)
       $('#rate').val(investmentPrice);
       var stockValue = $('#profit_loss_id').val();
-      var pl =  (stockValue/investmentPrice);
+      var pl = (stockValue / investmentPrice);
       var profit_price = pl * value;
+<<<<<<< HEAD
     if(profit_price > 0){
         $('#profit_rate').val(profit_price);
       } else {
         $('#profit_rate').val(0)
+=======
+      if (profit_price > 0) {
+          $('#profit_rate').val(profit_price);
+      } else {
+          $('#profit_rate').val(0)
+>>>>>>> 2a41d9b9f8feaeac5aa70ac0b806caafc316ead2
       }
 
   });

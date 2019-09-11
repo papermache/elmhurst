@@ -14,7 +14,7 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                Account History 
+                                Account History 1 
                             </header>
                             <div class="panel-body">
                                 <div class="adv-table">
@@ -29,6 +29,7 @@
                                                 <th style="text-align: center;">Duration</th>
                                                 <th style="text-align: center;">Dividend</th>
                                                 <th style="text-align: center;">Balance</th>
+                                                 <th style="text-align: center;">Total Gain</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
                                         </thead>
@@ -39,14 +40,15 @@
                                                   <td style="text-align: center;"><%= history.grant %></td>
                                                   <td style="text-align: center;"><%= history.date.strftime("%d-%m-%Y") %></td>
                                                   <td style="text-align: center;"><%= history.market%></td>
-                                                  <td style="text-align: center;"><%= history.durations%></td>
+                                                  <td style="text-align: center;"><%= history.durations %></td>
 
                                                   <td style="text-align: center;">
-                                                      <%= account_dividend(history) %>
-                                                      <span>%</span>
+                                                      <%= account_dividend(history) %>%
                                                   </td>
                                                   
                                                   <td style="text-align: center;">$<%= history.amount %></td>
+                                                  <td style="text-align: center;">$<%= total_gain(history) %></td>
+                                                  
                                                   <td style="text-align: center;">
                                                       <a class='btn btn-shadow btn-primary deposit1'  href="#smart-modal-deposit" data-toggle="modal" data-id="<%= history.id %>">Deposit</a> 
                                                       <a  class='btn btn-shadow btn-primary withdraw1'  href="#smart-modal-withdraw" data-toggle="modal" data-id="<%= history.id %>">Withdrawl </a>

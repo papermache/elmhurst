@@ -85,6 +85,11 @@ test:
 #
 production:
   <<: *default
-  database: elmhurst_backend_production
-  #username: elmhurst_backend
-  #password: <%= ENV['ELMHURST_BACKEND_DATABASE_PASSWORD'] %>
+  host: elmhurst-dev-db-postgres-instance.cxxtahkxmdl6.us-west-2.rds.amazonaws.com
+  port: 5432
+  database: elmhurst_bamk 
+  username: elmhurstproject
+  password: password12345
+ #database: elmhurst_backend_production 
+ #username: elmhurst_backend
+ #password: <%= ENV['ELMHURST_BACKEND_DATABASE_PASSWORD'] %>

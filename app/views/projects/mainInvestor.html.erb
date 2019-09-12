@@ -365,6 +365,7 @@
       var stockValue = $('#profit_loss_id').val();
       var pl = (stockValue / investmentPrice);
       var profit_price = pl * value;
+
       if (profit_price > 0) {
           $('#profit_rate').val(profit_price);
       } else {

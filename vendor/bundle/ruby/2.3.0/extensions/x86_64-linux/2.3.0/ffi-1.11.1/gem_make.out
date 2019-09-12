@@ -1,0 +1,59 @@
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/ffi-1.11.1/ext/ffi_c
+/usr/share/rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20190624-29861-zj23tb.rb extconf.rb
+Ignoring byebug-11.0.1 because its extensions are not built.  Try: gem pristine byebug --version 11.0.1
+Ignoring json-1.8.6 because its extensions are not built.  Try: gem pristine json --version 1.8.6
+Ignoring kgio-2.11.2 because its extensions are not built.  Try: gem pristine kgio --version 2.11.2
+Ignoring pg-0.18.4 because its extensions are not built.  Try: gem pristine pg --version 0.18.4
+Ignoring puma-3.12.1 because its extensions are not built.  Try: gem pristine puma --version 3.12.1
+Ignoring raindrops-0.19.0 because its extensions are not built.  Try: gem pristine raindrops --version 0.19.0
+Ignoring unf_ext-0.0.7.6 because its extensions are not built.  Try: gem pristine unf_ext --version 0.0.7.6
+Ignoring unicorn-5.5.1 because its extensions are not built.  Try: gem pristine unicorn --version 5.5.1
+checking for ffi_call() in -lffi... yes
+checking for ffi_closure_alloc()... yes
+checking for shlwapi.h... no
+checking for rb_thread_call_without_gvl()... yes
+checking for ruby_native_thread_p()... yes
+checking for ruby_thread_has_gvl_p()... yes
+checking for ffi_prep_cif_var()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+creating extconf.h
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/ffi-1.11.1/mkmf.log
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/ffi-1.11.1/ext/ffi_c
+make "DESTDIR=" clean
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/ffi-1.11.1/ext/ffi_c
+make "DESTDIR="
+compiling MemoryPointer.c
+compiling LongDouble.c
+compiling Call.c
+compiling MappedType.c
+compiling Function.c
+compiling AbstractMemory.c
+compiling Types.c
+compiling ClosurePool.c
+compiling Type.c
+compiling Pointer.c
+compiling ffi.c
+compiling Platform.c
+compiling Struct.c
+compiling StructLayout.c
+compiling MethodHandle.c
+compiling Variadic.c
+compiling Buffer.c
+compiling StructByValue.c
+compiling DynamicLibrary.c
+compiling ArrayType.c
+compiling LastError.c
+compiling Thread.c
+compiling FunctionInfo.c
+linking shared-object ffi_c.so
+
+current directory: /home/ubuntu/elmhurst/vendor/bundle/ruby/2.3.0/gems/ffi-1.11.1/ext/ffi_c
+make "DESTDIR=" install
+/usr/bin/install -m 0755 ffi_c.so ./.gem.20190624-29861-1k5v4zl

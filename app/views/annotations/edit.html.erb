@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Research Request
+                        Research Request 
                     </header>
                     <div class="panel-body">
                         <div class="row">
@@ -20,7 +20,7 @@
                                       <label for="Project_Select">Select Affiliates for Item</label>
                                       <select class="form-control" id="Project_Select" name="Project_Select">
                                           <option value="">Select Affilates</option>
-                                          <%= options_for_select(@affilates.map { |affilate| [affilate[:title], affilate[:id]] }, @annotation.try(:id)) %>
+                                          <%= options_for_select(@affilates.map { |affilate| [affilate[:title], affilate[:id]] }, :selected => get_selected(@annotation))%>
                                       </select>
                                       <i class="arrow double"></i>    
                                       <span class="field-icon"><i class="icon-file"></i></span>

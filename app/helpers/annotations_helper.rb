@@ -29,5 +29,10 @@ module AnnotationsHelper
 		# affiliate name is stored as project_select
 		@annotation_project = Annotation.find_by_id(params[:id]).Project_Select.capitalize
   end
+
+  def get_selected(annotation)
+    @project = Project.find_by_title(annotation.Project_Select)
+    return @project.id
+  end
   
 end

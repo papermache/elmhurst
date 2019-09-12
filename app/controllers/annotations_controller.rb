@@ -4,6 +4,7 @@ class AnnotationsController < ApplicationController
   before_action :get_annotation, only: [:edit, :update, :destroy]
 	
   def create
+    
     @annotation = Annotation.new(annotation_params.merge!({Project_Select: @project.title}))
     @annotation.date_status = params["date_status"]
     @annotation.date = params["date"].to_datetime
@@ -37,6 +38,7 @@ class AnnotationsController < ApplicationController
   end
   
   def update
+   
     if @annotation && @annotation.update(annotation_params.merge!({Project_Select: @project.title}))
       @annotation.Item_Price     =   params[:Item_Price].to_f
       @annotation.item_price_dup = params[:Item_Price].to_f
@@ -63,6 +65,7 @@ class AnnotationsController < ApplicationController
   private
 
   def load_project
+    puts"Sssssssssssssssssssssssss", params[:Project_Select].inspect
     @project = Project.find_by(id: params[:Project_Select])
     if @project.blank?
       flash[:error] = "Invalid Affiliate Id"

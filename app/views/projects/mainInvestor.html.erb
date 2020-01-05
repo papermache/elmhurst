@@ -165,6 +165,10 @@
                             </div>
                         </div>
                     </div>
+                    <div style="margin-left: 20px; margin-bottom: 20px; vertical-align: middle">
+                        Search: 
+                    <textarea name="search" id="search" rows="2" cols="25"/></textarea>
+                    </div>
             </div>
     </section>
     <section class="panel">
@@ -207,12 +211,11 @@
 </div>
 </div>
 </section>
-</section>
+
 <script src="/assets/investor/mainInvestor.js"  type="text/javascript" /></script>
 <script>
   var unfulfilled_requests = [];
   $(function () {
-
 
       //--- Data Read part -----
       // var file;
@@ -238,6 +241,7 @@
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       function drawChart(data) {
+                
           Highcharts.stockChart('chart', {
               rangeSelector: {
                   enabled: true,
@@ -248,6 +252,7 @@
                 enabled: false,
                 shared: false
               },
+          
               series: [{
                       type: 'candlestick',
                       name: 'AAPL/ELM',
@@ -257,9 +262,32 @@
                 events: {
                   click: function(event) {
                     stickyTooltips = !stickyTooltips;
-                  }
+                  },
+                  load: function() {
+                    var chart = this,
+                    points = chart.series[0].points,
+                    searchInput = document.getElementById('search');
+            
+                    function changeMatches() {
+                      points.forEach(function(point) {
+                        
+                        point.item_tooltips.forEach(function(item_tooltip) {
+                          
+                          if (item_tooltip.body === searchInput.value) {
+                            point.update({ color: 'red', borderColor: 'red' })
+                            chart.tooltip.refresh(point)
+                          }
+                          
+                        })
+                        
+                      })
+                    }
+                   searchInput.addEventListener('keyup', changeMatches);
+                 }
+                
                 }
               },
+              
               plotOptions: {
                 series: {
                   findNearestPointBy: "xy",
@@ -277,11 +305,12 @@
                         // Reset array
                         openTooltips = [];
 
-                        console.log(this)
+                       
                         var currX = this.plotX;
                         var currY = chart.chartHeight * 0.25;
 
                         var pos = getTooltipPos(0, currX, currY);
+                        
                         var tooltip = createTooltip([
                           `Open: ${this.open}`,
                           `High: ${this.high}`,
@@ -296,9 +325,11 @@
                           tooltip = createTooltip(item.body, item.url, item.url_text, pos.x, pos.y);
                           openTooltips.push(tooltip);
                         });
+                        
                         openTooltips.forEach( (tooltip) => {
                           chart.container.appendChild(tooltip);
                         });
+                        
                       }
                     }
                   }
@@ -308,7 +339,8 @@
         });
       }
 
-      function createTooltip(body, url, linkText, x, y) {
+      function createTooltip(body, url, linkText, x, y ) {
+        
         var toolTipWidth = 100;
         var toolTipHeight = 90;
         var toolTipMargin = 15;
@@ -321,6 +353,7 @@
         toolTip.style.top = y + 'px';
 
         body = body.replace(/\n/g, "<br />");
+        
         toolTip.innerHTML = '<div style="color: rgba(128, 128, 128, 1)">' +
                             body +
                             '</div>';
@@ -332,6 +365,49 @@
 
          return toolTip;
       }
+      
+      
+      function  updateTooltip(point, chart){
+          
+          
+          
+           if(openTooltips){
+               for(var i = 0; i < openTooltips.length; i++) {
+                   chart.container.removeChild(openTooltips[i]);
+                   }
+           }
+            
+           var openTooltips = []
+           
+           var toolTipWidth = 100;
+           var toolTipHeight = 90;
+           var toolTipMargin = 15;
+
+           var toolTip = document.createElement('div');
+           
+            toolTip.className = 'floating-tooltip';
+            toolTip.style.display = 'block';
+            toolTip.style.left = point.x + 'px';
+            toolTip.style.top = point.y + 'px';
+            
+            var body = point.item_tooltips[0].body
+            var url = point.item_tooltips[0].url
+            var linkText =  point.item_tooltips[0].url_text
+            
+            body = body.replace(/\n/g, "<br />");
+            
+            toolTip.innerHTML = '<div style="color: red">' +
+                            body +
+                            '</div>';
+
+            openTooltips.push(toolTip);
+            
+            openTooltips.forEach( (tooltip) => {
+                chart.container.appendChild(tooltip);
+            });
+      }
+      
+      
 
       function getTooltipPos(num, currX, currY) {
         switch (num) {

@@ -6,7 +6,7 @@ gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
 gem 'pg', '0.18.4'
 
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -56,7 +56,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'devise', '3.5.2'
+gem 'devise', '4.7.1'
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'haml-rails'

@@ -5,48 +5,51 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
-    skip_before_filter :verify_authenticity_token
-    before_action :set_cookies
+  skip_before_filter :verify_authenticity_token
+  before_action :set_cookies
 
-
-    def set_cookies
-      if user_signed_in?
-        cookies[:user_id]    = current_user.id
-        cookies[:first_name] = current_user.first_name
-        cookies[:last_name]  = current_user.last_name
+  def set_cookies
+    if user_signed_in?
+      cookies[:user_id]    = current_user.id
+      cookies[:first_name] = current_user.first_name
+      cookies[:last_name]  = current_user.last_name
         #cookies[:email]      = current_user.email
-      end
     end
+  end
 
     protected
     ## Add extra fields
     def configure_permitted_parameters
 
-      devise_parameter_sanitizer.for(:sign_up) << :first_name
-      devise_parameter_sanitizer.for(:account_update) << :first_name
-
-      devise_parameter_sanitizer.for(:sign_up) << :last_name
-      devise_parameter_sanitizer.for(:account_update) << :last_name
-
-
-      devise_parameter_sanitizer.for(:sign_up) << :researcher
-      devise_parameter_sanitizer.for(:account_update) << :researcher
-
-      devise_parameter_sanitizer.for(:sign_up) << :investor
-      devise_parameter_sanitizer.for(:account_update) << :investor
-
-
-      devise_parameter_sanitizer.for(:sign_up) << :address
-      devise_parameter_sanitizer.for(:account_update) << :address
-    
-      devise_parameter_sanitizer.for(:sign_up) << :avatar
-      devise_parameter_sanitizer.for(:account_update) << :avatar
-
-      devise_parameter_sanitizer.for(:sign_up) << :dln_no
-      devise_parameter_sanitizer.for(:account_update) << :dln_no
-
-      devise_parameter_sanitizer.for(:sign_up) << :image
-      devise_parameter_sanitizer.for(:account_update) << :image           
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :researcher, :investor, :address, :avatar, :dln_no, :image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :researcher, :investor, :address, :avatar, :dln_no, :image])
+      puts"Sssssssssssssssssssssssssssss", params.inspect
+      #      devise_parameter_sanitizer.permit(:sign_up) << :first_name
+      #      devise_parameter_sanitizer.permit(:account_update) << :first_name
+      #
+      #      devise_parameter_sanitizer.permit(:sign_up) << :last_name
+      #      devise_parameter_sanitizer.permit(:account_update) << :last_name
+      #
+      #
+      #      devise_parameter_sanitizer.permit(:sign_up) << :researcher
+      #      devise_parameter_sanitizer.permit(:account_update) << :researcher
+      #
+      #      devise_parameter_sanitizer.permit(:sign_up) << :investor
+      #      devise_parameter_sanitizer.permit(:account_update) << :investor
+      #
+      #
+      #      devise_parameter_sanitizer.permit(:sign_up) << :address
+      #      devise_parameter_sanitizer.permit(:account_update) << :address
+      #    
+      #      devise_parameter_sanitizer.permit(:sign_up) << :avatar
+      #      devise_parameter_sanitizer.permit(:account_update) << :avatar
+      #
+      #      devise_parameter_sanitizer.permit(:sign_up) << :dln_no
+      #      devise_parameter_sanitizer.permit(:account_update) << :dln_no
+      #
+      #      devise_parameter_sanitizer.permit(:sign_up) << :image
+      #      devise_parameter_sanitizer.permit(:account_update) << :image   
+      
     end
     private
 

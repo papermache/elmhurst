@@ -213,8 +213,11 @@
 </section>
 
 <script src="/assets/investor/mainInvestor.js"  type="text/javascript" /></script>
+
 <script>
+  
   var unfulfilled_requests = [];
+  
   $(function () {
 
       //--- Data Read part -----
@@ -231,6 +234,7 @@
       //-- Data Read part end --
       /*************************Date Receive From API**************************************/
       var data = [], data1 = [];
+      
       $.ajax({
           url: "/api/v1/graphs?group_by_minutes=15",
           type: "GET",
@@ -264,23 +268,23 @@
                     stickyTooltips = !stickyTooltips;
                   },
                   load: function() {
+                    
                     var chart = this,
+                    
                     points = chart.series[0].points,
                     searchInput = document.getElementById('search');
-            
+                    
                     function changeMatches() {
-                      points.forEach(function(point) {
-                        
-                        point.item_tooltips.forEach(function(item_tooltip) {
-                          
-                          if (item_tooltip.body === searchInput.value) {
-                            point.update({ color: 'red', borderColor: 'red' })
-                            chart.tooltip.refresh(point)
-                          }
-                          
+                      if (searchInput.value.length > 2){
+                        points.forEach(function(point) {
+                          point.item_tooltips.forEach(function(item_tooltip) {
+                            if (item_tooltip.body.includes(searchInput.value)) {
+                                point.update({ color: 'red', borderColor: 'red' })
+                                chart.tooltip.refresh(point)
+                             }
+                          })
                         })
-                        
-                      })
+                      }
                     }
                    searchInput.addEventListener('keyup', changeMatches);
                  }

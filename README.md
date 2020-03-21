@@ -1,19 +1,15 @@
-Elmhurst Nonprofit Bank is a 501(c)3 philanthropic brokerage and the first organization of its kind to provide financial products and services exclusively to nonprofits and their affiliates. 
+Elmhurst Nonprofit Bank is a 501(c)3 philanthropic brokerage and the first organization of its kind to provide financial products and services exclusively to nonprofits and individuals. 
 
 
 The primary purpose of this repository is to simulate market mechanics for account holders, potential clients, and our own forecasts.
 
-Note: *this repository is for simulation purposes and paper trading only. No routing or deposit functionality is built in.* 
-
-Fork this repo and work on it for free otherwise email gjeffery@freelancer.com to work on it and get paid.
+Note: *this repository is for simulation purposes and paper trading only. No routing or deposit functionality is built in yet.* 
 
 A live version is located at www.elmhur.st
 
-For production version employment opportunities please visit www.elmhurst.bank.
-
 To Access the Build:
 
-Account credentials are in Trello by way of Slack. Please contact George gjefferey@freelancer.com or *Vancouver liaison* for an invite link.
+Account credentials are in Trello by way of Slack.
 
 For those who already have access:
 
